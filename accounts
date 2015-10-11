@@ -1,5 +1,5 @@
 Hello, everyone! I've set up a pi that I'll keep running as our dev server
-In a few hours from writeing, DNS should have updated, and you can "ssh <username>@cogarr.info"
+In a few days from writeing, DNS should have updated, and you can "ssh <username>@ssh.cogarr.org" till then, just use my ip "ssh <username>@67.163.166.94"
 There's no way so see what anything will look like on-screen, I'll take a look to see if I can't set something up tomarrow.
 
 Stuff - 
