@@ -3,6 +3,8 @@ Programs:
 	2. Kiosk + motor control(benedum)
 	3. Database updater
 
+	Writing in python!
+
 For Ordering:
 	RPi
 	Touchscreen
@@ -11,4 +13,7 @@ For Kiosk:
 	Touch keyboard
 	Search functionality
 	Trivia game(?)
+	Auto-entrance
 
+For updater:
+	Scrapes database/pitt website once a day between 2am and 5am to update local database(SQL)
