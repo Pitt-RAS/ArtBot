@@ -10,7 +10,7 @@ You all are sudoers, don't sudo anything unless you know you won't break stuff
 Please ONLY ONLY ONLY "sudo pacman -Syu" on friday afternoons when I'm avaliable to restart the server in case everything breaks
 The SQL server is MariaDB, arch's version of Oracle's MySQL
 Both python2.x and python3.x are installed, "python" symlinks to python3 by default but don't always expect it to, so be sure to specify #/usr/bin/python2 or #/usr/bin/python3 in your shebang line
-I'm fairly certain I'm missing some people, but anyone can add a user with "sudo adduser -m -s /bin/zsh <username>","echo '<username>' | sha512sum | tail -c 10" to get the password, and "passwd <username>", then the password twice.
+I'm fairly certain I'm missing some people, but anyone can add a user with "sudo useradd -m -s /bin/zsh <username>","echo '<username>' | sha512sum | tail -c 10" to get the password, and "passwd <username>", then the password twice.
 Don't forget to add them to the sudoers with "visudo"
 Feel free to change your own password with "passwd"
 
@@ -21,6 +21,8 @@ erin			12c7cd
 joe			d1cca4
 john			1fcf86
 michelle		67adfb
+kaylene			01df27
+james			368dba
 
 I'm running Fail2Ban, if you get your password wrong 6 times while trying to ssh in, your account gets locked down.
 Other stuff- I'm fairly certain I'll be useing remote headless X server to test what things would look like on a touch display, if you're on windows, that means you'll need to download and install CigWin, with the Xorg packages
