@@ -70,8 +70,12 @@ if __name__ == '__main__':
 
     toback.put("operationthattakesawhile")
     val = None
-    while(val == None and togui.empty()):
-       val = togui.get()
+    while(val == None):
+        if togui.empty():
+            print("Waiting...")
+            time.sleep(0.25) #Be sure to include a sleep so we are not "busy waiting"
+        else:
+            val = togui.get()
     print("Got:" + str(val))
 
 
