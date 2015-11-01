@@ -16,7 +16,7 @@ modules['sqlite3'] = ['Will not be able to run','Install the sqlite3 package for
 #Non-standard
 modules['PyQt5.QtGui'] = ['Will not be able to display','Install PyQt5 for python3(pip install pyqt5)']
 modules['PyQt5.QtCore'] = ['Will not be able to display','Install PyQt5 for python3(pip install pyqt5)']
-modules['PyQt5.Widgets'] = ['Will not be able to display','Install PyQt5 for python3(pip install pyqt5)']
+modules['PyQt5.QtWidgets'] = ['Will not be able to display','Install PyQt5 for python3(pip install pyqt5)']
 
 #Our code
 modules['mainwindow.py'] = ['Will be unable to start','Make sure you have all the code, and it is in the correct directory']
