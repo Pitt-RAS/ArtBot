@@ -11,9 +11,10 @@ modules = {}
 #Standard
 modules['sys'] = ['Will not be able to run','Every python interpreter should have this']
 modules['os'] = ['Will not be able to run','Every python interpreter should have this'] 
-modules['sqlite3'] = ['Will not be able to run','Install the sqlite3 package for python3']
 modules['queue'] = ['Will not be able to run', 'Every python interpreter should have his']
 modules['threading'] = ['Will not be able to run','Every python interpreter should have this']
+modules['time'] = ['Will not be able to run', 'Every python interpreter should have this']
+modules['shlex'] = ['Will not be able to run','Every python interpreter should have this']
 
 #Non-standard
 modules['PyQt5.QtGui'] = ['Will not be able to display','Install PyQt5 for python3(pip install pyqt5)']
@@ -22,6 +23,7 @@ modules['PyQt5.QtWidgets'] = ['Will not be able to display','Install PyQt5 for p
 
 #Our code
 modules['mainwindow.py'] = ['Will be unable to start','Make sure you have all the code, and it is in the correct directory']
+modules['backend.py'] = ['Will be unable to start', 'Make sure you have all the code, and it is in the correct directory']
 
 #Load all the modules we need
 failed = False
