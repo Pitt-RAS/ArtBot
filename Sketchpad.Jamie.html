@@ -18,6 +18,12 @@
 		b = blue;
 	}
 	
+	var shape = circle
+	
+	function changeShape(newshape) {
+		shape = newshape;
+	}
+	
 	function setSize(newsize) {
 		cursorSize = newsize
 	}
@@ -34,10 +40,15 @@
         ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
 
         // Draw a filled circle
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI*2, true); 
-        ctx.closePath();
-        ctx.fill();
+			if (shape == "circle") {	
+					ctx.beginPath();
+					ctx.arc(x, y, size, 0, Math.PI()*2, true); 
+					ctx.closePath();
+					ctx.fill();
+				}
+			else if (shape == square) {
+					ctx.fillRect(x-(size/2),y-(size/2),size,size);
+				}
     } 
 
     // Clear the canvas context using the canvas width and height
@@ -163,6 +174,8 @@
 								<td align=center valign=middle></br><input type="submit" value="Erase" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="changeColor(255,255,255);"></br></td>
 							</tr>
 						</table>
+						<input type="submit" value=Square onclick="changeShape(square);">
+						<input type="submit" value=Circle onclick="changeShape(circle);">
 				</CENTER>
 				</td>
 				<td><canvas id="sketchpad" height="700" width="1035"></canvas></td>
