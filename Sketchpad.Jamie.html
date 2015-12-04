@@ -1,0 +1,174 @@
+<html>
+	<head>
+	<title>Sketchpad</title>
+
+<script type="text/javascript">
+    // Variables for referencing the canvas and 2dcanvas context
+    var canvas,ctx;
+
+    // Variables to keep track of the mouse position and left-button status 
+    var mouseX,mouseY,mouseDown=0;
+	
+	//Variables to change color
+	var r=0, g=0, b=0
+	
+	function changeColor(red, green, blue) {
+		r = red;
+		g = green
+		b = blue;
+	}
+	
+	function setSize(newsize) {
+		cursorSize = newsize
+	}
+	//Variable to change size
+	var cursorSize = 12;
+	
+    // Draws a dot at a specific position on the supplied canvas name
+    // Parameters are: A canvas context, the x position, the y position, the size of the dot
+    function drawDot(ctx,x,y,size) {
+        // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
+        a=255;
+
+        // Select a fill style
+        ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
+
+        // Draw a filled circle
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI*2, true); 
+        ctx.closePath();
+        ctx.fill();
+    } 
+
+    // Clear the canvas context using the canvas width and height
+    function clearCanvas(canvas,ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Keep track of the mouse button being pressed and draw a dot at current location
+    function sketchpad_mouseDown() {
+        mouseDown=1;
+        drawDot(ctx,mouseX,mouseY,cursorSize);
+    }
+
+    // Keep track of the mouse button being released
+    function sketchpad_mouseUp() {
+        mouseDown=0;
+    }
+
+    // Keep track of the mouse position and draw a dot if mouse button is currently pressed
+    function sketchpad_mouseMove(e) { 
+        // Update the mouse co-ordinates when moved
+        getMousePos(e);
+
+        // Draw a dot if the mouse button is currently being pressed
+        if (mouseDown==1) {
+            drawDot(ctx,mouseX,mouseY,cursorSize);
+        }
+    }
+
+    // Get the current mouse position relative to the top-left of the canvas
+    function getMousePos(e) {
+        if (!e)
+            var e = event;
+
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+
+
+    // Set-up the canvas and add our event handlers after the page has loaded
+    function init() {
+        // Get the specific canvas element from the HTML document
+        canvas = document.getElementById('sketchpad');
+
+        // If the browser supports the canvas tag, get the 2d drawing context for this canvas
+        if (canvas.getContext)
+            ctx = canvas.getContext('2d');
+
+        // Check that we have a valid context to draw on/with before adding event handlers
+        if (ctx) {
+            canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
+            canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
+            window.addEventListener('mouseup', sketchpad_mouseUp, false);
+        }
+    }
+</script>
+	</head>
+	<body onload="init()">
+	<style>
+<!--prevents highlighting-->
+#sketchpadapp {
+    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+	</style>
+	<!--main table with sketchpad and buttons-->
+		<table>
+			<tr>
+				<th bgcolor=lightblue align=center valign=top><p><font size=7 color=navy>Draw Something!</font></p>
+				<CENTER>
+						<!--nested table with sizes-->
+						<table>
+							<tr>
+								<th align=center valign=middle colspan=4></br><font size=5>Choose your size</font></th>
+							<tr>
+								<td align=center valign=middle><input type="submit" value="Small" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(10);"></br></td>
+								<td align=center valign=middle><input type="submit" value="Medium" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(30);"></br></td>
+								<td align=center valign=middle><input type="submit" value="Large" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(45);"></br></td>
+								<td align=center valign=middle><input type="submit" value="Fill" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(1500);"></br></td>
+							</tr>
+							<tr>
+								<td align=center valign=middle><img src="large.jpg" width=35 height=35></td>
+								<td align=center valign=middle><img src="large.jpg" width=90 height=90></td>
+								<td align=center valign=middle><img src="large.jpg" width=140 height=140></td>
+								<td align=center valign=middle><img src="fill.jpg" width=90 height=60></td>
+						</table>
+						<!--nested table with colors-->
+						<table>
+							<tr>
+								<th align=center valign=bottom colspan=3><font size=5>Choose your color</font></th>
+							</tr>
+							<tr>
+								<td align=center valign=middle><input type="submit" value="Black" style="font-size:22pt;color:white;background-color:#2E2E2E;border:5px solid black;padding:6px;width:150px" onclick="changeColor(0,0,0);"></br></td>
+								<td align=center valign=middle><input type="submit" value="Gray" style="font-size:22pt;color:white;background-color:darkgray;border:5px solid gray;padding:6px;width:150px" onclick="changeColor(150,150,150);"></br></td>
+								<td align=center valign=middle><input type="submit" value="Pink" style="font-size:22pt;color:white;background-color:#ff3399;border:5px solid #B4045F;padding:6px;width:150px" onclick="changeColor(255, 51, 153);"></br></td>
+							</tr>
+							<tr>
+								<td align=center valign=middle></br><input type="submit" value="Red" style="font-size:22pt;color:white;background-color:red;border:5px solid darkred;padding:6px;width:150px" onclick="changeColor(255,0,0);"></br></td>
+								<td align=center valign=middle></br><input type="submit" value="Orange" style="font-size:22pt;color:white;background-color:orange;border:5px solid darkorange;padding:6px;width:150px" onclick="changeColor(255,128,0);"></br></td>
+								<td align=center valign=middle></br><input type="submit" value="Yellow" style="font-size:22pt;color:white;background-color:yellow;border:5px solid #AEB404;padding:6px;width:150px" onclick="changeColor(255,255,0);"></br></td>
+							</tr>
+							<tr>
+								<td align=center valign=middle></br><input type="submit" value="Green" style="font-size:22pt;color:white;background-color:limegreen;border:5px solid #336600;padding:6px;width:150px" value="Large" onclick="changeColor(0,255,0);"></br></td>
+								<td align=center valign=middle></br><input type="submit" value="Blue" style="font-size:22pt;color:white;background-color:blue;border:5px solid darkblue;padding:6px;width:150px" onclick="changeColor(0,0,255);"></br></td>
+								<td align=center valign=middle></br><input type="submit" value="Purple" style="font-size:22pt;color:white;background-color:purple;border:5px solid #4C0B5F;padding:6px;width:150px" onclick="changeColor(153,51,255);"></br></td>
+							</tr>
+						</table>
+						<!--nested table with submit clear & erase button-->
+						<table>
+							<tr>
+								<td align=center valign=middle></br><input type="submit" value="Clear Sketchpad" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="clearCanvas(canvas,ctx);"></br></td>
+								<td align=center valign=middle></br><input type="submit" value="Erase" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="changeColor(255,255,255);"></br></td>
+							</tr>
+						</table>
+				</CENTER>
+				</td>
+				<td><canvas id="sketchpad" height="700" width="1035"></canvas></td>
+			</tr>
+		</table>
+	</body>
+</html>
+			
+				
