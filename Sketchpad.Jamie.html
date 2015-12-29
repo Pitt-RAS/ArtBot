@@ -18,6 +18,14 @@
 		b = blue;
 	}
 	
+	function addImage() {
+		var c=document.getElementById("sketchpad");
+		var ctx=c.getContext("2d");
+		var picture=document.getElementById("scream");
+		var img=picture.value
+		ctx.drawImage(img,canvas.width,canvas.height);
+	};
+	
 	var shape = "circle"
 	
 	function changeShape(newshape) {
@@ -50,11 +58,19 @@
 		else if (shape == "square") {
 			ctx.fillRect(x-(size/2),y-(size/2),size,size);
 		}
+		
+		else if (shape == "triangle") {
+			ctx.beginPath();
+			ctx.moveTo(x,y);
+			ctx.lineTo(x+(size),y+(size));
+			ctx.lineTo(x-(size),y+(size));
+			ctx.fill();
+		}
     } 
 
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
@@ -177,6 +193,10 @@
 						</table>
 						<input type="submit" value=Square onclick="changeShape('square');">
 						<input type="submit" value=Circle onclick="changeShape('circle');">
+						<input type="submit" value=Triangle onclick="changeShape('triangle');">
+						<br>
+						<input type="file" name="userImage" id="scream" />
+						<button onclick="addImage()">Upload!</button>
 				</CENTER>
 				</td>
 				<td><canvas id="sketchpad" height="700" width="1035"></canvas></td>
