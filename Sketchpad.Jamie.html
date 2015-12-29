@@ -17,12 +17,15 @@
 		g = green
 		b = blue;
 	}
-	
+	//funtion that attempts to add image
 	function addImage() {
 		var c=document.getElementById("sketchpad");
 		var ctx=c.getContext("2d");
-		var picture=document.getElementById("scream");
+		//supposed to get image from file input
+		var picture=document.getElementById("picture");
+		//turns image into object
 		var img=picture.value
+		//draws inmage onto sketchpad
 		ctx.drawImage(img,canvas.width,canvas.height);
 	};
 	
@@ -58,7 +61,7 @@
 		else if (shape == "square") {
 			ctx.fillRect(x-(size/2),y-(size/2),size,size);
 		}
-		
+		//Draw a triangle
 		else if (shape == "triangle") {
 			ctx.beginPath();
 			ctx.moveTo(x,y);
@@ -195,7 +198,7 @@
 						<input type="submit" value=Circle onclick="changeShape('circle');">
 						<input type="submit" value=Triangle onclick="changeShape('triangle');">
 						<br>
-						<input type="file" name="userImage" id="scream" />
+						<input type="file" name="userImage" id="picture" />
 						<button onclick="addImage()">Upload!</button>
 				</CENTER>
 				</td>
