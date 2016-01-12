@@ -19,14 +19,10 @@
 	}
 	//funtion that attempts to add image
 	function addImage() {
-		var c=document.getElementById("sketchpad");
-		var ctx=c.getContext("2d");
-		//supposed to get image from file input
-		var picture=document.getElementById("picture");
-		//turns image into object
-		var img=picture.value
-		//draws inmage onto sketchpad
-		ctx.drawImage(img,canvas.width,canvas.height);
+		var c = document.getElementById("sketchpad");
+		var ctx = c.getContext("2d");
+		var img = document.getElementById("Poppy");
+		ctx.drawImage(img,300,700);
 	};
 	
 	var shape = "circle"
@@ -187,17 +183,28 @@
 								<td align=center valign=middle></br><input type="submit" value="Purple" style="font-size:22pt;color:white;background-color:purple;border:5px solid #4C0B5F;padding:6px;width:150px" onclick="changeColor(153,51,255);"></br></td>
 							</tr>
 						</table>
+						<!--table with choose your shape option-->
+						<br>
+						<table>
+							<tr>
+								<th align=center valign=bottom colspan=3><font size=5>Choose your shape</font></th>
+							</tr>
+							<tr>
+								<td><input type="submit" value=Square onclick="changeShape('square');"></td>
+								<td><input type="submit" value=Circle onclick="changeShape('circle');"></td>
+								<td><input type="submit" value=Triangle onclick="changeShape('triangle');"></td>
+							</tr>
+						</table>
 						<!--nested table with submit clear & erase button-->
+						
 						<table>
 							<tr>
 								<td align=center valign=middle></br><input type="submit" value="Clear Sketchpad" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="clearCanvas(canvas,ctx);"></br></td>
 								<td align=center valign=middle></br><input type="submit" value="Erase" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="changeColor(255,255,255);"></br></td>
 							</tr>
 						</table>
-						<input type="submit" value=Square onclick="changeShape('square');">
-						<input type="submit" value=Circle onclick="changeShape('circle');">
-						<input type="submit" value=Triangle onclick="changeShape('triangle');">
 						<br>
+						<img id="Poppy" width="220" height="277" src="IMG_5098.jpg">
 						<input type="file" name="userImage" id="picture" />
 						<button onclick="addImage()">Upload!</button>
 				</CENTER>
