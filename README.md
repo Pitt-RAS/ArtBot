@@ -5,3 +5,4 @@ ToDo:
 - [ ] Add tasks to the ToDo board
 	- [ ] Add sub-tasks as well
 - [x] Clean-up repo, while demonstrating how to write a completed task
+- [x] Test adding a new task
