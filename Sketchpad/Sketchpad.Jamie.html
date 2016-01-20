@@ -17,14 +17,14 @@
 		g = green
 		b = blue;
 	}
-	//funtion that attempts to add image
-	function addImage() {
+	
+	window.onload = function() {
 		var c = document.getElementById("sketchpad");
 		var ctx = c.getContext("2d");
 		var img = document.getElementById("Poppy");
-		ctx.drawImage(img,300,700);
-	};
-	
+		ctx.drawImage(img, 0, 0, 1000, 800);
+	}
+
 	var shape = "circle"
 	
 	function changeShape(newshape) {
@@ -204,7 +204,7 @@
 							</tr>
 						</table>
 						<br>
-						<img id="Poppy" width="220" height="277" src="IMG_5098.jpg">
+						<img id="Poppy" width="1" height="1" src="Poppy11.jpg">
 						<input type="file" name="userImage" id="picture" />
 						<button onclick="addImage()">Upload!</button>
 				</CENTER>
