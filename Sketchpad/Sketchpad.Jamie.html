@@ -9,6 +9,9 @@
     // Variables to keep track of the mouse position and left-button status 
     var mouseX,mouseY,mouseDown=0;
 	
+	// Variables to keep track of the touch position
+    var touchX,touchY;
+	
 	//Variables to change color
 	var r=0, g=0, b=0
 	
@@ -18,7 +21,7 @@
 		b = blue;
 	}
 	
-	window.onload = function() {
+	function addImage() {
 		var c = document.getElementById("sketchpad");
 		var ctx = c.getContext("2d");
 		var img = document.getElementById("Poppy");
@@ -35,7 +38,7 @@
 		cursorSize = newsize
 	}
 	//Variable to change size
-	var cursorSize = 12;
+	var cursorSize = 10;
 	
     // Draws a dot at a specific position on the supplied canvas name
     // Parameters are: A canvas context, the x position, the y position, the size of the dot
@@ -75,7 +78,7 @@
     // Keep track of the mouse button being pressed and draw a dot at current location
     function sketchpad_mouseDown() {
         mouseDown=1;
-        drawDot(ctx,mouseX,mouseY,cursorSize);
+        drawLine(ctx,mouseX,mouseY,cursorSize);
     }
 
     // Keep track of the mouse button being released
@@ -109,7 +112,46 @@
         }
      }
 
+	    // Draw something when a touch start is detected
+    function sketchpad_touchStart() {
+        // Update the touch co-ordinates
+        getTouchPos();
 
+        drawDot(ctx,touchX,touchY,cursorSize);
+
+        // Prevents an additional mousedown event being triggered
+        event.preventDefault();
+    }
+
+    // Draw something and prevent the default scrolling when touch movement is detected
+    function sketchpad_touchMove(e) { 
+        // Update the touch co-ordinates
+        getTouchPos(e);
+
+        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
+        drawDot(ctx,touchX,touchY,cursorSize); 
+
+        // Prevent a scrolling action as a result of this touchmove triggering.
+        event.preventDefault();
+    }
+
+    // Get the touch position relative to the top-left of the canvas
+    // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
+    // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
+    // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
+    function getTouchPos(e) {
+        if (!e)
+            var e = event;
+
+        if(e.touches) {
+            if (e.touches.length == 1) { // Only deal with one finger
+                var touch = e.touches[0]; // Get the information for finger #1
+                touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+            }
+        }
+    }
+	 
     // Set-up the canvas and add our event handlers after the page has loaded
     function init() {
         // Get the specific canvas element from the HTML document
@@ -124,23 +166,15 @@
             canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
             canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
             window.addEventListener('mouseup', sketchpad_mouseUp, false);
+			
+			// React to touch events on the canvas		
+            canvas.addEventListener('touchstart', sketchpad_touchStart, false);		
+            canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }
     }
 </script>
 	</head>
 	<body onload="init()">
-	<style>
-<!--prevents highlighting-->
-#sketchpadapp {
-    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-	}
-	</style>
 	<!--main table with sketchpad and buttons-->
 		<table>
 			<tr>
@@ -151,16 +185,10 @@
 							<tr>
 								<th align=center valign=middle colspan=4></br><font size=5>Choose your size</font></th>
 							<tr>
-								<td align=center valign=middle><input type="submit" value="Small" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(10);"></br></td>
-								<td align=center valign=middle><input type="submit" value="Medium" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(30);"></br></td>
-								<td align=center valign=middle><input type="submit" value="Large" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(45);"></br></td>
-								<td align=center valign=middle><input type="submit" value="Fill" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px;width:130px" onclick="setSize(1500);"></br></td>
-							</tr>
-							<tr>
-								<td align=center valign=middle><img src="large.jpg" width=35 height=35></td>
-								<td align=center valign=middle><img src="large.jpg" width=90 height=90></td>
-								<td align=center valign=middle><img src="large.jpg" width=140 height=140></td>
-								<td align=center valign=middle><img src="fill.jpg" width=90 height=60></td>
+								<td align=center valign=middle><img src="large.jpg" onclick="setSize(10)" width=35 height=35></td>        
+								<td align=center valign=middle><img src="large.jpg" onclick="setSize(30)" width=90 height=90></td>
+								<td align=center valign=middle><img src="large.jpg" onclick="setSize(45)" width=140 height=140></td>
+								<td align=center valign=middle><img src="fill.jpg" onclick="setSize(21345)" width=90 height=60></td>
 						</table>
 						<!--nested table with colors-->
 						<table>
@@ -190,13 +218,13 @@
 								<th align=center valign=bottom colspan=3><font size=5>Choose your shape</font></th>
 							</tr>
 							<tr>
-								<td><input type="submit" value=Square onclick="changeShape('square');"></td>
-								<td><input type="submit" value=Circle onclick="changeShape('circle');"></td>
-								<td><input type="submit" value=Triangle onclick="changeShape('triangle');"></td>
+								<td align=center valign=middle width="33%"><img src="square.png" onclick="changeShape('square')" width=75 height=75></td>
+								<td align=center valign=middle width="33%"><img src="large.jpg" onclick="changeShape('circle')" width=100 height=100></td>
+								<td align=center valign=middle width="33%"><img src="triangle.png" onclick="changeShape('triangle')" width=75 height=75></td>
+								<td align=center valign=middle width="33%"><img src="triangle.png" onclick="changeShape('line')" width=75 height=75></td>
 							</tr>
 						</table>
 						<!--nested table with submit clear & erase button-->
-						
 						<table>
 							<tr>
 								<td align=center valign=middle></br><input type="submit" value="Clear Sketchpad" style="font-size:22pt;color:black;background-color:#FFFF00;border:5px solid #0B0B61;padding:6px" onclick="clearCanvas(canvas,ctx);"></br></td>
@@ -205,7 +233,7 @@
 						</table>
 						<br>
 						<img id="Poppy" width="1" height="1" src="Poppy11.jpg">
-						<input type="file" name="userImage" id="picture" />
+						<input type="file" name="userImage" id="file" />
 						<button onclick="addImage()">Upload!</button>
 				</CENTER>
 				</td>
