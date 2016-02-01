@@ -114,21 +114,17 @@ function checkAnswer(theirAnswer) {
 		else {
 			document.getElementById('questionToUpdate').innerHTML = "Wrong!";
 		}
-		<!-- Show the correct answer by deleting the others -->
-		if(correctAnswer != "1") {
+		<!-- Show the correct answer by "deleting" the others -->
+		if(correctAnswer != "1")
 			document.getElementById('answer1').innerHTML = "";
-		}
-		if(correctAnswer != "2") {
+		if(correctAnswer != "2")
 			document.getElementById('answer2').innerHTML = "";
-		}
-		if(correctAnswer != "3") {
+		if(correctAnswer != "3")
 			document.getElementById('answer3').innerHTML = "";
-		}
-		if(correctAnswer != "4") {
+		if(correctAnswer != "4")
 			document.getElementById('answer4').innerHTML = "";
-		}
 		
-		<!-- Reset correctAnswer so they cannot click an answer more than once -->
+		<!-- Reset correctAnswer so they cannot click an answer more than once, or select another category while one is already selected -->
 		correctAnswer = "";
 	}
 }
@@ -147,7 +143,7 @@ function updateAnswers(theArray, index) {
 
 
 function MathFunction() {
-    if (MathQuestions=='notselected'){
+    if (MathQuestions=='notselected' && correctAnswer == ""){
 		document.getElementById("MathQuestions").innerHTML = "<strike>Math</strike>";
 		MathQuestions='selected';
 		
@@ -170,7 +166,7 @@ function MathFunction() {
 }
 
 function PhysicsFunction(){
-	if (Physics=='notselected'){
+	if (Physics=='notselected' && correctAnswer == ""){
 		document.getElementById("Physics").innerHTML = "<strike>Physics</strike>";
 		Physics='selected';
 		
@@ -193,7 +189,7 @@ function PhysicsFunction(){
 }
 
 function ChemistryFunction(){
-	if (Chemistry=='notselected'){
+	if (Chemistry=='notselected' && correctAnswer == ""){
 		document.getElementById("Chemistry").innerHTML = "<strike>Chemistry</strike>";
 		Chemistry='selected';
 		
@@ -216,7 +212,7 @@ function ChemistryFunction(){
 }
 
 function HistoryGeographyFunction(){
-	if (HistoryGeography=='notselected'){
+	if (HistoryGeography=='notselected' && correctAnswer == ""){
 		document.getElementById("HistoryGeography").innerHTML = "<strike>History & Geography</strike>";
 		HistoryGeography='selected';
 		
@@ -239,7 +235,7 @@ function HistoryGeographyFunction(){
 }
 
 function ArtMusicFunction(){
-	if (ArtMusic=='notselected'){
+	if (ArtMusic=='notselected' && correctAnswer == ""){
 		document.getElementById("ArtMusic").innerHTML = "<strike>Art & Music</strike>";
 		ArtMusic='selected';
 		
@@ -262,7 +258,7 @@ function ArtMusicFunction(){
 }
 
 function PittFactsFunction(){
-	if (PittFacts=='notselected'){
+	if (PittFacts=='notselected' && correctAnswer == ""){
 		document.getElementById("PittFacts").innerHTML = "<strike>PittFacts</strike>";
 		PittFacts='selected';
 		
@@ -285,7 +281,7 @@ function PittFactsFunction(){
 }
 
 function PittsburghFactsFunction(){
-	if (PittsburghFacts=='notselected'){
+	if (PittsburghFacts=='notselected' && correctAnswer == ""){
 		document.getElementById("PittsburghFacts").innerHTML = "<strike>Pittsburgh Facts</strike>";
 		PittsburghFacts='selected';
 		
@@ -308,7 +304,7 @@ function PittsburghFactsFunction(){
 }
 
 function MoviesTVFunction(){
-	if (MoviesTV=='notselected'){
+	if (MoviesTV=='notselected' && correctAnswer == ""){
 		document.getElementById("MoviesTV").innerHTML = "<strike>Movies & TV</strike>";
 		MoviesTV='selected';
 		
@@ -331,7 +327,7 @@ function MoviesTVFunction(){
 }
 
 function SportsFunction(){
-	if (Sports=='notselected'){
+	if (Sports=='notselected' && correctAnswer == ""){
 		document.getElementById("Sports").innerHTML = "<strike>Sports</strike>";
 		Sports='selected';
 		
@@ -354,7 +350,7 @@ function SportsFunction(){
 }
 
 function MiscellaneousFunction(){
-	if (Miscellaneous=='notselected'){
+	if (Miscellaneous=='notselected' && correctAnswer == ""){
 		document.getElementById("Miscellaneous").innerHTML = "<strike>Miscellaneous</strike>";
 		Miscellaneous='selected';
 		
