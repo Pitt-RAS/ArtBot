@@ -22,21 +22,21 @@
 
 <!-- Score division -->
 <div id="score">
-	<table border= 3 bordercolor=black WIDTH="100%" HEIGHT="100%">
+	<table border= 3 bordercolor=black WIDTH="100%" HEIGHT="100%" Class="myTable2">
 		<tr>
-			<td>
+			<td width = "30%">
 			Score: <span id="userScore">0</span>
 			</td>
 			
-			<td>
+			<td width = "30%">
 			Time: <span id="currTime">20</span> sec.
 			</td>
 			
-			<td>
+			<td width = "40%">
 			Lives
-			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>
-			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>
-			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>	
+			<span id="heart1"><IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20></span>
+			<span id="heart2"><IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20></span>
+			<span id="heart3"><IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20></span>
 			</td>
 		</tr>
 	</table>	
@@ -44,7 +44,7 @@
 
 <!-- Questions division -->
 <div id="questions">
-	<table WIDTH="75%" HEIGHT="60%" align="center" border=3 bordercolor="black" Class="myTable">
+	<table WIDTH="75%" HEIGHT="60%" align="center" border=3 bordercolor="black" Class="myTable2">
 		<tr>
 			<td colspan=2 align=center height="40%"><span id="questionToUpdate">Please choose a category to start!</span></td>
 		</tr>
@@ -67,7 +67,8 @@
 #score { width:75%; height:15%; background:#0066FF; float:left }
 .break { clear:both }
 #questions { width:100%; height:100%; background:#0066FF }
-#myTable {table-layout: fixed;}
+#myTable1 {table-layout: fixed;}
+#myTable2 {table-layout: fixed;}
 </style>
 
 <!-- Javascript to handle pretty much everything :O -->
@@ -98,6 +99,22 @@ function myTimer() {
 		
 		<!-- Stop the timer -->
 		clearInterval(timeControl);
+		
+		<!-- Eliminate a life -->
+		if(livesLeft == 3) {
+			document.getElementById('heart3').innerHTML = "";
+			livesLeft--;
+		}
+		else if(livesLeft == 2) {
+			document.getElementById('heart2').innerHTML = "";
+			livesLeft--;
+		}
+		<!-- End the game here -->
+		else if(livesLeft == 1) {
+			document.getElementById('heart1').innerHTML = "";
+			livesLeft--;
+			document.getElementById('questionToUpdate').innerHTML = "Game Over :(";
+		}
 	}
 }
 
@@ -116,6 +133,7 @@ var Miscellaneous='notselected';
 
 var correctAnswer = "";
 var score = 0;
+var livesLeft = 3;
 
 <!-- Check if their selection was correct -->
 function checkAnswer(theirAnswer) {
@@ -129,6 +147,21 @@ function checkAnswer(theirAnswer) {
 		}
 		else {
 			document.getElementById('questionToUpdate').innerHTML = "Wrong!";
+			<!-- Eliminate a life -->
+			if(livesLeft == 3) {
+				document.getElementById('heart3').innerHTML = "";
+				livesLeft--;
+			}
+			else if(livesLeft == 2) {
+				document.getElementById('heart2').innerHTML = "";
+				livesLeft--;
+			}
+			<!-- End the game here -->
+			else if(livesLeft == 1) {
+				document.getElementById('heart1').innerHTML = "";
+				livesLeft--;
+				document.getElementById('questionToUpdate').innerHTML = "Game Over :(";
+			}
 		}
 		<!-- Show the correct answer by "deleting" the others -->
 		if(correctAnswer != "1")
