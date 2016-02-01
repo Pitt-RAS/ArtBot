@@ -30,12 +30,13 @@ ToDo:
 		- [ ] Email photos to people?
 		- [ ] Load 100 most recent pictures
 	- [ ] Quiz	-> Iza
-		- [ ] Randomize categories
-		- [ ] Load next question
+		- [x] Strike-out categories
+		- [x] Load next question
+		- [x] Update score
+		- [x] Timer
+		- [x] Lives
+		- [ ] Handle Game Over
 		- [ ] Add questions
-		- [ ] Update score
-		- [ ] Timer
-		- [ ] Lives
 		- [ ] Highscore pages
 		- [ ] Aesthetics
 	- [ ] Sketchpad -> Jamie
