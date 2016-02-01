@@ -11,7 +11,7 @@
 <font size=+3>
 	<tr>
 		<td>
-		Score: 0
+		Score: <span id="userScore">0</span>
 		</td>
 		
 		<td>
@@ -64,6 +64,17 @@
 </html>
 
 
+<script type="text/javascript">
+var score = 0;
 
+function scoreIncrement() {
+    score++;
+    document.getElementById('userScore').innerHTML = score;
+}
+
+
+
+
+</script>
 	
 	

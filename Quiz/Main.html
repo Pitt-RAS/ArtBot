@@ -1,0 +1,379 @@
+<!-- Main page for the quiz. All info is stored in 1 document -->
+<html>
+<head>
+	<title>
+		Quiz
+	</title>
+</head>
+
+<!-- Categories division -->
+<div id="categories">
+	<p id="MathQuestions" onclick="MathFunction()">Math</p>
+	<p id="Physics" onclick="PhysicsFunction()">Physics</p>
+	<p id="Chemistry"  onclick="ChemistryFunction()">Chemistry</p>
+	<p id="HistoryGeography"  onclick="HistoryGeographyFunction()">History & Geography</p>
+	<p id="ArtMusic" onclick="ArtMusicFunction()">Art & Music</p>
+	<p id="PittFacts"  onclick="PittFactsFunction()">Pitt Facts</p>
+	<p id="PittsburghFacts" onclick="PittsburghFactsFunction()">Pittsburgh Facts</p>
+	<p id="MoviesTV" onclick="MoviesTVFunction()">Movies & tv</p>
+	<p id="Sports"  onclick="SportsFunction()">Sports</p>
+	<p id="Miscellaneous" onclick="MiscellaneousFunction()">Miscellaneous</p>
+</div>
+
+<!-- Score division -->
+<div id="score">
+	<table border= 3 bordercolor=black WIDTH="100%" HEIGHT="100%">
+		<tr>
+			<td>
+			Score: <span id="userScore">0</span>
+			</td>
+			
+			<td>
+			Time: 10 sec.
+			</td>
+			
+			<td>
+			Lives
+			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>
+			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>
+			<IMG SRC="Pictures/heart.png" HEIGHT=20 WIDTH=20>	
+			</td>
+		</tr>
+	</table>	
+</div>
+
+<!-- Questions division -->
+<div id="questions">
+	<table WIDTH="75%" HEIGHT="60%" align="center" border=3 bordercolor="black" Class="myTable">
+		<tr>
+			<td colspan=2 align=center height="40%"><span id="questionToUpdate">Please choose a category to start!</span></td>
+		</tr>
+		<tr>
+			<td width = "50%" height="30%"><span id="answer1" onclick="checkAnswer(1)"></span></td>
+			<td width = "50%" height="30%"><span id="answer2" onclick="checkAnswer(2)"></span></td>
+		</tr>
+		<tr>
+			<td width = "50%" height="30%"><span id="answer3" onclick="checkAnswer(3)"></span></td>
+			<td width = "50%" height="30%"><span id="answer4" onclick="checkAnswer(4)"></span></td>
+		</tr>			
+	</table>
+</div>
+
+</html>
+
+<!-- Styling for divisions and tables -->
+<style>
+#categories { width:25%; height: 100%; background:#C8C8C8; float:left; }
+#score { width:75%; height:15%; background:#0066FF; float:left }
+.break { clear:both }
+#questions { width:100%; height:100%; background:#0066FF }
+#myTable {table-layout: fixed;}
+</style>
+
+<!-- Javascript to handle pretty much everything :O -->
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Handling the category selections and updating questions -->
+var MathQuestions='notselected';
+var Physics='notselected';
+var Chemistry='notselected';
+var HistoryGeography='notselected';
+var ArtMusic='notselected';
+var PittFacts='notselected';
+var PittsburghFacts='notselected';
+var MoviesTV='notselected';
+var Sports='notselected';
+var Miscellaneous='notselected'; 
+
+var correctAnswer = "";
+var score = 0;
+
+<!-- Check if their selection was correct -->
+function checkAnswer(theirAnswer) {
+	<!-- "", the empty string, is a check to make sure that they don't select an answer right now (i.e. before the game starts, before selecting new question...) -->
+	if(correctAnswer != "") {
+		if(theirAnswer == correctAnswer) {
+			document.getElementById('questionToUpdate').innerHTML = "Correct!";
+			score++;
+			document.getElementById('userScore').innerHTML = score;
+		}
+		else {
+			document.getElementById('questionToUpdate').innerHTML = "Wrong!";
+		}
+		<!-- Show the correct answer by deleting the others -->
+		if(correctAnswer != "1") {
+			document.getElementById('answer1').innerHTML = "";
+		}
+		if(correctAnswer != "2") {
+			document.getElementById('answer2').innerHTML = "";
+		}
+		if(correctAnswer != "3") {
+			document.getElementById('answer3').innerHTML = "";
+		}
+		if(correctAnswer != "4") {
+			document.getElementById('answer4').innerHTML = "";
+		}
+		
+		<!-- Reset correctAnswer so they cannot click an answer more than once -->
+		correctAnswer = "";
+	}
+}
+
+<!-- Setting the questions and answers appropriately -->
+function updateAnswers(theArray, index) {
+	document.getElementById('questionToUpdate').innerHTML = theArray[index][0]; 
+	document.getElementById('answer1').innerHTML = theArray[index][1]; 
+	document.getElementById('answer2').innerHTML = theArray[index][2]; 
+	document.getElementById('answer3').innerHTML = theArray[index][3]; 
+	document.getElementById('answer4').innerHTML = theArray[index][4]; 
+	
+	correctAnswer = theArray[index][5];
+	console.log(correctAnswer);
+}
+
+
+function MathFunction() {
+    if (MathQuestions=='notselected'){
+		document.getElementById("MathQuestions").innerHTML = "<strike>Math</strike>";
+		MathQuestions='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+    }
+}
+
+function PhysicsFunction(){
+	if (Physics=='notselected'){
+		document.getElementById("Physics").innerHTML = "<strike>Physics</strike>";
+		Physics='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function ChemistryFunction(){
+	if (Chemistry=='notselected'){
+		document.getElementById("Chemistry").innerHTML = "<strike>Chemistry</strike>";
+		Chemistry='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function HistoryGeographyFunction(){
+	if (HistoryGeography=='notselected'){
+		document.getElementById("HistoryGeography").innerHTML = "<strike>History & Geography</strike>";
+		HistoryGeography='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function ArtMusicFunction(){
+	if (ArtMusic=='notselected'){
+		document.getElementById("ArtMusic").innerHTML = "<strike>Art & Music</strike>";
+		ArtMusic='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function PittFactsFunction(){
+	if (PittFacts=='notselected'){
+		document.getElementById("PittFacts").innerHTML = "<strike>PittFacts</strike>";
+		PittFacts='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function PittsburghFactsFunction(){
+	if (PittsburghFacts=='notselected'){
+		document.getElementById("PittsburghFacts").innerHTML = "<strike>Pittsburgh Facts</strike>";
+		PittsburghFacts='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function MoviesTVFunction(){
+	if (MoviesTV=='notselected'){
+		document.getElementById("MoviesTV").innerHTML = "<strike>Movies & TV</strike>";
+		MoviesTV='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function SportsFunction(){
+	if (Sports=='notselected'){
+		document.getElementById("Sports").innerHTML = "<strike>Sports</strike>";
+		Sports='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+function MiscellaneousFunction(){
+	if (Miscellaneous=='notselected'){
+		document.getElementById("Miscellaneous").innerHTML = "<strike>Miscellaneous</strike>";
+		Miscellaneous='selected';
+		
+		<!-- Format for questions and answers is ["Q","A1","A2","A3","A4", "1"]; Where the last value is the correct answer -->
+		var randomQuestions = new Array ();
+		randomQuestions[0] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[1] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[2] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[3] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[4] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[5] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[6] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[7] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[8] = ["Q","A1","A2","A3","A4", "1"];
+		randomQuestions[9] = ["Q","A1","A2","A3","A4", "1"];
+		
+		var index = Math.floor(Math.random() *10);
+		updateAnswers(randomQuestions, index);		
+	}    
+}
+
+</script>

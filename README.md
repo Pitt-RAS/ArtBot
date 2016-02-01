@@ -2,11 +2,6 @@
 Private repo for the ArtBot-Kinetic Pitt project
 
 ToDo:
-- [ ] Professor lookup
-	- [ ] Keyboard (Matchbox?) -> Jon
-		- [ ] Invoke keyboard when find.pitt.edu loads
-		- [ ] Hide keyboard after entering
-	- [ ] Other ideas for dealing with entering name???
 - [ ] Room lookup
 	- [ ] Basic layout -> Erin
 		- [ ] Floor page (1 for each floor)
