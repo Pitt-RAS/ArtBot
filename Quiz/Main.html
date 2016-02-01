@@ -29,7 +29,7 @@
 			</td>
 			
 			<td>
-			Time: 10 sec.
+			Time: <span id="currTime">20</span> sec.
 			</td>
 			
 			<td>
@@ -72,19 +72,34 @@
 
 <!-- Javascript to handle pretty much everything :O -->
 <script>
+<!-- Handling the timer -->
+var timeLeft = 20;
+var timeControl;
 
-
-
-
-
-
-
-
-
-
-
-
-
+function myTimer() {
+    timeLeft--;
+	document.getElementById('currTime').innerHTML = timeLeft;
+	<!-- Cut them off at 0 seconds -->
+	if (timeLeft == 0) {
+		document.getElementById('questionToUpdate').innerHTML = "Out of time!";
+	
+		<!-- Show the correct answer by "deleting" the others -->
+		if(correctAnswer != "1")
+			document.getElementById('answer1').innerHTML = "";
+		if(correctAnswer != "2")
+			document.getElementById('answer2').innerHTML = "";
+		if(correctAnswer != "3")
+			document.getElementById('answer3').innerHTML = "";
+		if(correctAnswer != "4")
+			document.getElementById('answer4').innerHTML = "";
+		
+		<!-- Reset correctAnswer so they cannot click an answer more than once, or select another category while one is already selected -->
+		correctAnswer = "";
+		
+		<!-- Stop the timer -->
+		clearInterval(timeControl);
+	}
+}
 
 
 <!-- Handling the category selections and updating questions -->
@@ -108,7 +123,8 @@ function checkAnswer(theirAnswer) {
 	if(correctAnswer != "") {
 		if(theirAnswer == correctAnswer) {
 			document.getElementById('questionToUpdate').innerHTML = "Correct!";
-			score++;
+			<!-- Score is function of timeLeft.. Max score is 1000 points -->
+			score+= (5 * timeLeft);
 			document.getElementById('userScore').innerHTML = score;
 		}
 		else {
@@ -126,6 +142,9 @@ function checkAnswer(theirAnswer) {
 		
 		<!-- Reset correctAnswer so they cannot click an answer more than once, or select another category while one is already selected -->
 		correctAnswer = "";
+		
+		<!-- Stop the timer -->
+		clearInterval(timeControl);
 	}
 }
 
@@ -139,6 +158,11 @@ function updateAnswers(theArray, index) {
 	
 	correctAnswer = theArray[index][5];
 	console.log(correctAnswer);
+	
+	<!-- Reset and start the timer -->
+	timeLeft = 20;
+	document.getElementById('currTime').innerHTML = timeLeft;
+	timeControl = setInterval(myTimer ,1000);
 }
 
 
