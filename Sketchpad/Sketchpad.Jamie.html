@@ -17,7 +17,7 @@
 	
 	function changeColor(red, green, blue) {
 		r = red;
-		g = green
+		g = green;
 		b = blue;
 	}
 	
@@ -146,9 +146,13 @@
         if(e.touches) {
             if (e.touches.length == 1) { // Only deal with one finger
                 var touch = e.touches[0]; // Get the information for finger #1
-                touchX=touch.pageX-touch.target.offsetLeft;
+                touchX=touch.pageX-500;
                 touchY=touch.pageY-touch.target.offsetTop;
-            }
+				/*  Old code
+				touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+				*/
+			}
         }
     }
 	 
@@ -233,7 +237,7 @@
 						</table>
 						<br>
 						<img id="Poppy" width="1" height="1" src="Poppy11.jpg">
-						<input type="file" name="userImage" id="file" />
+						<input type="file" name="image" id="image" />
 						<button onclick="addImage()">Upload!</button>
 				</CENTER>
 				</td>
@@ -242,5 +246,3 @@
 		</table>
 	</body>
 </html>
-			
-				
