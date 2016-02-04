@@ -20,13 +20,6 @@
 		g = green;
 		b = blue;
 	}
-	
-	function addImage() {
-		var c = document.getElementById("sketchpad");
-		var ctx = c.getContext("2d");
-		var img = document.getElementById("Poppy");
-		ctx.drawImage(img, 0, 0, 1000, 800);
-	}
 
 	var shape = "circle"
 	
@@ -236,9 +229,28 @@
 							</tr>
 						</table>
 						<br>
-						<img id="Poppy" width="1" height="1" src="Poppy11.jpg">
-						<input type="file" name="image" id="image" />
-						<button onclick="addImage()">Upload!</button>
+						<img id="Poppy" width="1" height="1" src="Poppy11.jpg">					
+						
+						<!-- Handling file upload and changing canvas background -->
+						Set Background Image: <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
+						<script type="text/javascript">
+							function PreviewImage() {
+								var c = document.getElementById("sketchpad");
+								var ctx = c.getContext("2d");
+							
+								var myFileReader = new FileReader();
+								myFileReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+								myFileReader.onload = function (oFREvent) {
+									var img = new Image();
+									img.src = oFREvent.target.result;
+									console.log(img);
+									ctx.drawImage(img, 0, 0, 1000, 800);
+								};
+							};
+						</script>
+						
+						
 				</CENTER>
 				</td>
 				<td><canvas id="sketchpad" height="700" width="1035"></canvas></td>
