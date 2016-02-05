@@ -5,17 +5,16 @@
 <body style="margin:0; padding:0">
 <iframe name="people" src="./Main_Menu/Main_Menu.html" style="height:100%; width:100%" frameBorder="0" scrolling="no"></iframe>
 <div id="container">
-  <input id="toggle" type="checkbox"><label>Menu</label><label for="toggle">&equiv;</label></input>
+  <input id="toggle" type="checkbox"><label for="toggle"><div class="textOutline">Panther Kiosk Options &equiv;</div></label></input>
   <div class="content"> 
-    <h1>Panther Kiosk Options</h1>
   </div>
   <div class="slide-menu">
-    <h1 align="center">Menu</h1>
+    <h1 align="center">Select Where You Would Like To Go Next</h1>
     <nav class="menu">
-     <button style="background: url(./Art-bot-GUI/panther.png) no-repeat center; height:150px; width: 150px;"> <a href="./Extras/Quiz/Main.html" target="people"><font size="4">Quiz</font></a></button>
-     <button style="background: url(./Art-bot-GUI/panther.png) no-repeat center; height:150px; width: 150px;"> <a href="./Extras/Sketchpad/Sketchpad.Jamie.html" target="people"><font size="4">Draw Something!</font></a></button>
-     <button style="background: url(./Art-bot-GUI/panther.png) no-repeat center; height:150px; width: 150px;"> <a href="test2.html" target="people"><font size="4">Search For Person</font></a></button>
-     <button style="background: url(./Art-bot-GUI/panther.png) no-repeat center; height:150px; width: 150px;"> <a href="test2.html" target="people"><font size="4">Search For Person</font></a></button>
+		<a href="./Main_Menu/Main_Menu.html" target="people"> <button style="background: #FFF no-repeat center; height:150px; width: 150px;"> <font size="4">Main Menu</font></button></a>
+		<a href="./Extras/Quiz/Main.html" target="people"> <button style="background: #FFF no-repeat center; height:150px; width: 150px;"> <font size="4">Quiz</font></button></a>
+		<a href="./Extras/Sketchpad/Sketchpad.Jamie.html" target="people"> <button style="background: #FFF no-repeat center; height:150px; width: 150px;"> <font size="4">Sketchpad</font></button></a>
+		<a href="./FloorLookup/base.html" target="people"><button style="background: #FFF no-repeat center; height:150px; width: 150px;"> <font size="4">Floor Lookup</font></button></a>
 
     </nav>
   </div>
@@ -194,8 +193,8 @@ label {
    transition: transform .3s;
 }
 input[type=checkbox]:checked ~ label {
-   /*transform: translate3d(250px, 0, 0) rotate(90deg);*/
-	transform: translate3d(0, -250px, 0) rotate(90deg);
+   /*transform: translate3d(250px, 0, 0);*/
+	transform: translate3d(0, -250px, 0);
 }
 .content {
    width:100%;
@@ -250,5 +249,13 @@ button {
    font-size: 1.1em;
    padding: 15px;
 
+}
+
+.textOutline {
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
 }
 </style>
