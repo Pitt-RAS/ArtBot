@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>RAS Panther Robot</title>
+  <meta name="description" content="Some slide and push menu demos using CSS3 transitions.">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<div id="o-wrapper" class="o-wrapper">
+
+  <main class="o-content">
+    <div class="o-container">
+      
+      <div class="c-buttons">
+        <button id="c-button--slide-bottom" class="c-button">Panther Kiosk Options &equiv;</button>
+      </div>
+
+    </div><!-- /o-container -->
+  </main><!-- /o-content -->
+
+
+</div><!-- /o-wrapper -->
+
+<nav id="c-menu--slide-bottom" class="c-menu c-menu--slide-bottom">
+  <button class="c-menu__close"><strong>x</strong></button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+  </ul>
+</nav><!-- /c-menu slide-bottom -->
+
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+<!-- menus script -->
+<script src="js/dist/menu.js"></script>
+<script>
+  /**
+   * Slide bottom instantiation and action.
+   */
+  var slideBottom = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-bottom',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideBottomBtn = document.querySelector('#c-button--slide-bottom');
+  
+  slideBottomBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideBottom.open();
+  });
+
+</script>
+
+<style>
+.c-button {
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+	padding: 0;
+	/*border: none;*/
+	background: none;
+	font-size: 300%;
+	height:400px;
+    width:50%;
+}
+
+</style>
+
+</body>
+</html>
