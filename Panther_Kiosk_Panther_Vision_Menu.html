@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- META tags refresh page once on load - ensures video camera is started -->
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <META HTTP-EQUIV="Expires" CONTENT="-1">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>RAS Panther Robot</title>
@@ -24,27 +28,16 @@
 
 <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 
-<!-- menus script -->
-<script src="App_Switcher/js/dist/menu.js"></script>
-<script>
-  /**
-   * Slide bottom instantiation and action.
-   */
-  var slideTop = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-top',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var slideBottomBtn = document.querySelector('#c-button--slide-top');
-  
-  slideTopBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideTop.open();
-  });
-
-</script>
+<!-- <script>
+	window.onload = function() 
+	{
+		if(!window.location.hash) {
+			window.location = window.location + '#loaded';
+			window.location.reload();
+		}
+		
+	}
+</script> -->
 
 <style>
 
