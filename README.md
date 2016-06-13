@@ -15,10 +15,10 @@ ToDo:
 	- [ ] Basic layout -> Jamie + Iza
 		- [ ] Get list of panther actions
 		- [ ] Make it look nice
-	- [ ] Send signal from Pi to Arduino -> Jon + Vin
-		- [ ] Python script for Pi
-		- [ ] Arduino to receive
-		- [ ] php to run the Python script		
+	- [x] Send signal from Webpage to Arduino -> Jon + Vin
+		- [x] Python script for Pi
+		- [x] Arduino to receive
+		- [x] php to run the Python script		
 	- [ ] Facial recognition -> Joe
 		- [ ] Detect a face
 		- [ ] Find coordinates of center
