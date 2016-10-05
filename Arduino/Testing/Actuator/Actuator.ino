@@ -3,6 +3,12 @@ int In1 = 6;
 int In2 = 5;
 int potPin = A0;
 
+/*NOTE:
+ * Sending HIGH to In2 and LOW to In1 will extend the actuator
+ * Sending LOW to In2 and HIGH to In1 will retract the actuator
+ * Sending LOW to In2 and LOW to In1 will stop the actuator movement
+ */
+
 void setup() {
   //Begins serial
   Serial.begin(9600); 
@@ -15,10 +21,13 @@ void setup() {
 //This loop simply tests functions below
 void loop() {
   //Testing PWM for variable speed
-  //digitalWrite(In1, LOW);
-  //digitalWrite(In2, HIGH);
+  sendToPosition(100);
+  analogWrite(In1, 50);
+  digitalWrite(In2, 0);
   //Serial.println(analogRead(potPin));
-  
+  delay(10000);
+
+  /*
   //Testing variable distance control
   //Send to 1/4, 1/2, 3/4, and full
   sendToPosition(25);
@@ -29,7 +38,7 @@ void loop() {
   delay(1000);
   sendToPosition(100);
   delay(1000);
-  
+  */
 }
 
 /*  @Author: Jon Kenneson
