@@ -1,6 +1,6 @@
 //Pin declarations
-int In1 = 5;
-int In2 = 6;
+int In1 = 6;
+int In2 = 5;
 int potPin = A0;
 
 void setup() {
@@ -14,6 +14,12 @@ void setup() {
 
 //This loop simply tests functions below
 void loop() {
+  //Testing PWM for variable speed
+  //digitalWrite(In1, LOW);
+  //digitalWrite(In2, HIGH);
+  //Serial.println(analogRead(potPin));
+  
+  //Testing variable distance control
   //Send to 1/4, 1/2, 3/4, and full
   sendToPosition(25);
   delay(1000);
@@ -23,6 +29,7 @@ void loop() {
   delay(1000);
   sendToPosition(100);
   delay(1000);
+  
 }
 
 /*  @Author: Jon Kenneson
@@ -33,7 +40,7 @@ void loop() {
 int getCurrentPosition() {
   int sensorValue = analogRead(potPin);
   sensorValue = map(sensorValue, 0, 900, 0, 100);
-
+  Serial.println(sensorValue);
   return sensorValue;
 }
 
@@ -49,8 +56,8 @@ void sendToPosition(int position) {
   //If we're below, extend the actuator
   if(currentPosition < position) {
     while(currentPosition < position) {
-      digitalWrite(In1, HIGH);
-      digitalWrite(In2, LOW);
+      digitalWrite(In1, LOW);
+      digitalWrite(In2, HIGH);
       currentPosition = getCurrentPosition();
     }
       //Stop motion
@@ -60,8 +67,8 @@ void sendToPosition(int position) {
   //If we're above, retract the actuator
   else if (currentPosition > position) {
      while(currentPosition > position) {
-      digitalWrite(In1, LOW);
-      digitalWrite(In2, HIGH);
+      digitalWrite(In1, HIGH);
+      digitalWrite(In2, LOW);
       currentPosition = getCurrentPosition();
     }
     //Stop motion
