@@ -21,11 +21,10 @@ void setup() {
 //This loop simply tests functions below
 void loop() {
   //Testing PWM for variable speed
-  sendToPosition(100);
-  analogWrite(In1, 50);
-  digitalWrite(In2, 0);
+  sendToPosition(0);
+  sendToPosWithSpeed(100,255);
+  sendToPosition(0);
   //Serial.println(analogRead(potPin));
-  delay(10000);
 
   /*
   //Testing variable distance control
@@ -42,14 +41,59 @@ void loop() {
 }
 
 /*  @Author: Jon Kenneson
+ *  @Date: October 2016
+ *  
+ *  @Input: int position - a percantage out of 100 of the length extended of the arm
+ *          int speed - a percentage of 100 of the max speed of the movement of the actuator
+ *  This function sends the actuator to a specified distance at a certain speed (after a warmup and a cooldown - both 20% of distance)
+ *  To speed up -> currentSpeed = currPos * MaxSpeed / 20Pos
+ *  To slow down -> MaxSpeed + (-((currPos-80Pos)+MaxSpeed)/20Pos)
+ */
+int sendToPosWithSpeed(int finalPos, int finalSpeed) {
+  int currentPos = getCurrentPosition();
+  int startPos = currentPos;
+  int currentSpeed;
+  int difference = abs(finalPos - currentPos);
+  int middlePos = difference / 2;
+  
+  //Find the A constant value
+  double A = ((1-.03)*finalSpeed/(pow(startPos - middlePos,2)));
+  Serial.println(A);
+  //If we're below, extend the actuator
+  while(currentPos < finalPos) {
+	currentSpeed = -A * pow((currentPos - middlePos),2) + finalSpeed + 50;
+	if(currentSpeed > 255) {
+		currentSpeed = 255;
+	}
+	
+	Serial.print("Speed: ");
+	Serial.print(currentSpeed);
+	Serial.print(" Position: ");
+	Serial.println(currentPos);
+	  
+	  
+    digitalWrite(In1, LOW);
+    analogWrite(In2, currentSpeed);
+      
+	currentPos = getCurrentPosition();
+	
+  }
+  
+  //Otherwise, send both signals low to hold position there
+  //Stop motion
+  digitalWrite(In1, LOW);
+  digitalWrite(In2, LOW);
+}
+
+/*  @Author: Jon Kenneson
  *  @Date: September 2016
  *  
  *  This function reads the potentiometer and returns mapped value in range 0-100% 
  */
 int getCurrentPosition() {
   int sensorValue = analogRead(potPin);
-  sensorValue = map(sensorValue, 0, 900, 0, 100);
-  Serial.println(sensorValue);
+  sensorValue = map(sensorValue, 50, 850, 0, 100);
+  //Serial.println(sensorValue);
   return sensorValue;
 }
 
@@ -61,7 +105,7 @@ int getCurrentPosition() {
  */
 void sendToPosition(int position) {
   int currentPosition = getCurrentPosition();
-
+  
   //If we're below, extend the actuator
   if(currentPosition < position) {
     while(currentPosition < position) {
