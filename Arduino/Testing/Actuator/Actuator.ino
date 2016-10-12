@@ -18,10 +18,8 @@ void setup() {
   pinMode(potPin, INPUT);
 }
 
-
 //This loop simply tests functions below
 void loop() {
-<<<<<<< Updated upstream
   //Testing PWM for variable speed
   sendToPosition(0);
   sendToPosWithSpeed(100,255);
@@ -29,36 +27,18 @@ void loop() {
   //Serial.println(analogRead(potPin));
 
   /*
-=======
-  Serial.println("Slide Forward");
-  setDir(1);
-  slide(5);
-
-  Serial.println("Slide Backward");
-  setDir(2);
-  slide(5);
-  }
-  /*//Testing PWM for variable speed
-  sendToPosition(100);
-  analogWrite(In1, 50);
-  digitalWrite(In2, 0);
-  //Serial.println(analogRead(potPin));
-  delay(10000);
-*/
-  
->>>>>>> Stashed changes
   //Testing variable distance control
   //Send to 1/4, 1/2, 3/4, and full
- /* sendToPosition(25);
+  sendToPosition(25);
   delay(1000);
   sendToPosition(50);
   delay(1000);
   sendToPosition(75);
   delay(1000);
   sendToPosition(100);
-  delay(1000);*/
- 
- }
+  delay(1000);
+  */
+}
 
 /*  @Author: Jon Kenneson
  *  @Date: October 2016
@@ -123,14 +103,14 @@ int getCurrentPosition() {
  *  This function sends the actuator to a certain position determined by percentage extended sent in 
  *  The actuator will extend if it is below the intended position, retract if above, or stay still if already in place
  */
-void sendToPosition(int position, double speed) {
+void sendToPosition(int position) {
   int currentPosition = getCurrentPosition();
   
   //If we're below, extend the actuator
   if(currentPosition < position) {
     while(currentPosition < position) {
       digitalWrite(In1, LOW);
-      analogWrite(In2, speed);
+      digitalWrite(In2, HIGH);
       currentPosition = getCurrentPosition();
     }
       //Stop motion
@@ -140,7 +120,7 @@ void sendToPosition(int position, double speed) {
   //If we're above, retract the actuator
   else if (currentPosition > position) {
      while(currentPosition > position) {
-      analogWrite(In1, speed);
+      digitalWrite(In1, HIGH);
       digitalWrite(In2, LOW);
       currentPosition = getCurrentPosition();
     }
@@ -154,37 +134,5 @@ void sendToPosition(int position, double speed) {
     digitalWrite(In1, LOW);
     digitalWrite(In2, LOW);
   }
-  
 }
 
-void slide(int d) {
-  for(int v=0;v<256;++v) {
-    analogWrite(3,v);
-    delay(d);
-  }
-  for(int v=255;v>=0;--v) {
-    analogWrite(3,v);
-    delay(d);
-  }
-}
-
-void setDir(int d) {
-  switch(d) {
-    case 0: // off?
-    digitalWrite(2,LOW);
-    digitalWrite(4,LOW);
-    break;
-    case 1: // forward
-    digitalWrite(2,HIGH);
-    digitalWrite(4,LOW);
-    break;
-    case 2:  // backward
-    digitalWrite(2,LOW);
-    digitalWrite(4,HIGH);
-    break;
-    case 3:  // locked?
-    digitalWrite(2,HIGH);
-    digitalWrite(4,HIGH);
-    break;
-  }
-}
