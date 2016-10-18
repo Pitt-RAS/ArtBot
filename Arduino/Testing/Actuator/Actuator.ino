@@ -21,23 +21,8 @@ void setup() {
 //This loop simply tests functions below
 void loop() {
   //Testing PWM for variable speed
-  sendToPosition(0);
-  sendToPosWithSpeed(100,255);
-  sendToPosition(0);
-  //Serial.println(analogRead(potPin));
-
-  /*
-  //Testing variable distance control
-  //Send to 1/4, 1/2, 3/4, and full
-  sendToPosition(25);
-  delay(1000);
-  sendToPosition(50);
-  delay(1000);
-  sendToPosition(75);
-  delay(1000);
-  sendToPosition(100);
-  delay(1000);
-  */
+  sendToPosWithSpeed(0, 255);
+  sendToPosWithSpeed(100, 255);
 }
 
 /*  @Author: Jon Kenneson
@@ -60,26 +45,33 @@ int sendToPosWithSpeed(int finalPos, int finalSpeed) {
   double A = ((1-.03)*finalSpeed/(pow(startPos - middlePos,2)));
   Serial.println(A);
   //If we're below, extend the actuator
-  while(currentPos < finalPos) {
-	currentSpeed = -A * pow((currentPos - middlePos),2) + finalSpeed + 50;
-	if(currentSpeed > 255) {
-		currentSpeed = 255;
-	}
-	
-	Serial.print("Speed: ");
-	Serial.print(currentSpeed);
-	Serial.print(" Position: ");
-	Serial.println(currentPos);
-	  
-	  
-    digitalWrite(In1, LOW);
-    analogWrite(In2, currentSpeed);
-      
-	currentPos = getCurrentPosition();
-	
+  if(currentPos < finalPos) {
+    while(currentPos < finalPos) {
+      currentSpeed = -A * pow((currentPos - middlePos),2) + finalSpeed + 50;
+      if(currentSpeed > 255) {
+        currentSpeed = 255;
+      }      
+      digitalWrite(In1, LOW);
+      analogWrite(In2, currentSpeed);
+        
+      currentPos = getCurrentPosition();
+    }
+  }
+  //If we're above, extend the actuator
+  else if(currentPos > finalPos) {
+    while(currentPos > finalPos) {
+      currentSpeed = -A * pow((currentPos - middlePos),2) + finalSpeed + 50;
+      if(currentSpeed > 255) {
+        currentSpeed = 255;
+      }      
+      analogWrite(In1, currentSpeed);
+      digitalWrite(In2, LOW);
+        
+      currentPos = getCurrentPosition();
+    }
   }
   
-  //Otherwise, send both signals low to hold position there
+  //Send both signals low to hold position there
   //Stop motion
   digitalWrite(In1, LOW);
   digitalWrite(In2, LOW);
