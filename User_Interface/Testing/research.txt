@@ -1,8 +1,0 @@
-Save any research relating to UI here:
-
-helpful link with HTML and CSS tutorials
-	http://learn.shayhowe.com/advanced-html-css/transitions-animations/
-
-
-helpful link with example code on how to make various shapes in HTML/CSS
-	https://css-tricks.com/examples/ShapesOfCSS/
