@@ -1,0 +1,4 @@
+Save any research relating to UI here:
+
+helpful link with HTML and CSS tutorials
+	http://learn.shayhowe.com/advanced-html-css/transitions-animations/
