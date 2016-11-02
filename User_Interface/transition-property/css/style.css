@@ -1,0 +1,46 @@
+body {
+  color: #fff;
+  
+}
+.box {
+  background: #2db34a;
+  
+  cursor: pointer;
+  height: 95px;
+  line-height: 95px;
+  
+  -webkit-transition-property: background, width;
+  transition-property: background, width;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  width: 95px;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 75px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 75px solid transparent;
+	position: absolute;
+	
+	-webkit-transition-property: border-top, border-left, border-bottom;
+  transition-property: border-top, border-left, border-bottom;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+}
+.box:hover {
+  background: #FF3333;
+  width: 75%;
+}
+.triangle-right:hover {
+
+  border-top: 150px
+  border-left: 200px
+  border-bottom: 150px
+  
+}
