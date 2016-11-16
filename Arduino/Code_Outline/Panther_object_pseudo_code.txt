@@ -1,0 +1,41 @@
+public class Panther(pins...)
+{
+	public bool isMoving;
+	public Arm left, right;
+	
+	public bool move()
+	{
+		bool retL = left.move();
+		bool retR = right.move();
+		//...Other parts
+		return retL || retR;
+	}
+	
+	
+	public setMoveType(int command)
+	{
+		switch(command)
+		{
+			case "lieDown":
+			break;
+			case "standUp":
+			break;
+			case "roar":
+			break;
+			case "scratchEar":
+			break;
+			case "wave":
+			break;
+			case "lickPaw":
+			break;
+			case "blink":
+			break;
+			case "wiggleEar":
+			break;
+			case "lookAround":
+			break;
+			default: //do nothing
+			break;
+		}
+	}
+}

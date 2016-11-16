@@ -1,0 +1,37 @@
+/* 
+ * NOTE: General overview
+ * NOTE: User-defined movements will become autonomous after prolonged delay
+ * User defined movements:
+ * 		1. Lie Down
+ *		2. Stand Up
+ *		3. Roar
+ *		4. Scratch Ear
+ *		5. Wave
+ *		6. Lick Paw
+ *
+ * Autonomous Movements
+ *		1. Blink
+ *		2. Wiggle Ear
+ *		3. Look around - Random from 0-90 degrees
+ *
+ */
+
+Panther roc;
+
+setup()
+{
+	//pins...
+	roc = new Panther(pins...)
+}
+
+loop()
+{
+	if(roc.isMoving())
+		roc.move()
+	else
+	{
+		string command = serial.read();
+		if(command != NULL)
+			roc.setMoveType(command);
+	}
+}

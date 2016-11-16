@@ -1,0 +1,32 @@
+public class Arm(pins...)
+{
+	Actuator shoulder;
+	Actuator elbow;
+	
+	
+	public setMoveType(string command)
+	{
+		switch(command)
+		{
+			case "standUp":
+			shoulder.setToPos(int, int)
+			elbow...
+			break;
+			case "lieDown":
+			break;
+			case "scratchEar":
+			break;
+			case "wave":
+			break;
+			case "lickPaw":
+			break;
+		}
+	}
+	
+	public bool move()
+	{
+		bool retS = shoulder.move();
+		bool retE = elbow.move();
+		return retS || retE;
+	}
+}
