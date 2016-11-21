@@ -1,0 +1,11 @@
+
+<form action="execute_python.php" method="post">
+<input type="submit" name="submit1" />
+</form>
+
+
+<?php
+if(isset($_POST['submit1'])){
+exec('sudo python C:\Users\Jon\Desktop\pythonphptest.py');
+}
+?>

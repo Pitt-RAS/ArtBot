@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>RAS Panther Robot</title>
+  <meta name="description" content="Some slide and push menu demos using CSS3 transitions.">
+  <link rel="stylesheet" href="App_Switcher/css/font-awesome.min.css">
+  <link rel="stylesheet" href="App_Switcher/css/style.css">
+</head>
+
+<body>
+<img src="Extras/blue_gold.png" style="width:100%; height: 101%;">
+<iframe name="mainScreen" id="theFrame" src="Extras/Extras_Menu.html" style="height:101%; width:100%; " frameBorder="0" ></iframe>
+
+<div id="o-wrapper" class="o-wrapper">
+    <div class="c-buttons">
+        <button id="c-button--slide-bottom" class="c-button">&equiv; Panther Kiosk Options </button>
+    </div>
+</div><!-- /o-wrapper -->
+
+<nav id="c-menu--slide-bottom" class="c-menu c-menu--slide-bottom" style = "background-color: #0B203F;">
+  <button class="c-menu__close" style="left:0%; position:absolute; background-color: #0B203F;"><font size="7"><strong>x</strong></font></button>
+  <br>
+  <ul class="c-menu__items">
+    <li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Main.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Main Menu</font></button></a></li>
+    <li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Room_Lookup.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Room Lookup</font></button></a></li>
+	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Extras_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Extras Menu</font></button></a></li>
+	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Panther_Vision_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Panther Vision</font></button></a></li>
+	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Panther_Controls_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Panther Controls</font></button></a></li>	
+	
+  </ul>
+</nav><!-- /c-menu slide-bottom -->
+
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+<!-- menus script -->
+<script src="App_Switcher/js/dist/menu.js"></script>
+<script>
+  /**
+   * Slide bottom instantiation and action.
+   */
+  var slideBottom = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-bottom',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideBottomBtn = document.querySelector('#c-button--slide-bottom');
+  
+  slideBottomBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideBottom.open();
+  });
+
+</script>
+
+<style>
+
+.c-button {
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
+	0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+	padding: 0;
+	border: none;
+	background: none;
+	font-size: 350%;
+	position:absolute;
+	left:1%;
+	bottom:1%;
+	font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    position: fixed; 
+    overflow:hidden;
+    width: 100%;
+}
+
+</style>
+</style>
+</head>
+
+<body>
+
+ <title></title>
+    <script type="text/javascript">
+        function load() {
+
+            for (i = 0; i < 10; i++) {
+                
+                var btn = document.getElementById("btn" + i);
+                btn.value = i;
+            }
+        }
+
+        function input(e) {
+            // Get the TextBox object.
+            var tbInput = document.getElementById("tbInput");
+
+            // As e is the button, its value is the text on it.
+            // Add the value to the TextBox.
+            tbInput.value = tbInput.value + e.value;
+        }
+
+        function del() {
+            // Get the TextBox object.
+            var tbInput = document.getElementById("tbInput");
+
+            // Remove the last char in the TextBox.
+            tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);
+        }
+    </script>
+</head>
+<body onload="load();">
+    <form id="form1" runat="server">
+    <div>
+        <input id="tbInput" type="text" style="background: #FFF no-repeat center; height:100px; width: 30%; position: absolute; left: 35%; top: 2%; border-radius: 25px; font-size: 350%" />
+        <p />
+        <div id="VirtualKey">
+            <input id="btn1" type="button" value="1" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position: absolute; top: 15%; left: 38.5%; font-size: 300%; color: white">
+            <input id="btn2" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 15%;left: 46.5%; font-size: 300%; color: white"/>
+            <input id="btn3" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 15%;left: 54.5%; font-size: 300%; color: white"/>
+            <br />
+            <input id="btn4" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 28%; left: 38.5%;font-size: 300%; color: white"/>
+            <input id="btn5" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 28%;left: 46.5%;font-size: 300%; color: white"/>
+            <input id="btn6" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 28%; left: 54.5%;font-size: 300%; color: white"/>
+            <br />
+            <input id="btn7" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 41%; left: 38.5%;font-size: 300%; color: white"/>
+            <input id="btn8" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 41%; left: 46.5%;font-size: 300%; color: white"/>
+            <input id="btn9" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 41%; left: 54.5%;font-size: 300%; color: white"/>
+            <br />
+            <input id="btn0" type="button" onclick="input(this)" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 54%; left: 46.5%;font-size: 300%; color: white"/>
+            <input id="btnDel" type="button" value="Delete" onclick="del();" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 54%; left: 54.5%;font-size: 150%; color: white"/>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

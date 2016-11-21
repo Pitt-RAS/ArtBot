@@ -1,0 +1,40 @@
+<html>
+
+<body>
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+var contents=new Array()
+contents[0]='Math'
+contents[1]='Chemistry'
+contents[2]='Physics'
+contents[3]='Music'
+contents[4]='Art'
+contents[5]='TV and Movies'
+contents[6]='History and Geography'
+contents[7]='Pitt Facts'
+contents[8]='Pittsburgh Facts'
+contents[9]='Sports'
+contents[10]='Miscellaneous' 
+
+
+
+
+var i=0
+//variable used to contain controlled random number 
+var random
+var spacing="<br>"
+//while all of array elements haven't been cycled thru
+while (i<contents.length){
+    //generate random num between 0 and arraylength-1
+    random=Math.floor(Math.random()*contents.length)
+    //if element hasn't been marked as "selected"
+    if (contents[random]!="selected"){
+        document.write(contents[random]+spacing)
+        //mark element as selected
+        contents[random]="selected"
+        i++
+    }
+}
+</script>
+</body>
+</html> 
