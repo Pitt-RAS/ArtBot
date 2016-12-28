@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  div {
+    position: relative;
+    background-color: #abc;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 5px;
+    visibility: hidden;
+  }
+  </style>
+  
+<body onload="myFunction()">
+
+<div id="block1"></div>
+<div id="block2"></div>
+<div id="block3"></div>
+<div id="block4"></div>
+<div id="block5"></div>
+
+<script>
+function myFunction() 
+{
+	var i=1;
+	setInterval(function()
+	{
+		//alert("Page is loaded");
+		document.getElementById('block'+i).style.visibility='visible';
+		i++
+	},1000);
+}
+</script>
+
+</body>
+</html>
+
+
+
+
