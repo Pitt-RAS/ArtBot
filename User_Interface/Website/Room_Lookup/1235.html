@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+   
+    background: url(floor12.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;  
+}
+  div {
+    position: relative;
+    background-color: red;
+    width: 15px;
+    height: 25px;
+    float: left;
+    margin: 5px;
+    visibility: hidden;
+  }
+  </style>
+  
+<body onload="myFunction()">
+
+
+<div id="block1" style="position:absolute; top:9.6%; right: 28.5%;"></div>
+<div id="block2" style="position:absolute; top:14.6%; right: 28.5%;"></div>
+<div id="block3"style="position:absolute; top:19.6%; right: 28.5%;"></div>
+<div id="block4"style="position:absolute; top:24.6%; right: 29.2%;"></div>
+<div id="block5"style="position:absolute; top:29.6%; right: 29.2%;"></div>
+<div id="block6" style="position:absolute; top:34.6%; right: 29.2%;"></div>
+<div id="block7" style="position:absolute; top:39.6%; right: 29.2%;"></div>
+<div id="block8"style="position:absolute; top:44.6%; right: 29.2%;"></div>
+<div id="block9"style="position:absolute; top:49.6%; right: 29.2%;"></div>
+<div id="block10"style="position:absolute; top:54.6%; right: 29.2%;"></div>
+<div id="block11"style="position:absolute; top:59.6%; right: 29.2%;"></div>
+<div id="block12"style="position:absolute; top:64.6%; right: 29.2%; "></div>
+<div id="block13"style="position:absolute; top:67.1%; right: 29.2%; width: 25px; height: 15px;"></div>
+<div id="block14"style="position:absolute; top:67.1%; right: 31.9%; width: 25px; height: 15px;"></div>
+
+<script>
+function myFunction() 
+{
+	var i=1;
+	setInterval(function()
+	{
+		//alert("Page is loaded");
+		document.getElementById('block'+i).style.visibility='visible';
+		i++
+	},300);
+}
+</script>
+
+</body>
+</html>
+
+
+
+
