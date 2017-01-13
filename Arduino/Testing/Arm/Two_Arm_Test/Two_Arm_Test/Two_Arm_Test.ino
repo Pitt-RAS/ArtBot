@@ -34,7 +34,8 @@ bool moveRightElbow;
 bool moveRightPaw;
 int rightPawPos;    // desired angle for rightPaw
 
-static unsigned long servoTimeLeft; //Time since last servo movement
+static unsigned long servoTimeLeft;   //Time since last servo movement
+static unsigned long servoTimeRight; //For right arm
 
 void setup() {
   Serial.begin(9600);       //Start the serial
@@ -52,12 +53,19 @@ void setup() {
 }
 
 void loop() {
+  //Reset variables for movement
   moveLeftShoulder = true;
   moveLeftElbow = true;
   moveLeftPaw = true;
   leftPawPos = 0;
+  moveRightShoulder = true;
+  moveRightElbow = true;
+  moveRightPaw = true;
+  rightPawPos = 0;
+  
   //Send the actuator to a position (0-100%) with desired top speed (0-255)
-  while(moveLeftShoulder == true || moveLeftElbow == true || moveLeftPaw == true) {
+  while(moveLeftShoulder == true || moveLeftElbow == true || moveLeftPaw == true || moveRightShoulder == true || moveRightElbow == true || moveRightPaw == true) {
+    //Left arm movement
     if(moveLeftShoulder == true) {
       moveLeftShoulder = leftShoulder.sendToPosWithSpeed(0,255); 
     }
@@ -76,13 +84,40 @@ void loop() {
         else moveLeftPaw = false;
       }  
     }
+
+    //Right arm movement
+    if(moveRightShoulder == true) {
+      moveRightShoulder = rightShoulder.sendToPosWithSpeed(0,255); 
+    }
+    if(moveRightElbow == true) {
+      moveRightElbow = rightElbow.sendToPosWithSpeed(0,100);  
+    }
+    if(moveRightPaw == true) {
+      // check time since last servo position update 
+      if ((millis()-servoTimeRight) >= SERVO_SPEED) {
+        servoTimeRight = millis(); // save time reference for next position update
+       
+        // update rightPaw position
+        // if desired position is different from current position move one step left or right
+        if (rightPawPos > rightPaw.read()) rightPaw.write(rightPaw.read() + 1);
+        else if (rightPawPos < rightPaw.read()) rightPaw.write(rightPaw.read() - 1);
+        else moveRightPaw = false;
+      }  
+    }
   }
-  
+
+  //Reset variables for new movement
   moveLeftShoulder = true;
   moveLeftElbow = true;
   moveLeftPaw = true;
   leftPawPos = 180;
+  moveRightShoulder = true;
+  moveRightElbow = true;
+  moveRightPaw = true;
+  rightPawPos = 180;
+  
   while(moveLeftShoulder == true || moveLeftElbow == true || moveLeftPaw == true) {
+    //Left arm movements
     if(moveLeftShoulder == true) {
       moveLeftShoulder = leftShoulder.sendToPosWithSpeed(100,255); 
     }
@@ -99,6 +134,26 @@ void loop() {
         if (leftPawPos > leftPaw.read()) leftPaw.write(leftPaw.read() + 1);
         else if (leftPawPos < leftPaw.read()) leftPaw.write(leftPaw.read() - 1);
         else moveLeftPaw = false;
+      }  
+    }
+
+    //Right arm movement
+    if(moveRightShoulder == true) {
+      moveRightShoulder = rightShoulder.sendToPosWithSpeed(100,255); 
+    }
+    if(moveRightElbow == true) {
+      moveRightElbow = rightElbow.sendToPosWithSpeed(100,100);  
+    }
+    if(moveRightPaw == true) {
+      // check time since last servo position update 
+      if ((millis()-servoTimeRight) >= SERVO_SPEED) {
+        servoTimeRight = millis(); // save time reference for next position update
+       
+        // update rightPaw position
+        // if desired position is different from current position move one step left or right
+        if (rightPawPos > rightPaw.read()) rightPaw.write(rightPaw.read() + 1);
+        else if (rightPawPos < rightPaw.read()) rightPaw.write(rightPaw.read() - 1);
+        else moveRightPaw = false;
       }  
     }
   }
