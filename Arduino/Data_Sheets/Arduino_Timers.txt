@@ -1,0 +1,15 @@
+The Arduino Uno has 3 Timers and 6 PWM output pins. The relation between timers and PWM outputs is:
+
+Pins 5 and 6: controlled by timer0
+Pins 9 and 10: controlled by timer1
+Pins 11 and 3: controlled by timer2
+
+
+On the Arduino Mega we have 6 timers and 15 PWM outputs:
+
+Pins 4 and 13: controlled by timer0
+Pins 11 and 12: controlled by timer1
+Pins 9 and 10: controlled by timer2
+Pin 2, 3 and 5: controlled by timer 3
+Pin 6, 7 and 8: controlled by timer 4
+Pin 46, 45 and 44: controlled by timer 5
