@@ -15,7 +15,7 @@ class ServoDriver {
     ServoDriver();
 	void init(int pinLoc);
     void setToPosWithSpeed(int pos, int spd);
-	int move();
+	bool move();
     
   private:
     Servo servo;

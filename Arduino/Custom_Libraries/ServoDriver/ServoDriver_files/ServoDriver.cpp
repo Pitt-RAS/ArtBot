@@ -14,8 +14,6 @@ void ServoDriver::init(int pinLoc)
   servo.attach(pinLoc);
   finalPos = 0;
   moving = false;
-  servo.write(0);
-  delay(1000);
 }
 
 /*  @Author: Woodrow Fulmer
@@ -38,7 +36,7 @@ void ServoDriver::setToPosWithSpeed(int pos, int spd)
  *  This function causes the Servo to move to the determined angle at the given speed
  * @Return: bool moving - this method returns if the Servo is still in motion
  */
-int ServoDriver::move() 
+bool ServoDriver::move() 
 {
    if ((millis()-servo_time) >= finalSpd) 
    {
@@ -50,8 +48,6 @@ int ServoDriver::move()
 	   else
 		   moving = false;
    }
-   else
-	   moving = false;
-   return servo.read();
+   return moving;
 }
 
