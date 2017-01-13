@@ -12,9 +12,10 @@
 
 class ServoDriver {
   public:
-    ServoDriver(int pinLoc);
+    ServoDriver();
+	void init(int pinLoc);
     void setToPosWithSpeed(int pos, int spd);
-	bool move();
+	int move();
     
   private:
     Servo servo;
