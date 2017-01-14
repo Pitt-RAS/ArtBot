@@ -3,7 +3,7 @@
 <head>
   <title>Javascript Tetris</title>
   <style>
-    body      { font-family: Helvetica, sans-serif; }
+    body      { font-family: Helvetica, sans-serif; background-color: #D9F9FA}
     #tetris   { margin: 1em auto; padding: 1em; border: 4px solid black; border-radius: 10px; background-color: #F8F8F8; }
     #stats    { display: inline-block; vertical-align: top; }
     #canvas   { display: inline-block; vertical-align: top; background: url(texture.jpg); box-shadow: 10px 10px 10px #999; border: 2px solid #333; }
@@ -28,15 +28,18 @@
 
   <div id="tetris">
     <div id="menu">
-      <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
+      <p id="start"><a href="javascript:play();"></a></p>
       <p><canvas id="upcoming"></canvas></p>
       <p>score <span id="score">00000</span></p>
       <p>rows <span id="rows">0</span></p>
-      <p><button type="button" onclick="actions.push(DIR.UP);">&#x21BB</button>
-	  <p><button type="button" onclick="actions.push(DIR.LEFT);">&#x2190</button>
-	  <button type="button" onclick="actions.push(DIR.RIGHT);">	&#x2192</button></p>
-	  <p><button type="button" onclick="actions.push(DIR.DOWN);">&#x2193</button>
+      <p><button type="button" style ="font-size : 20px; height: 50px; width: 100px" onclick="actions.push(DIR.UP);">&#x21BB</button>
+	  <p><button type="button" style ="font-size : 20px; height: 50px; width: 100px" onclick="actions.push(DIR.LEFT);">&#x2190</button>
+	  <button type="button" style ="font-size : 20px; height: 50px; width: 100px" onclick="actions.push(DIR.RIGHT);">	&#x2192</button></p>
+	  <p><button type="button" style ="font-size : 20px; height: 50px; width: 100px" onclick="actions.push(DIR.DOWN);">&#x2193</button></p>
+	  <p><button type="button" style = "font-size : 20px; height: 100px; width: 200px" onclick="play();">Start</button></p>
     </div>
+	
+	
     <canvas id="canvas">
       Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
     </canvas>
@@ -54,15 +57,15 @@
     function timestamp()           { return new Date().getTime();                             }
     function random(min, max)      { return (min + (Math.random() * (max - min)));            }
     function randomChoice(choices) { return choices[Math.round(random(0, choices.length-1))]; }
-    if (!window.requestAnimationFrame) { // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-      window.requestAnimationFrame = window.webkitRequestAnimationFrame ||
-                                     window.mozRequestAnimationFrame    ||
-                                     window.oRequestAnimationFrame      ||
-                                     window.msRequestAnimationFrame     ||
-                                     function(callback, element) {
-                                       window.setTimeout(callback, 1000 / 60);
-                                     }
-    }
+    //if (!window.requestAnimationFrame) { // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+      //window.requestAnimationFrame = window.webkitRequestAnimationFrame ||
+        //                             window.mozRequestAnimationFrame    ||
+        //                             window.oRequestAnimationFrame      ||
+        //                             window.msRequestAnimationFrame     ||
+        //                             function(callback, element) {
+        //                               window.setTimeout(callback, 1000 / 60);
+        //                             }
+    //}
     //-------------------------------------------------------------------------
     // game constants
     //-------------------------------------------------------------------------
@@ -175,7 +178,7 @@
     }
     function showStats() {
       stats.domElement.id = 'stats';
-      get('menu').appendChild(stats.domElement);
+		//get('menu').appendChild(stats.domElement);
     }
     function addEvents() {
       document.addEventListener('keydown', keydown, false);
