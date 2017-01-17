@@ -54,6 +54,7 @@ void setMoveType(int command)
 bool Arm::move() {
 	isMoving = shoulder.move();
 	isMoving = elbow.move() || isMoving;
+	isMoving = wrist.move();
 	return isMoving;  
 }
 
