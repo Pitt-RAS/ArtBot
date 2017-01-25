@@ -1,0 +1,103 @@
+<html>
+
+
+<head>
+<style>
+body {
+    background-color: 3954EB;
+}
+
+input {
+    background-color: 3954EB;
+    border-style: hidden;
+   font-size: 150%;
+    height: 175px;
+    width: 175px;
+} 
+</style>
+</head>
+
+<body>
+
+<table>
+<tr>
+
+<td style="width:100%">
+<form action="101.png">
+<input style="position:absolute; top:15.5%; left: 3%;">
+</form>
+
+<br>
+
+<form action="102.png">
+<input style="position:absolute; top:55.5%; left: 3%;">
+</form>
+
+<br>
+
+<form action="103.png">
+<input style="position:absolute; top:15.5%; left: 23%;">
+</form>
+
+<br>
+
+<form action="104.png">
+<input style="position:absolute; top:55.5%; left: 23%;">
+</form>
+
+<br>
+
+<form action="105.png">
+<input style="position:absolute; top:15.5%; left: 43%;">
+</form>
+
+<br>
+
+<form action="106.png">
+<input style="position:absolute; top:55.5%; left: 43%;">
+</form>
+
+<br>
+
+<form action="107.png">
+<input style="position:absolute; top:15.5%; left: 63%;">
+</form>
+
+<br>
+
+<form action="108.png">
+<input style="position:absolute; top:55.5%; left: 63%;">
+</form>
+
+<br>
+
+<form action="109.png">
+<input style="position:absolute; top:15.5%; left: 83%;">
+</form>
+
+<br>
+
+<form action="110.png">
+<input style="position:absolute; top:55.5%; left: 83%;">
+</form>
+
+<br>
+</td>
+</tr>
+</table>
+<script>
+$( "#go" ).click(function() {
+  $( ".block:first" ).animate({
+    width: 100
+  }, {
+    duration: 1000,
+    step: function( now, fx ){
+      $( ".block:gt(0)" ).css( "width", now );
+    }
+  });
+});
+</script>
+</body>
+</center>
+
+</html>

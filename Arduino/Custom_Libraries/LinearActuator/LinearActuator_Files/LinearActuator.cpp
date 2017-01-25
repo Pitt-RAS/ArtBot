@@ -90,6 +90,8 @@ bool LinearActuator::sendToPosWithSpeed(int finalPos, int finalSpeed) {
  */
 int LinearActuator::getCurrentPosition() {
   int sensorValue = analogRead(potPin);
+  if(sensorValue > 850) sensorValue = 850;
+  if(sensorValue < 0)   sensorValue = 50;
   sensorValue = map(sensorValue, 50, 850, 0, 100);
   //Serial.println(sensorValue);
   return sensorValue;

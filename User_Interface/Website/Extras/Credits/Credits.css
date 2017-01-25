@@ -1,0 +1,67 @@
+/* CSS for the moving background */
+body
+{
+ background:white;
+ overflow:hidden;
+}
+
+.drawingpix 
+{ 
+    position:absolute; 
+    top:-50px; 
+    left:-50px;
+}
+
+
+/* Name Divs */
+#container
+{
+    width: 400px;
+    margin: auto;
+}
+
+#JeremyDeppen
+{
+    height: 60px;
+    width: 100px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center; 
+}
+
+#KevinMadison
+{
+    height: 60px;
+    width: 100px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+}
+
+#AndrewSaba
+{
+   height: 60px;
+    width: 100px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center; 
+}
+
+#ZachYoder
+{
+    height: 60px;
+    width: 100px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+}
+
+
