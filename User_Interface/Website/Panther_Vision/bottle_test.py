@@ -41,8 +41,12 @@ def send_static(filename):
 		#t.exit()
 		#t2 = thread.start_new_thread ( panther_video, ())
 		return static_file("Panther_Kiosk_Panther_Vision_Menu.html", root='../')
+	elif(filename == "Panther_Kiosk_Main.html"):
+		print("in bottle")
+		t2 = thread.start_new_thread(kill_video, ())
+		return static_file("Panther_Kiosk_Main.html", root='../')
 	else:
 		print("else")
 		return static_file(filename, root='../')	
 	
-run(host='localhost', port=8080, debug=True)
+run(host='localhost', port=8081, debug=True)

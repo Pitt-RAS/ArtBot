@@ -30,18 +30,20 @@ def panther_video():
 		for (x,y,w,h) in faces:
 			area = w*h
 			if area == maxArea:
-				img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+				cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 				#print('green: ' + str(area)+ ' w: ' + str(x)+ ' h: ' + str(h))
 				print ('x = ' + str(x+w/2)+ ' y = ' + str(y+h/2))
 			else:
-				img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
+				cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
 				#print('red: ' + str(area)+ ' w: ' + str(w)+ ' h: ' + str(h))
 		#size (width, height) (640, 480) = default
-		resize_img = cv2.resize(img, (1290, 747))
+		#resize_img = cv2.resize(img, (1290, 747))
+		cv2.startWindowThread()
 		window = cv2.namedWindow("window")
-		cv2.resizeWindow("window", 1290, 747)
-		cv2.moveWindow("window", 0, -25)
-		cv2.imshow('window',resize_img)
+		#cv2.resizeWindow("window", 1290, 747)
+		#cv2.moveWindow("window", 0, -25)
+		#cv2.imshow('window',resize_img)
+		cv2.imshow("window", img)
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
 		if os.path.exists('./kill.txt'):
@@ -51,7 +53,7 @@ def panther_video():
 	return 1
 	
 def kill_video():
-	time.sleep(3)
+	print("In kill video")
 	file = open('kill.txt', 'w+')
 	return 1
 
