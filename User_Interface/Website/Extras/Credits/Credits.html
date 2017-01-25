@@ -1,65 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<script>
+    <head>
+        <title>Credits</title>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="Credits.css">
+        <script type="text/javascript" src="Credits.js"></script>
+         
+    </head>
+    
+    <body>
+        <div id="container">
+            <div id="JeremyDeppen"><br/>Jeremy Deppen</div>
+            <div id="KevinMadison"><br/>Andrew Saba</div>
+            <div id="AndrewSaba"><br/>Kevin Madison</div>
+            <div id="ZachYoder"><br/>Kevin Madison</div>
 
-var totalScore = 0
-var screenHeight = 1000
-function setColor(btn){
-    var property = document.getElementById(btn);
-    if (property.style.backgroundColor == "yellow") {
-        property.style.color = "#ffff00"
-        property.style.backgroundColor = "#3333cc"
-        totalScore += 1;
-        updateScore(totalScore);
-    }      
-}
-
-function updateScore(count) {
-    document.getElementById("Score").innerHTML = "Score: " + count;
-	
-function randStart() {
-	return (Math.random()*screenHeight)
-	}
-}
-
-</script>
-
-<style>
-
-#buttonblock {
-    width: 100px;
-    height: 20px;
-    position: relative;
-    -webkit-animation-name: example;
-    -webkit-animation-duration: 4s;
-    animation-name: example;
-    animation-duration: 4s;
-}
-
-/* Chrome, Safari, Opera */
-@-webkit-keyframes example {
-    0%   {left:0px; top:0px;}
-    100% {left:300px; top:0px;}
-}
-
-/* Standard syntax */
-@keyframes example {
-    0%   {left:0px; top:0px;}
-    100% {left:300px; top:0px;}
-}
-
-</style>
-
-<body>
-<div id = "buttonblock"> 
-<input type="button" id = "button" value = "Jonathan" style="background-color:yellow" onclick="setColor('button')";/>
-</div>
-
-<div id = "Score">
-    <p> Score: 0 </p>
-</div>
-
-</body>
-</html>
+        </div>
+    </body>
+    
+</html> 
