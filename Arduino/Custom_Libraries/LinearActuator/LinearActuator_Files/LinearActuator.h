@@ -12,6 +12,7 @@
 class LinearActuator {
   public:
     LinearActuator(int input1, int input2, int inputPot);
+	bool sendToPos(int finalPos);
     bool sendToPosWithSpeed(int finalPos, int finalSpeed);
     
   private:

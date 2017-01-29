@@ -1,3 +1,4 @@
-LinearActuator	KEYWORD1
+LinearActuator		KEYWORD1
 sendToPosWithSpeed	KEYWORD2
 getCurrentPosition	KEYWORD2
+sendToPos			KEYWORD2
