@@ -13,33 +13,27 @@ LinearActuator myActuator2(11,10,A1);
 
 bool moveAct1;
 bool moveAct2;
+bool retract;
 
 void setup() {
   moveAct1 = false;
   moveAct2 = false;
+  retract = true;
 }
 
 void loop() {
-  moveAct1 = true;
-  moveAct2 = true;
-  //Send the actuator to a position (0-100%) with desired top speed (0-255)
-  while(moveAct1 == true || moveAct2 == true) {
-	if(moveAct1 == true) {
-	  moveAct1 = myActuator1.sendToPosWithSpeed(0,255);	
-	}
-    if(moveAct2 == true) {
-	  moveAct2 = myActuator2.sendToPosWithSpeed(0,55);	
-	}
+  moveAct1 = myActuator.move();
+  moveAct2 = myActuator.move();
+  
+	if(!moveAct1 && !moveAct2 && retract) {
+	  myActuator1.setPos(0);
+    myActuator2.setPos(0);	
+    retract = false;
   }
   
-  moveAct1 = true;
-  moveAct2 = true;
-  while(moveAct1 == true || moveAct2 == true) {
-	if(moveAct1 == true) {
-	  moveAct1 = myActuator1.sendToPosWithSpeed(100,255);	
-	}
-    if(moveAct2 == true) {
-	  moveAct2 = myActuator2.sendToPosWithSpeed(100,55);	
-	}
+  if(!moveAct1 && !moveAct2 && !retract) {
+    myActuator1.setPos(100);
+    myActuator2.setPos(100);  
+    retract = true;
   }
 }
