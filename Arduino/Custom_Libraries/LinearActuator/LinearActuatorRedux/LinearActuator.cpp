@@ -27,20 +27,8 @@ LinearActuator::LinearActuator(int input1, int input2, int inputPot){
  *          int speed - a percentage of 100 of the max speed of the movement of the actuator
  *	This function starts the movement of the actuator, setting all the variables needed for motion.
  */
-bool LinearActuator::setPosWithSpd(int finalPos, int finalSpeed) {
-	int currentPos = getCurrentPosition();
-	int startPos = currentPos;
-	int difference = abs(finalPos - currentPos);
-	int middlePos = difference / 2;
-  
-	//Find the A constant value
-	double A = ((1-.03)*finalSpeed/(pow(startPos - middlePos,2)));
-	//Serial.println(A);
-	
-	//Set our private variables
-	_finalPos = finalPos;
-	_A = A;
-	_middlePos = middlePos;
+bool LinearActuator::setPos(int position) {
+	int finalPos = position;
 	moving = true;
 }
 
@@ -55,36 +43,28 @@ bool LinearActuator::setPosWithSpd(int finalPos, int finalSpeed) {
  *  To slow down -> MaxSpeed + (-((currPos-80Pos)+MaxSpeed)/20Pos)
  */
 bool LinearActuator::move() {
-  if(moving)
-  {
-	  int currentPos = getCurrentPosition();
-	  int currentSpeed;  
-	  //If we're below, extend the actuator
-	  if(currentPos < finalPos) {
-		  currentSpeed = -_A * pow((currentPos - _middlePos),2) + finalSpeed + 50;
-		  if(currentSpeed > 255) {
-			currentSpeed = 255;
-		  }      
-		  digitalWrite(In1, LOW);
-		  analogWrite(In2, currentSpeed);
-		  currentPos = getCurrentPosition();
-	  }
-	  //If we're above, retract the actuator
-	  else if(currentPos > finalPos) {
-		  currentSpeed = -_A * pow((currentPos - _middlePos),2) + finalSpeed + 50;
-		  if(currentSpeed > 255) {
-			currentSpeed = 255;
-		  }      
-		  analogWrite(In1, currentSpeed);
-		  digitalWrite(In2, LOW);
-		  currentPos = getCurrentPosition();
-	  }
-	  else if(currentPos == finalPos) {
-		//Stop motion
-		digitalWrite(In1, LOW);
-		digitalWrite(In2, LOW);
-		moving = false;
-	  }
+  int currentPos = getCurrentPosition();
+  
+  //If we're below, extend the actuator
+  if(currentPos < finalPos) {
+      digitalWrite(In1, LOW);
+      digitalWrite(In2, HIGH);
+      
+    moving = true;
+  }
+  //If we're above, retract the actuator
+  else if(currentPos > finalPos) {
+      digitalWrite(In1, HIGH);
+      digitalWrite(In2, LOW);
+        
+	moving = true;
+  }
+  else {
+	//Send both signals low to hold position there
+	//Stop motion
+	digitalWrite(In1, LOW);
+	digitalWrite(In2, LOW);
+	moving = false;
   }
   return moving;
 }

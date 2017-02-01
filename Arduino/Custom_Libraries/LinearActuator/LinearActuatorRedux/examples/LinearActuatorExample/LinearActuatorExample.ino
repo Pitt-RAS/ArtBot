@@ -10,12 +10,18 @@
 
 //Create a new LinearActuator object by passing in In1, In2, and potPin in the constructor
 LinearActuator myActuator(6,5,A0);
+bool retract;
 
 void setup() {
-  myActuator.setPosWithSpd(100,255);
+  retract = true;
 }
 
 void loop() {
-  //Send the actuator to a position (0-100%) with desired top speed (0-255)
-  myActuator.move();
+  if(!myActuator.move()) 
+  {
+    if(retract)
+      myActuator.setPos(0);
+    else
+      myActuator.setPos(100);
+  }
 }

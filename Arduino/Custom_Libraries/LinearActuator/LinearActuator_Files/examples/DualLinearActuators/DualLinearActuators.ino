@@ -22,13 +22,13 @@ void setup() {
 void loop() {
   moveAct1 = true;
   moveAct2 = true;
-  //Send the actuator to a position (0-100%) with desired top speed (0-255)
+  //Send the actuator to a position (10-100%) 
   while(moveAct1 == true || moveAct2 == true) {
 	if(moveAct1 == true) {
-	  moveAct1 = myActuator1.sendToPosWithSpeed(0,255);	
+	  moveAct1 = myActuator1.sendToPos(10);	
 	}
     if(moveAct2 == true) {
-	  moveAct2 = myActuator2.sendToPosWithSpeed(0,55);	
+	  moveAct2 = myActuator2.sendToPos(10);	
 	}
   }
   
@@ -36,10 +36,10 @@ void loop() {
   moveAct2 = true;
   while(moveAct1 == true || moveAct2 == true) {
 	if(moveAct1 == true) {
-	  moveAct1 = myActuator1.sendToPosWithSpeed(100,255);	
+	  moveAct1 = myActuator1.sendToPos(100);	
 	}
     if(moveAct2 == true) {
-	  moveAct2 = myActuator2.sendToPosWithSpeed(100,55);	
+	  moveAct2 = myActuator2.sendToPos(100);	
 	}
   }
 }

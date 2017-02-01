@@ -12,7 +12,7 @@
 class LinearActuator {
   public:
     LinearActuator(int input1, int input2, int inputPot);
-    void setPoswithSpd(int finalPos, int finalSpeed);
+    void setPos(int position);
 	bool move();
     
   private:
@@ -20,11 +20,9 @@ class LinearActuator {
     int In2;
     int potPin;
 	
-	//Use for the sendToPosWithSpeed function
+	//Use for the sendToPos function
 	bool moving;
-	int _finalPos;
-	int _middlePos;
-	double _A;
+	int finalPos;
 	
     int getCurrentPosition();
 };

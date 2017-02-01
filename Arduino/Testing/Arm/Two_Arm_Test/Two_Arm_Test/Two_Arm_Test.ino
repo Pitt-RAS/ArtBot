@@ -63,14 +63,14 @@ void loop() {
   moveRightPaw = true;
   rightPawPos = 0;
   
-  //Send the actuator to a position (0-100%) with desired top speed (0-255)
+  //Send the actuator to a position (10-100%)
   while(moveLeftShoulder == true || moveLeftElbow == true || moveLeftPaw == true || moveRightShoulder == true || moveRightElbow == true || moveRightPaw == true) {
     //Left arm movement
     if(moveLeftShoulder == true) {
-      moveLeftShoulder = leftShoulder.sendToPosWithSpeed(0,255); 
+      moveLeftShoulder = leftShoulder.sendToPos(10); 
     }
     if(moveLeftElbow == true) {
-      moveLeftElbow = leftElbow.sendToPosWithSpeed(0,100);  
+      moveLeftElbow = leftElbow.sendToPos(10);  
     }
     if(moveLeftPaw == true) {
       // check time since last servo position update 
@@ -87,10 +87,10 @@ void loop() {
 
     //Right arm movement
     if(moveRightShoulder == true) {
-      moveRightShoulder = rightShoulder.sendToPosWithSpeed(0,255); 
+      moveRightShoulder = rightShoulder.sendToPos(10); 
     }
     if(moveRightElbow == true) {
-      moveRightElbow = rightElbow.sendToPosWithSpeed(0,100);  
+      moveRightElbow = rightElbow.sendToPos(10);  
     }
     if(moveRightPaw == true) {
       // check time since last servo position update 
@@ -119,10 +119,10 @@ void loop() {
   while(moveLeftShoulder == true || moveLeftElbow == true || moveLeftPaw == true) {
     //Left arm movements
     if(moveLeftShoulder == true) {
-      moveLeftShoulder = leftShoulder.sendToPosWithSpeed(100,255); 
+      moveLeftShoulder = leftShoulder.sendToPos(100); 
     }
     if(moveLeftElbow == true) {
-      moveLeftElbow = leftElbow.sendToPosWithSpeed(100,100);  
+      moveLeftElbow = leftElbow.sendToPos(100);  
     }
     if(moveLeftPaw == true) {
       // check time since last servo position update 
@@ -139,10 +139,10 @@ void loop() {
 
     //Right arm movement
     if(moveRightShoulder == true) {
-      moveRightShoulder = rightShoulder.sendToPosWithSpeed(100,255); 
+      moveRightShoulder = rightShoulder.sendToPos(100); 
     }
     if(moveRightElbow == true) {
-      moveRightElbow = rightElbow.sendToPosWithSpeed(100,100);  
+      moveRightElbow = rightElbow.sendToPos(100);  
     }
     if(moveRightPaw == true) {
       // check time since last servo position update 

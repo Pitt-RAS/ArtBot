@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  //Send the actuator to a position (0-100%) with desired top speed (0-255)
-  myActuator.sendToPosWithSpeed(0,255);
-  myActuator.sendToPosWithSpeed(100,255);
+  //Send the actuator to a position (10-100%) with desired top speed (0-255)
+  while(myActuator.sendToPos(10)) {}
+  while(myActuator.sendToPos(100)) {}
 }
