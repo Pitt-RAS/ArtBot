@@ -15,6 +15,8 @@ def send_static(filename):
 		t = thread.start_new_thread ( panther_video, ())
 	elif(filename == "Panther_Kiosk_Main.html"):
 		t2 = thread.start_new_thread(kill_video, ())
-	return static_file(filename, root='../')	
+	response = static_file(filename, root='../')	
+	response.set_header("Cache-Control", "public, max-age=0")
+	return response
 	
 run(host='localhost', port=8081, debug=True)
