@@ -5,16 +5,15 @@
   Date: November 2016
 */
 
-#include "Arduino.h"
-#include "Servo.h"
 #include "ServoDriver.h"
 
-ServoDriver::ServoDriver(int pinLoc)
+ServoDriver::ServoDriver(){}
+
+void ServoDriver::init(int pinLoc)
 {
   servo.attach(pinLoc);
   finalPos = 0;
   moving = false;
-  servo.write(0);
 }
 
 /*  @Author: Woodrow Fulmer
@@ -35,7 +34,7 @@ void ServoDriver::setToPosWithSpeed(int pos, int spd)
  *  @Date: November 2016
  *  
  *  This function causes the Servo to move to the determined angle at the given speed
- * @Return: bool isMoving - this method returns if the Servo is still in motion
+ * @Return: bool moving - this method returns if the Servo is still in motion
  */
 bool ServoDriver::move() 
 {

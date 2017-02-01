@@ -1,3 +1,0 @@
-ServoDriver KEYWORD1
-setToPosWithSpeed KEYWORD2
-move KEYWORD2

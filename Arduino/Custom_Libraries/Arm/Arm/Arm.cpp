@@ -9,12 +9,16 @@
 #include "Arm.h"
 #include "LinearActuator.h"
 
-LinearActuator::LinearActuator(int input1, int input2, int inputPot){
 Arm::Arm(int input1_S, int input2_S, int inputPot_S, int input1_E, int input2_E, int inputPot_E){
   elbow = new LinearActuator(input1_E, input2_E, inputPot_E);
   shoulder = new LinearActuator(input1_S, input2_S, inputPot_S);
-  
+  wrist = new ServoDriver();
   moving = false;
+}
+
+void servo(int pinLoc)
+{
+	wrist.init(pinLoc);
 }
 
 /*  @Author: Woodrow Fulmer
@@ -31,16 +35,20 @@ void setMoveType(int command)
 {
 	switch(command)
 	{
+		case 0:
+			shoulder.setPos(0);
+			elbow.setPos(0);
+			break;
 		case 1:
-			shoulder.sendToPosWithSpeed(100, 90);
-			elbow.sendToPosWithSpeed(0, 90);
+			shoulder.setPos(100);
+			elbow.setPos(0);
 			break;
 		case 2:
-			shoulder.sendToPosWithSpeed(0, 90);
-			elbow.sendToPosWithSpeed(100,90);
+			shoulder.setPos(0);
+			elbow.setPos(100);
 		case 3:
-			shoulder.sendToPosWithSpeed(50,70);
-			elbow.sendToPosWithSpeed(50,70);
+			shoulder.setPos(100);
+			elbow.setPos(100);
 		default:
 			break;
 	}
