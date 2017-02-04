@@ -147,7 +147,7 @@ body {
             {
             	pass = false;
             	
-            	alert("The Room Number You Entered Does Not Exist");
+            	alert("Not a Valid Room Number!");
             	tbInput.value = ""
             }
             else if (input[0]=='G' || input[0]=='S' || input[0]=='B') //bottom 3 floors
@@ -162,6 +162,13 @@ body {
             }
            else if (x==4 && !(isNaN(input[3]))) //4 digit room number 
             {
+				if (input[0] != '1' || input[1] != '0' && input[1] != '1' && input[1] != '2')
+				{
+					pass = false;
+					alert("Not a Valid Room Number!");
+					tbInput.value = ""
+				}
+            
 				input[2] = '0';
 				input[3] = '0';
 				output= input.join("");
@@ -179,7 +186,14 @@ body {
             {
             	var sub = tbInput.value.substr(0, tbInput.value.length - 1);
             	var subArray = sub.split('');
-
+				
+				if (subArray[0] != '1' || subArray[1] != '0' && subArray[1] != '1' && subArray[1] != '2')
+				{
+					pass = false;
+					alert("Not a Valid Room Number!");
+					tbInput.value = ""
+				}
+				
 				subArray[2] = '0';
 				subArray[3] = '0';
 				output= subArray.join("");
@@ -187,7 +201,7 @@ body {
             else  //not valid room number 
             {
             	pass = false;
-            	alert("The Room Number You Entered Does Not Exist");
+            	alert("Not a Valid Room Number!");
             	tbInput.value = ""
             }
             
