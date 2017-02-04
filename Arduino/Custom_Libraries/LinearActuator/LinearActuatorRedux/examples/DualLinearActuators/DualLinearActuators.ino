@@ -22,8 +22,8 @@ void setup() {
 }
 
 void loop() {
-  moveAct1 = myActuator.move();
-  moveAct2 = myActuator.move();
+  moveAct1 = myActuator1.move();
+  moveAct2 = myActuator2.move();
   
 	if(!moveAct1 && !moveAct2 && retract) {
 	  myActuator1.setPos(0);

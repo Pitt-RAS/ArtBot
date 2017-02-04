@@ -1,11 +1,10 @@
 #include <Arm.h>
 
-Arm myArm( 6, 5, A0, 11, 10, A1);
+Arm myArm(9, 10, A2, 2, 3, A3);
 
-bool moveArm;
+bool retract;
 
 void setup() {
-  moveArm = false;
   retract = true;
   myArm.servo(44);
 }

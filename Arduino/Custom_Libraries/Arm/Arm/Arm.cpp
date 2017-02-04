@@ -4,19 +4,17 @@
   Author: Woodrow Fulmer
   Date: November 2016
 */
-
-#include "Arduino.h"
 #include "Arm.h"
-#include "LinearActuator.h"
 
-Arm::Arm(int input1_S, int input2_S, int inputPot_S, int input1_E, int input2_E, int inputPot_E){
-  elbow = new LinearActuator(input1_E, input2_E, inputPot_E);
-  shoulder = new LinearActuator(input1_S, input2_S, inputPot_S);
-  wrist = new ServoDriver();
+Arm::Arm(int input1_S, int input2_S, int inputPot_S, int input1_E, int input2_E, int inputPot_E):
+  elbow(input1_E, input2_E, inputPot_E),
+  shoulder(input1_S, input2_S, inputPot_S),
+  wrist()
+{
   moving = false;
 }
 
-void servo(int pinLoc)
+void Arm::servo(int pinLoc)
 {
 	wrist.init(pinLoc);
 }
@@ -31,7 +29,7 @@ void servo(int pinLoc)
  *	case 2: retract the shoulder and extend the elbow to max distance at 90%
  *	case 3: send the shoulder and elbow both to half distance at 70%
  */
-void setMoveType(int command)
+void Arm::setMoveType(int command)
 {
 	switch(command)
 	{
@@ -60,9 +58,9 @@ void setMoveType(int command)
  *  
  */
 bool Arm::move() {
-	isMoving = shoulder.move();
-	isMoving = elbow.move() || isMoving;
-	isMoving = wrist.move();
-	return isMoving;  
+	moving = shoulder.move();
+	moving = elbow.move() || moving;
+	moving = wrist.move() || moving;
+	return moving;  
 }
 
