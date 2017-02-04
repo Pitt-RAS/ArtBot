@@ -24,7 +24,7 @@
   <br>
   <ul class="c-menu__items">
     <li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Main.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Main Menu</font></button></a></li>
-    <li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Room_Lookup.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Room Lookup</font></button></a></li>
+    <li class="c-menu__item" style="font-size:350%;"><a href="keypad.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Room Search</font></button></a></li>
 	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Extras_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Extras Menu</font></button></a></li>
 	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Panther_Vision_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Panther Vision</font></button></a></li>
 	<li class="c-menu__item" style="font-size:350%;"><a href="Panther_Kiosk_Panther_Controls_Menu.html" class="c-menu__link"><button style="background: #FFF no-repeat center; height:150px; width: 200px; border-radius: 25px;"> <font size="8" face="serif">Panther Controls</font></button></a></li>	
@@ -105,22 +105,21 @@ body {
             // As e is the button, its value is the text on it.
             // Add the value to the TextBox.
             
-            if (e.value == "Ground")
+            var valueTest = false;
+            
+            if (e.value == "A" || e.value == "B" || e.value == "C" || e.value == "D" || e.value == "E" || e.value == "F" || e.value == "H" || e.value == "I" || e.value == "J" || e.value == "K")
             {
-				tbInput.value = 'G'+ tbInput.value;
+            	valueTest = true;
             }
-            else if (e.value == "Sub-Basement")
+                                    
+            if (tbInput.value == "" && valueTest)
             {
-				tbInput.value = 'SB'+ tbInput.value;
+            	alert("No Room Numbers Start with " + e.value + "!");
             }
-             else if (e.value == "Basement")
+            else 
             {
-				tbInput.value = 'B'+ tbInput.value;
+            	tbInput.value = tbInput.value + e.value;
             }
-            else
-            {
-				tbInput.value = tbInput.value + e.value;
-			}            
         }
 
         function del() {
@@ -130,54 +129,133 @@ body {
             // Remove the last char in the TextBox.
             tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);
         }
-        function enter() {
+        function enter() 
+        {
             // Get the TextBox object.
+            
             var tbInput = document.getElementById("tbInput");
-
-            /*if (tbInput.value=="1235")
+            
+            var input = tbInput.value.split('');
+            
+            var x = input.length;
+            
+            var pass = true;
+            
+            var output;
+            
+            if (x<3)
             {
-            	window.location.href = "Room_Lookup/1235.html";
-            }*/
-            localStorage.setItem("key", tbInput.value);
-            window.location.href = "Room_Lookup/1200.html";
+            	pass = false;
+            	
+            	alert("The Room Number You Entered Does Not Exist");
+            	tbInput.value = ""
+            }
+            else if (input[0]=='G' || input[0]=='S' || input[0]=='B') //bottom 3 floors
+            {
+				output= input[0];
+            }
+            else if (x==3) //just 3 digit number
+            {
+				input[1] = '0';
+				input[2] = '0';
+				output= input.join("");
+            }
+           else if (x==4 && !(isNaN(input[3]))) //4 digit room number 
+            {
+				input[2] = '0';
+				input[3] = '0';
+				output= input.join("");
+            }
+            else if (x==4 && isNaN(parseInt(input[3]))) //3 digit room number with letter at end
+            {
+            	var sub = tbInput.value.substr(0, tbInput.value.length - 1);
+            	var subArray = sub.split('');
+            	
+            	subArray[1] = '0';
+				subArray[2] = '0';
+				output= subArray.join("");
+            }
+            else if (x==5) //4 digit room number with letter at end
+            {
+            	var sub = tbInput.value.substr(0, tbInput.value.length - 1);
+            	var subArray = sub.split('');
+
+				subArray[2] = '0';
+				subArray[3] = '0';
+				output= subArray.join("");
+            }
+            else  //not valid room number 
+            {
+            	pass = false;
+            	alert("The Room Number You Entered Does Not Exist");
+            	tbInput.value = ""
+            }
+            
+            if (pass)
+            {
+				localStorage.setItem("key", tbInput.value); //stores value into persistent storage
+				window.location.href = "Room_Lookup/" + output+ ".html"; //changes webpage
+			}
+
         }
     </script>
 </head>
 <body onload="load();">
     <form id="form1" runat="server">
     <div>
-        <input id="tbInput" type="text" style="background: #FFF no-repeat center; height:12%; width: 38%; position: absolute; left: 58.5%; top: 15%; border-radius: 25px; font-size: 350%" />
+        <input id="tbInput" value = "" type="text" style="background: #FFF no-repeat center; height:12%; width: 36%; position: absolute; left: 50.5%; top: 15%; border-radius: 25px; font-size: 375%" />
         <p />
         
         <div id="VirtualKey">
-			<input id="Picture" type="button" value="" style=" background: url(images/benedum.jpg) no-repeat; background-size: 100%; border: hidden; height:56%; width: 44%; border-radius: 15px; position: absolute; top: 20%; left: 4%;">
+			<input id="Picture" type="button" value="" style=" background: url(images/benedum.jpg) no-repeat; background-size: 100%; border: hidden; height:56%; width: 44%; border-radius: 15px; position: absolute; top: 20%; left: 3%;">
 			
-			<input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 35%; position: absolute; top: 4%; left: 1%;">
-			<input id="Sign" type="button" value="Enter Your Room Number:" style="background: transparent no-repeat center; border: hidden; height:10%; width: 35%; position: absolute; top: 4%; left: 1%; font-size: 250%; color: white;font-weight: 900;">
+			<input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 40%; position: absolute; top: 4%; left: 1%;">
+			<input id="Sign" type="button" value="Enter Your Room Number:" style="background: transparent no-repeat center; border: hidden; height:10%; width: 40%; position: absolute; top: 4%; left: 1%; font-size: 300%; color: white;font-weight: 900;">
 			
+			<input id="btnA" type="button" value="A" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 30%; left: 76%; font-size: 300%; color: white">
+			<input id="btnB" type="button" value="B" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 30%; left: 84%; font-size: 300%; color: white">
+			<input id="btnC" type="button" value="C" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 30%; left: 92%; font-size: 300%; color: white">
 			
-			<input id="btnSB" type="button" value="Sub-Basement" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 14%; border-radius: 25px; position: absolute; top: 56%; left: 82.5%; font-size: 200%; color: white">
-			<input id="btnB" type="button" value="Basement" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 14%; border-radius: 25px; position: absolute; top: 43%; left: 82.5%; font-size: 290%; color: white">
-			<input id="btnG" type="button" value="Ground" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 14%; border-radius: 25px; position: absolute; top: 30%; left: 82.5%; font-size: 300%; color: white">
+			<input id="btnD" type="button" value="D" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 43%; left: 76%; font-size: 300%; color: white">
+			<input id="btnE" type="button" value="E" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 43%; left: 84%; font-size: 300%; color: white">
+			<input id="btnF" type="button" value="F" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 43%; left: 92%; font-size: 300%; color: white">
 			
-            <input id="btn1" type="button" value="1" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position: absolute; top: 30%; left: 58.5%; font-size: 300%; color: white">
-            <input id="btn2" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 30%;left: 66.5%; font-size: 300%; color: white"/>
-            <input id="btn3" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 30%;left: 74.5%; font-size: 300%; color: white"/>
+			<input id="btnG" type="button" value="G" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 56%; left: 76%; font-size: 300%; color: white">
+			<input id="btnH" type="button" value="H" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 56%; left: 84%; font-size: 300%; color: white">
+			<input id="btnI" type="button" value="I" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 56%; left: 92%; font-size: 300%; color: white">
+			
+			<input id="btnJ" type="button" value="J" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 69%; left: 76%; font-size: 300%; color: white">
+			<input id="btnK" type="button" value="K" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 69%; left: 84%; font-size: 300%; color: white">
+			<input id="btnS" type="button" value="S" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25px; position: absolute; top: 69%; left: 92%; font-size: 300%; color: white">
+
+            <input id="btn1" type="button" value="1" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position: absolute; top: 30%; left: 50.5%; font-size: 300%; color: white">
+            <input id="btn2" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 30%;left: 58.5%; font-size: 300%; color: white"/>
+            <input id="btn3" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 30%;left: 66.5%; font-size: 300%; color: white"/>
             <br />
-            <input id="btn4" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%; left: 58.5%;font-size: 300%; color: white"/>
-            <input id="btn5" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%;left: 66.5%;font-size: 300%; color: white"/>
-            <input id="btn6" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%; left: 74.5%;font-size: 300%; color: white"/>
+            <input id="btn4" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%; left: 50.5%;font-size: 300%; color: white"/>
+            <input id="btn5" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%;left: 58.5%;font-size: 300%; color: white"/>
+            <input id="btn6" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 43%; left: 66.5%;font-size: 300%; color: white"/>
             <br />
-            <input id="btn7" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 58.5%;font-size: 300%; color: white"/>
-            <input id="btn8" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 66.5%;font-size: 300%; color: white"/>
-            <input id="btn9" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 74.5%;font-size: 300%; color: white"/>
+            <input id="btn7" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 50.5%;font-size: 300%; color: white"/>
+            <input id="btn8" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 58.5%;font-size: 300%; color: white"/>
+            <input id="btn9" type="button" onclick="input(this);" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 56%; left: 66.5%;font-size: 300%; color: white"/>
             <br />
-            <input id="btn0" type="button" onclick="input(this)" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 69%; left: 66.5%;font-size: 300%; color: white"/>
-            <input id="btnDel" type="button" value="Enter" onclick="enter();" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 69%; left: 74.5%;font-size: 150%; color: white"/>
-            <input id="btnEnt" type="button" value="Delete" onclick="del();" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 69%; left: 58.5%;font-size: 150%; color: white"/>
+            <input id="btn0" type="button" onclick="input(this)" style="background: #7D6927 no-repeat center; height:12%; width: 7%; border-radius: 25%; position:absolute; top: 69%; left: 58.5%;font-size: 300%; color: white"/>
+            
+            <input id="btnEnt" type="button" value=">" onclick="enter();" style="background: #7D6927 no-repeat center; height:9%; width: 5%; border-radius: 25%; position:absolute; right: 1%; top: 16.5%;font-size: 450%; color: white"/>
+            <input id="btnDel" type="button" value="Delete" onclick="del();" style="background: #7D6927 no-repeat center; height:9%; width: 5%; border-radius: 25%; position:absolute; top: 16.5%; right: 7.2%;font-size: 150%; color: white"/>
         </div>
-        
     </div>
     </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
