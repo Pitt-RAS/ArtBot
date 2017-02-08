@@ -146,18 +146,97 @@ body {
 
 function myFunction() 
 {
-	var i=1;
+		var i=0;
 	
 	var value = localStorage.getItem("key");
 	
-	//if(value=="1235")
-	//{
-		setInterval(function()
-		{			
-			document.getElementById('block'+i).style.visibility='visible';
-			i++
-		},300);
-	//}
+	var Room_1238C = [1, 2, 3, 4, 56, 57];
+	var Room_1238B = [1, 2, 3, 4, 5, 6, 58];
+	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 59, 60];
+	
+	var Room_1239 = [1, 2, 3, 4, 5, 6, 54, 55];
+	
+	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 61, 62];
+	var Room_1236 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 63, 64];	
+	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 65, 66];
+	
+	
+	if(value=="1235")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1235[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1236")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1236[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1237")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1237[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1238A")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1238A[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1238B")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1238B[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1238C")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1238C[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1239")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1239[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	
+	setTimeout(
+		function() 
+		{
+			window.location.href = "../keypad.html";
+		}, 34500);
 }
 
 </script>
