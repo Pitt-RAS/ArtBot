@@ -40,13 +40,13 @@ def panther_video():
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
 				#print('red: ' + str(area)+ ' w: ' + str(w)+ ' h: ' + str(h))
 		#size (width, height) (640, 480) = default
-		#resize_img = cv2.resize(img, (1290, 747))
+		resize_img = cv2.resize(img, (1500, 1080))	#Image size
 		cv2.startWindowThread()
 		window = cv2.namedWindow("window")
-		#cv2.resizeWindow("window", 1290, 747)
-		#cv2.moveWindow("window", 0, -25)
-		#cv2.imshow('window',resize_img)
-		cv2.imshow("window", img)
+		cv2.resizeWindow("window", 1500, 1080)		#Window size
+		cv2.moveWindow("window", -10, -25)		#x,y start position
+		cv2.imshow('window',resize_img)
+		#cv2.imshow("window", img)
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
 		if os.path.exists('./kill.txt'):
