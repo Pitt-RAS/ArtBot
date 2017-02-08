@@ -106,7 +106,7 @@ body {
             
             var valueTest = false;
             
-            if (e.value == "A" || e.value == "B" || e.value == "C" || e.value == "D" || e.value == "E" || e.value == "F" || e.value == "H" || e.value == "I" || e.value == "J" || e.value == "K" || e.value == "L")
+            if (e.value == "A" || e.value == "C" || e.value == "D" || e.value == "E" || e.value == "F" || e.value == "H" || e.value == "I" || e.value == "J" || e.value == "K" || e.value == "L")
             {
             	valueTest = true;
             }
@@ -151,7 +151,14 @@ body {
             }
             else if (input[0]=='G' || input[0]=='S' || input[0]=='B') //bottom 3 floors
             {
-				output= input[0];
+				if (input[0] == 'S')
+				{
+					output =  "SB";
+				}
+				else
+				{
+					output= input[0];
+				}
             }
             else if (x==3) //just 3 digit number
             {
