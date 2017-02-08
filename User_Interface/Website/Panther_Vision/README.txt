@@ -7,4 +7,4 @@ If the video is not showing, or the localhost shuts down...
 	DISPLAY=:0.0
 	export DISPLAY
 	xhost +localhost
-5) Kick off the bottly.py script as sudo
+5) Kick off the bottle.py script as sudo
