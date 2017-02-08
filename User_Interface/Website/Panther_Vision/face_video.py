@@ -5,6 +5,9 @@ import time
 # import matplotlib.pyplot
 
 def panther_video():
+	if os.path.exists('./kill.txt'):
+		os.remove("./kill.txt")
+
 	cap = cv2.VideoCapture(0)
 
 	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
