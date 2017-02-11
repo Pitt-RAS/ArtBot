@@ -10,21 +10,31 @@ body {
     -o-background-size: cover;      /* Opera*/
     background-size: cover;  
 }
-  div {
-    position: relative;
-    background-color: red;
-    width: 12px;
-    height: 25px;
-    float: left;
-    margin: 5px;
-    visibility: hidden;
+	div {
+	position: relative;
+	background-color: red;
+	width: 12px;
+	height: 25px;
+	float: left;
+	margin: 5px;
+	visibility: visible;
+	
+	/*visible
+	hidden*/
   }
-</style>
+  
+  input {
+    background-color: #fff;
+   	font-size: 200%;
+   	border-radius: 25px;
+    height: 150px;
+    width: 150px;
+} 
+  </style>
   
 <body onload="myFunction()">
 
-<!--Elevator hallway-->
-
+<!--Elevator-->
 <div id="block1" style="position:absolute; top:16.5%; right: 47.6%;"></div>
 <div id="block2" style="position:absolute; top:21.5%; right: 47.6%;"></div>
 
@@ -129,39 +139,168 @@ body {
 <div id="block83" style="position:absolute; top:55.0%; right: 10.5%;"></div>
 
 
-<script>
-//function FadeIn()
-//{
-//	var i=1;
-//	var op=0;	
-//				
-//		while (op<1){
-//		setInterval(function()
-//		{			
-//			document.getElementById('block'+i).style.opacity=op;
-//		},1000);
-//		op = op + 0.1;
-//		}	
-//}
 
+
+<td style="width:100%">
+
+
+<form action="../Panther_Kiosk_Main.html">
+	<input style="position:absolute; top:2.5%; right: 3%;" type="submit" value="Home">
+</form>
+
+<form action="eggs/easter_egg.html">
+	<input style="position: absolute; top:25%; right: 58.5%; background-color: #fff; height: 150px; width: 75px; border-radius: 0px; opacity: 0; border: hidden;" type="submit" value = ''>
+</form>
+
+<script>
 function myFunction() 
 {
-		var i=0;
+	var i=0;
 	
 	var value = localStorage.getItem("key");
 	
-	var Room_1238C = [1, 2, 3, 4, 56, 57];
-	var Room_1238B = [1, 2, 3, 4, 5, 6, 58];
-	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 59, 60];
+	var Room_1202 = [1, 2, 3, 52, 51, 50, 49, 53];
+	var Room_1203 = [1, 2, 3, 52, 51, 50, 49, 48, 54];
+	var Room_1204 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 55];
+	var Room_1205 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 56];
+	var Room_1206 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 57];
+	var Room_1207 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 58];
+	var Room_1208 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 59];
+	var Room_1209 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 60];
+	var Room_1211 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 61, 62, 46, 45, 44, 63, 64, 65];
+	var Room_1212 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 66, 67];
+	var Room_1213 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 68, 69,];
+
 	
-	var Room_1239 = [1, 2, 3, 4, 5, 6, 54, 55];
-	
-	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 61, 62];
-	var Room_1236 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 63, 64];	
-	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 65, 66];
 	
 	
-	if(value=="1235")
+	var Room_1239 = [1, 2, 3, 4, 5, 6, 108];
+	
+	var Room_1238C = [1, 2, 3, 4, 106, 107];
+	var Room_1238B = [1, 2, 3, 4, 5, 6, 105];
+	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 103, 104];
+	
+	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 102];
+	var Room_1236 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 101];	
+	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100];
+	
+	
+	
+	
+	if(value=="1202")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1202[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1203")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1203[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1204")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1204[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1205")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1205[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1206")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1206[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1207")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1207[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1208")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1208[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1209")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1209[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1211" || value=="1211A" || value=="1211B")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1211[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1212")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1212[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1213")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1213[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	
+	
+	
+	else if(value=="1235")
 	{
 		setInterval(
 			function()
@@ -232,13 +371,12 @@ function myFunction()
 			},300);
 	}
 	
-	setTimeout(
+	/*setTimeout(
 		function() 
 		{
 			window.location.href = "../keypad.html";
-		}, 34500);
+		}, 34500);*/
 }
-
 </script>
 
 </body>
