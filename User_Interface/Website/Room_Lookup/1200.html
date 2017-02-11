@@ -4,7 +4,7 @@
 <style>
 body {
    
-    background: url(floor12.jpg) no-repeat center center fixed;
+    background: url(Graphics/floor12.png) no-repeat center center fixed;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
@@ -17,7 +17,7 @@ body {
 	height: 25px;
 	float: left;
 	margin: 5px;
-	visibility: hidden;
+	visibility: visible;
 	
 	/*visible
 	hidden*/
@@ -128,11 +128,23 @@ body {
 
 <div id="block60"style="position:absolute; top:18%; right: 59%;height: 45px"></div>
 
-<!--room #1210-->
+<!--room #1211-->
 
-<div id="block61"style="position:absolute; top:18%; right: 44%;height: 45px"></div>
+<div id="block61"style="position:absolute; top:23.5%; right: 43.9%;"></div>
+<div id="block62"style="position:absolute; top:27%; right: 43.9%;"></div>
+<div id="block63"style="position:absolute; top:21%; right: 53.6%; width: 20px; height: 12px"></div>
+<div id="block64"style="position:absolute; top:23.5%; right: 54%;"></div>
+<div id="block65"style="position:absolute; top:27%; right: 54%;"></div>
 
+<!--room #1212-->
 
+<div id="block66"style="position:absolute; top:21%; right: 61.3%; height: 12px;"></div>
+<div id="block67"style="position:absolute; top:22%; right: 61.3%; height: 45px"></div>
+
+<!--room #1213-->
+
+<div id="block68"style="position:absolute; top:21%; right: 62.55%; height: 12px; width: 17px;"></div>
+<div id="block69"style="position:absolute; top:22%; right: 62.8%; height: 45px"></div>
 
 
 
@@ -150,14 +162,14 @@ body {
 
 <!--room # 1238A-->
 <div id="block103"style="position:absolute; top:44.6%; right: 28.7%; width: 12px; height: 12px;"></div>
-<div id="block107"style="position:absolute; top:44.6%; right: 26.7%; width: 25px; height: 12px;"></div>
+<div id="block104"style="position:absolute; top:44.6%; right: 26.7%; width: 25px; height: 12px;"></div>
 
 <!--room # 1238B-->
-<div id="block104"style="position:absolute; top:36.9%; right: 27%; width: 45px; height: 12px;"></div>
+<div id="block105"style="position:absolute; top:36.9%; right: 27%; width: 45px; height: 12px;"></div>
 
 <!--room # 1238C-->
-<div id="block105"style="position:absolute; top:29.6%; right: 28.7%; width: 12px; height: 12px;"></div>
-<div id="block106"style="position:absolute; top:29.6%; right: 26.7%; width: 25px; height: 12px;"></div>
+<div id="block106"style="position:absolute; top:29.6%; right: 28.7%; width: 12px; height: 12px;"></div>
+<div id="block107"style="position:absolute; top:29.6%; right: 26.7%; width: 25px; height: 12px;"></div>
 
 <!--room # 1239-->
 <div id="block108"style="position:absolute; top:36.9%; right: 28.7%; width: 40px; height: 12px;"></div>
@@ -169,8 +181,15 @@ body {
 
 
 <td style="width:100%">
+
+
 <form action="../Panther_Kiosk_Main.html">
-<input style="position:absolute; top:2.5%; right: 3%;" type="submit" value="Home">
+	<input style="position:absolute; top:2.5%; right: 3%;" type="submit" value="Home">
+</form>
+
+<form action="eggs/easter_egg.html">
+	<input style="position: absolute; top:25%; right: 58.5%; background-color: #fff; height: 150px; width: 75px; border-radius: 0px; opacity: 0; border: hidden;" type="submit" value = ''>
+</form>
 
 <script>
 function myFunction() 
@@ -185,23 +204,24 @@ function myFunction()
 	var Room_1205 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 56];
 	var Room_1206 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 57];
 	var Room_1207 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 58];
-	var Room_1208 = [1, 2, 3, 52, 51, 50, 49, 48, 47,  46, 45, 44, 43, 59];
-	var Room_1209 = [1, 2, 3, 52, 51, 50, 49, 48, 47,  46, 45, 44, 43, 42, 60];
+	var Room_1208 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 59];
+	var Room_1209 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 60];
+	var Room_1211 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 61, 62, 46, 45, 44, 63, 64, 65];
+	var Room_1212 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 66, 67];
+	var Room_1213 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 68, 69,];
+
 	
 	
-	
-	
-	
-	
-	var Room_1238C = [1, 2, 3, 4, 105, 106];
-	var Room_1238B = [1, 2, 3, 4, 5, 6, 104];
-	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 103, 107];
 	
 	var Room_1239 = [1, 2, 3, 4, 5, 6, 108];
 	
-	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 100];
+	var Room_1238C = [1, 2, 3, 4, 106, 107];
+	var Room_1238B = [1, 2, 3, 4, 5, 6, 105];
+	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 103, 104];
+	
+	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 102];
 	var Room_1236 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 101];	
-	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 102];
+	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100];
 	
 	
 	
@@ -286,10 +306,36 @@ function myFunction()
 			
 			},300);
 	}
-	
-	
-	
-	
+	else if(value=="1211" || value=="1211A" || value=="1211B")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1211[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1212")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1212[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
+	else if(value=="1213")
+	{
+		setInterval(
+			function()
+			{
+				document.getElementById('block'+Room_1213[i]).style.visibility='visible';
+				i++
+			
+			},300);
+	}
 	
 	
 	
