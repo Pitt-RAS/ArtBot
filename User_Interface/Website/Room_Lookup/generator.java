@@ -80,9 +80,6 @@ public class generator
 		
 		for (int i = start_block; i<= (start_block +num_blocks); i++)
 		{
-			right = increment_right + right;
-			top = increment_top + top;
-			
 			System.out.print("<div id="); 
 			System.out.print('"');
 			System.out.print("block"+ i + '"' + "style=" + '"' + "position:absolute; top: ");
@@ -91,6 +88,10 @@ public class generator
 			System.out.printf("%.2f",right);
 			System.out.print("%;  width: " + block_width + "px; height: " + block_height + "px;" +'"' + "></div>");
 			System.out.println();
+			
+			right = increment_right + right;
+			top = increment_top + top;
+			
 		}
 		
 		
