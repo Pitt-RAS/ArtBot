@@ -27,9 +27,10 @@ LinearActuator::LinearActuator(int input1, int input2, int inputPot){
  *          int speed - a percentage of 100 of the max speed of the movement of the actuator
  *	This function starts the movement of the actuator, setting all the variables needed for motion.
  */
-void LinearActuator::setPos(int position) {
-	int finalPos = position;
+int LinearActuator::setPos(int position) {
+	finalPos = position;
 	moving = true;
+	return finalPos;
 }
 
 /*  @Author: Jon Kenneson
@@ -83,3 +84,6 @@ int LinearActuator::getCurrentPosition() {
   return sensorValue;
 }
 
+int LinearActuator::getFinalPos() {return finalPos;}
+bool LinearActuator::getMoving() {return moving;}
+int LinearActuator::getPos() {return getCurrentPosition();}
