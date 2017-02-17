@@ -78,7 +78,7 @@ public class generator
 		String printout;
 		
 		
-		for (int i = start_block; i<= (start_block +num_blocks); i++)
+		for (int i = start_block; i < (start_block +num_blocks); i++)
 		{
 			System.out.print("<div id="); 
 			System.out.print('"');
