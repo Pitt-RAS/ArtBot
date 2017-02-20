@@ -9,6 +9,7 @@ import java.awt.geom.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+import java.lang.Math;
 
 public class MSquare extends Mosaic
 {
@@ -38,8 +39,8 @@ public class MSquare extends Mosaic
 		int i = x + 100;
 		
 		
-		double top = (928-Y)/928*100;
-		double right = (1650-X)/1650*100;
+		double top = 98.3-(928-Y)/928*100;
+		double right = (1650-X)/1650*100-1;
 		
 		
 		StringBuilder b = new StringBuilder();
@@ -47,9 +48,9 @@ public class MSquare extends Mosaic
 		b.append("<div id="); 
 		b.append('"');
 		b.append("block"+ i + '"' + "style=" + '"' + "position:absolute; top: ");
-		b.append(String.format("%.2f",top));
+		b.append(String.format("%.1f",top));
 		b.append("%; right: ");
-		b.append(String.format("%.2f",right));
+		b.append(String.format("%.1f",right));
 		b.append("%;  width: " + Width + "px; height: " + Height + "px;" +'"' + "></div>");
 		
 		return b.toString();	
