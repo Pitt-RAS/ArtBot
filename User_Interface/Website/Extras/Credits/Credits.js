@@ -1,11 +1,111 @@
+//Name animation
 $(document).ready(function()
 {
-    $(".Name").mousedown(function()
+    $("#JeremyDeppen").mousedown(function()
     {
-        $(".Name").fadeTo("Slow", 0)
+        $("#JeremyDeppen").fadeTo("slow", 0)
     });
-});
+    $("#AndrewSaba").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#KevinMadison").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#ZachYoder").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#AlexFurches").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#AmyJohnson").mousedown(function()
+    {
+        $(this).animate({fontSize: "40px"}, function()
+        {
+           $(this).fadeTo("fast", 0)   
+        });
+    });
+    $("#IzaLantgios").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JamesBraza").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JessSocash").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JoeLynch").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JohnMontagna").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JonKenneson").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#MichelleRiffitts").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#TylerDantonio").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#WoodyFulmer").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#ZachEgolf").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#EthanSchumann").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JoshTarlo").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#DanPassarello").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#VanessaColihan").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#ZachEasparro").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#BrianRandall").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#MariaLongo").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#JoshSenft").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
+    $("#AndreaDavis").mousedown(function()
+    {
+        $(this).fadeTo("slow", 0)
+    });
 
+});
 //JavaScript to create the animated background
 function dream()
 {
@@ -45,11 +145,11 @@ function dream()
                             
     //Every dream's end starts a new dream
     window.setTimeout('dream()',200);
-    }
+    } 
 
-function dream2(){
-    //calculating random color of dream
-    //var color = 'rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+')';
+function dream2()
+{
+    
     var color = 'rgb(249, 243, 22)';  //yellow bubble
     var color2 = 'rgb(0, 0, 150)';    //blue bubble
 

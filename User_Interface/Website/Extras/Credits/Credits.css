@@ -6,7 +6,8 @@ body
 }
 
 .drawingpix 
-{ 
+{
+    z-index: -1;
     position:absolute; 
     top:-50px; 
     left:-50px;
@@ -14,54 +15,446 @@ body
 
 
 /* Name Divs */
-#container
+
+
+.modalDialog
+{
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog > div
 {
     width: 400px;
+    position:relative; 
+    margin: 10% auto;
+    padding 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close
+{
+    background: #606061;
+    color #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover
+{ 
+    background: #00d9ff;
+}
+
+#container
+{
+    width: 1300px;
     margin: auto;
+    x-in
 }
 
 #JeremyDeppen
 {
-    height: 60px;
-    width: 100px; 
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
     color: black;
     font-family: Verdana, Arial, sans-serif;
     font-weight: bolder;
     float: left;
-    text-align: center; 
+    text-align: center;
+    font-size: 25px;
 }
 
 #KevinMadison
 {
-    height: 60px;
-    width: 100px; 
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
     color: black;
     font-family: Verdana, Arial, sans-serif;
     font-weight: bolder;
     float: left;
     text-align: center;
+    font-size: 25px;
 }
 
 #AndrewSaba
 {
-   height: 60px;
-    width: 100px; 
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
     color: black;
     font-family: Verdana, Arial, sans-serif;
     font-weight: bolder;
     float: left;
     text-align: center; 
+    font-size: 25px;
 }
 
 #ZachYoder
 {
-    height: 60px;
-    width: 100px; 
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
     color: black;
     font-family: Verdana, Arial, sans-serif;
     font-weight: bolder;
     float: left;
     text-align: center;
+    font-size: 25px;
 }
 
+#AlexFurches
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#AmyJohnson
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#IzaLantgios
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JamesBraza
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JessSocash
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JoeLynch
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JohnMontagna
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JonKenneson
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#MichelleRiffitts
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#TylerDantonio
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#WoodyFulmer
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#ZachEgolf
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#EthanSchumann
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JoshTarlo
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#DanPassarello
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#ZachEasparro
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#BrianRandall
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#MariaLongo
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#JoshSenft
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#VanessaColihan
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+#AndreaDavis
+{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    z-index: 4;
+    height: 70px;
+    width: 180px; 
+    color: black;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
 
