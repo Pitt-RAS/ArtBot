@@ -36,17 +36,21 @@ void Arm::setMoveType(int command)
 		case 0:
 			shoulder.setPos(0);
 			elbow.setPos(0);
+			wrist.setToPosWithSpeed(0,9);
 			break;
 		case 1:
 			shoulder.setPos(100);
 			elbow.setPos(0);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 2:
 			shoulder.setPos(0);
 			elbow.setPos(100);
+			wrist.setToPosWithSpeed(120,9);
 		case 3:
 			shoulder.setPos(100);
 			elbow.setPos(100);
+			wrist.setToPosWithSpeed(180,9);
 		default:
 			break;
 	}

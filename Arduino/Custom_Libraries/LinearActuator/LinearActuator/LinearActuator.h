@@ -12,8 +12,11 @@
 class LinearActuator {
   public:
     LinearActuator(int input1, int input2, int inputPot);
-    void setPos(int position);
+    int setPos(int position);
 	bool move();
+	int getFinalPos();
+	bool getMoving();
+	int getPos();
     
   private:
     int In1;
