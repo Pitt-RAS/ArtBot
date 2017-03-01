@@ -57,7 +57,7 @@ def panther_video():
 	
 def kill_video():
 	print("In kill video")
-	file = open('kill.txt', 'w+')
+	file = open('./kill.txt', 'w+')
 	return 1
 
 #def reload_page():
