@@ -57,7 +57,7 @@ public class Blocker
 		theWindow = new JFrame(software);
 		theWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-		thePanel = new DrawPanel(1650, 928);
+		thePanel = new DrawPanel(1650, 928); //make same resolution as your photo of floor
 
 		newColor = Color.RED;
 
@@ -113,7 +113,7 @@ public class Blocker
 		setShape.add(Square);
 		setShape.add(Circle);
 
-		String arg = "floor1.png";      
+		String arg = "floor1.png"; //change for each floor image 
 		
 		ImageIcon icon = new ImageIcon(arg); 
 		JLabel picLabel = new JLabel(); 
