@@ -39,8 +39,8 @@ public class MSquare extends Mosaic
 		int i = x + 100;
 		
 		
-		double top = 98.3-(928-Y)/928*100;
-		double right = (1650-X)/1650*100-1;
+		double top = 98.3-(619-Y)/619*100;
+		double right = (1100-X)/1100*100-1;
 		
 		
 		StringBuilder b = new StringBuilder();
