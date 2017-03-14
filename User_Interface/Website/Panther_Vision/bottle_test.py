@@ -7,7 +7,7 @@ import subprocess
 import serial
 import time
 
-arduino = serial.Serial("/dev/ttyACM0", 9600)
+arduino = serial.Serial("COM3", 9600)
 
 time.sleep(1) #wait for board to reset
 print "Sending serial data"
@@ -43,7 +43,7 @@ def send_static(filename):
 	
 	
 	if (filename == "Panther_Kiosk_Panther_Vision_Menu.html"):
-		t = thread.start_new_thread ( panther_video, ())
+		t = thread.start_new_thread ( panther_video, (arduino,))
 	elif(filename == "Panther_Kiosk_Main.html"):
 		t2 = thread.start_new_thread(kill_video, ())
 	response = static_file(filename, root='../')	
