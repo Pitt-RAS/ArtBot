@@ -12,7 +12,7 @@ def panther_video(arduino):
 		os.remove("./kill.txt")
 
 	cap = cv2.VideoCapture(0)
-
+	
 	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 	#smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
 	#eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
@@ -25,7 +25,11 @@ def panther_video(arduino):
 
 		maxArea = 0
 		area = 0
-
+		
+		#Check if any debugging data sent from arduino
+		while arduino.inWaiting():
+			print("Data available: " + arduino.readline())
+		
 		#calculate areas
 		for (x,y,w,h) in faces:
 			area = w*h
@@ -43,7 +47,7 @@ def panther_video(arduino):
 				
 				#Pack x + y coordinates into 1 string
 				values = (cx,cy)
-				string = ''
+				string = '~' #str(0xFF)
 				count = 0
 				for i in values:
 					string += struct.pack('!h',i)
@@ -51,7 +55,7 @@ def panther_video(arduino):
 				
 				arduino.write(string)
 				#print('green: ' + str(area)+ ' w: ' + str(x)+ ' h: ' + str(h))
-				print ('x = ' + str(cx)+ ' y = ' + str(cy) + ' count: ' + str(count) + '  ' + string)
+				print ('cx = ' + str(cx)+ ' cy = ' + str(cy))
 			else:
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
 				#print('red: ' + str(area)+ ' w: ' + str(w)+ ' h: ' + str(h))
