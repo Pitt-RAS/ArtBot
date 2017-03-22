@@ -5,8 +5,11 @@ import time
 import struct
 # import matplotlib.pyplot
 
-WINDOW_X = 800#1500
-WINDOW_Y = 800#1080
+WINDOW_X = 1300
+WINDOW_Y = 800
+
+FULL_WINDOW_X = 720
+FULL_WINDOW_Y = 405
 def panther_video(arduino):
 	if os.path.exists('./kill.txt'):
 		os.remove("./kill.txt")
@@ -41,21 +44,21 @@ def panther_video(arduino):
 			area = w*h
 			if area == maxArea:
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
-				cx = x+w/2 # x coordinate of rectangle center
-				cy = y+h/2 # y coordinate of rectangle center
+				rx = x+w/2
+				ry = y+w/2
+				cx = rx-FULL_WINDOW_X/2 # x coordinate of rectangle center
+				cy = ry-FULL_WINDOW_Y/2 # y coordinate of rectangle center
 				#Convert x+y coordinates of center point to be a % away from the center of the window
 				
 				#Pack x + y coordinates into 1 string
 				values = (cx,cy)
 				string = '~' #str(0xFF)
-				count = 0
 				for i in values:
 					string += struct.pack('!h',i)
-					count+=1
 				
 				arduino.write(string)
 				#print('green: ' + str(area)+ ' w: ' + str(x)+ ' h: ' + str(h))
-				print ('cx = ' + str(cx)+ ' cy = ' + str(cy))
+				print ('rx = ' + str(rx)+ ' cx = ' + str(cx) + ' ry = ' + str(ry)+ ' cy = ' + str(cy))
 			else:
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
 				#print('red: ' + str(area)+ ' w: ' + str(w)+ ' h: ' + str(h))

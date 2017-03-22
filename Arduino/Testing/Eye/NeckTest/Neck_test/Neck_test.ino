@@ -25,8 +25,8 @@ unsigned char cx2;
 unsigned char cy1;
 unsigned char cy2;
 
-int currentPosition = 0;    // variable to store the servo position
 int center = 90;
+int currentPosition = center;    // variable to store the servo position
 int X_facePosition = 0;
 int Y_facePosition = 0;
 
@@ -43,8 +43,8 @@ void loop()
   if (Serial.available() > 0)
   {
     newSerialData = (unsigned char)Serial.read();
-    Serial.print("Serial available: ");
-    Serial.println(newSerialData, HEX);
+//    Serial.print("Serial available: ");
+//    Serial.println(newSerialData, HEX);
     if (cy1Received == true) {
       cy2 = newSerialData;
       
@@ -79,7 +79,7 @@ void loop()
         cy1Received = false;
         cy2Received = false;
         
-        Serial.println("tilda");
+ //       Serial.println("tilda");
     }
   }
 
@@ -91,12 +91,24 @@ void loop()
     int cx = cxString.toInt();
     int cy = cyString.toInt();
 
-    Serial.print("cx: ");
+/*    Serial.print("cx: ");
     Serial.print(cx);
     Serial.print(" cy: ");
     Serial.println(cy);
-
+*/
     cy2Received = false;
+
+    //Turn servo
+    if(cx > 50) //increase angle
+    {
+      currentPosition += 3;
+      myservo.write(currentPosition);
+    }
+    else if (cx < -50) //decrease angle
+    {
+      currentPosition -= 3;
+      myservo.write(currentPosition);
+    }
   }
 }
 
