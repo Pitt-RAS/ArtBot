@@ -24,14 +24,16 @@ Servo neckServo;
 bool moving;
 int in;
 int moveCommand;
-int servoCommand;
+int eye1Command;
+int eye2Command;
 
-ServoDriver myservo;  // create servo object to control a servo 
-                // twelve servo objects can be created on most boards
+ServoDriver eye1; 
  
 int pos = 0;    // variable to store the servo position 
-int eyelid_closed = 180;
-int eyelid_opened = 140;
+int eye1_close = 180;
+int eye1_open = 140;
+int eye2_close = 0;
+int eye2_open = 40;
 
 
 bool neckMove;
@@ -52,7 +54,7 @@ unsigned char cy1;
 unsigned char cy2;
 
 int center = 90;
-int currentPosition = center;    // variable to store the servo position
+int currentPosition = center;    
 int X_facePosition = 0;
 int Y_facePosition = 0;
 
@@ -62,8 +64,9 @@ void setup() {
   moving = false;
   Serial.begin(9600);
   moveCommand = 0;
-  myservo.init(6);  // attaches the servo on pin 3 to the servo object 
-  servoCommand = eyelid_opened;
+  eye1.init(6);  
+  eye1Command = eye1_open;
+  eye2Command = eye2_open;
   neckServo.attach(A9);
   neckServo.write(center);
   neckMove = false;
@@ -75,7 +78,7 @@ void loop() {
   else
   {
     moving = myArm.move();
-    myservo.move();
+    eye1.move();
   
     in = Serial.read() - 48;
     if(in >= 0)
@@ -95,12 +98,12 @@ void loop() {
             moveCommand = 21;
             break;
           case 8:
-            servoCommand = eyelid_closed;
-            //moveCommand = 8;
+            eye1Command = eye1_close;
+            eye2Command = eye2_close;
             break;
           case 9:
-            servoCommand = eyelid_opened;
-            //moveCommand = 9;
+            eye1Command = eye1_open;
+            eye2Command = eye2_open;
             break;
           case 0:
             neckMove = true;
@@ -114,7 +117,7 @@ void loop() {
     if(!moving)
     {
       myArm.setMoveType(moveCommand);
-      myservo.setToPosWithSpeed(servoCommand, 3);
+      eye1.setToPosWithSpeed(eye1Command, 3);
     }
   }
 }
