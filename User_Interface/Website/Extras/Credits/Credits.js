@@ -1,4 +1,4 @@
- 
+
 //JavaScript to create the animated background
 function dream()
 {

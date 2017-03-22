@@ -83,7 +83,7 @@ body
     width: 400px;
     font-size: 60px;
     position: fixed;
-    left: 50%;
+    left: 47%;
     margin-left: -200px;
     text-align: center;
 }
@@ -91,15 +91,15 @@ body
 #JamesContainer
 {
     height:130px;
-    width: 500px;
+    width: 550px;
     position: fixed;
     left: 15%;
-    top: 100px;
+    top: 20%;
 }
 
 #Lead1
 {
-    font-size: 40px;
+    font-size: 50px;
     text-decoration: underline;
     font-family:monospace;
     text-align: center;
@@ -109,15 +109,15 @@ body
 #JonathanContainer
 {
     height:130px;
-    width: 440px;
+    width: 550px;
     position: fixed;
     left: 52%;
-    top: 100px; 
+    top: 20%; 
 }
 
 #Lead2
 {
-    font-size: 40px;
+    font-size: 50px;
     text-decoration: underline;   
     font-family: monospace;
     text-align:center;
@@ -127,14 +127,14 @@ body
 #FurchasContainer
 {
     height: 100px;
-    width: 350px;
+    width: 400px;
     position: fixed;
     left: 1%;
-    top: 250px;
+    top: 40%;
 }
 #Chair1
 {
-    font-size: 28px;
+    font-size: 35px;
     text-decoration: underline;
     font-family: monospace;
     text-align: center;
@@ -145,13 +145,13 @@ body
     height: 100px;
     width: 350px;
     position: fixed;
-    left: 22%;
-    top: 250px;
+    left: 23%;
+    top: 40%;
     
 }
 #Chair2
 {
-    font-size: 28px;
+    font-size: 35px;
     text-decoration: underline;
     font-family: monospace;
     text-align: center; 
@@ -161,14 +161,14 @@ body
 #LynchContainer
 {
     height: 100px;
-    width: 350px;
+    width: 400px;
     position: fixed;
     left: 43%;
-    top: 250px; 
+    top: 40%; 
 }
 #Chair3
 {
-    font-size: 28px;
+    font-size: 35px;
     text-decoration: underline;
     font-family: monospace;
     text-align: center; 
@@ -178,14 +178,14 @@ body
 #FulmerContainer
 {
     height: 100px;
-    width: 450px;
+    width: 550px;
     position: fixed;
     left: 67%;
-    top: 250px;    
+    top: 40%;    
 }
 #Chair4
 {
-    font-size: 28px;
+    font-size: 35px;
     text-decoration: underline;
     font-family: monospace;
     text-align: center;
@@ -194,10 +194,11 @@ body
 
 #RestOfPeople
 {
-    width: 1430px;
+    height: 450px;
+    width: 1500px;
     position: fixed;
     bottom: 0%;
-    left: 2%;
+    left: 14%;
 }
 #Rest
 {
@@ -208,4 +209,24 @@ body
     left: 50%
     padding-bottom: 15px;
     font-weight: bold;
+}
+#col1
+{
+   padding-left: 2%;
+}
+#col2
+{
+    padding-left: 5%;
+}
+#col3
+{
+    padding-left: 0%;
+}
+#col4
+{
+    padding-left: 5%;
+}
+#col5
+{
+    padding-left: 35%;
 }
