@@ -16,6 +16,10 @@ def panther_video(arduino):
 
 	cap = cv2.VideoCapture(0)
 	
+	#Kickoff Vision arduino code
+	arduino.write(0)	
+	time.sleep(1)
+	
 	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 	#smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
 	#eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
