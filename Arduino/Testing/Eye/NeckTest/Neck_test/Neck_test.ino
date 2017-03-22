@@ -102,11 +102,19 @@ void loop()
     if(cx > 50) //increase angle
     {
       currentPosition += 3;
+      if(currentPosition > 180)
+      {
+        currentPosition = 180;  
+      }
       myservo.write(currentPosition);
     }
     else if (cx < -50) //decrease angle
     {
       currentPosition -= 3;
+      if(currentPosition < 0)
+      {
+        currentPosition = 0;  
+      }
       myservo.write(currentPosition);
     }
   }

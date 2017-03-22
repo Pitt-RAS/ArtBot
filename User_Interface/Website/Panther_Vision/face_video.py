@@ -3,21 +3,22 @@ import cv2
 import os
 import time
 import struct
-# import matplotlib.pyplot
 
+#Desired window dimensions
 WINDOW_X = 1300
 WINDOW_Y = 800
 
-FULL_WINDOW_X = 720
-FULL_WINDOW_Y = 405
+#Pixel dimensions of image retrieved from camera
+CAMERA_X = 720
+CAMERA_Y = 405
 def panther_video(arduino):
 	if os.path.exists('./kill.txt'):
 		os.remove("./kill.txt")
 
 	cap = cv2.VideoCapture(0)
 	
-	#Kickoff Vision arduino code
-	arduino.write(0)	
+	#Kick-off Vision Arduino Code
+	arduino.write('0') 	
 	time.sleep(1)
 	
 	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -33,11 +34,11 @@ def panther_video(arduino):
 		maxArea = 0
 		area = 0
 		
-		#Check if any debugging data sent from arduino
+		#Print out any debugging data sent from arduino
 		while arduino.inWaiting():
 			print("Data available: " + arduino.readline())
 		
-		#calculate areas
+		#calculate areas of each rectangle
 		for (x,y,w,h) in faces:
 			area = w*h
 			if area > maxArea:
@@ -48,11 +49,8 @@ def panther_video(arduino):
 			area = w*h
 			if area == maxArea:
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
-				rx = x+w/2
-				ry = y+w/2
-				cx = rx-FULL_WINDOW_X/2 # x coordinate of rectangle center
-				cy = ry-FULL_WINDOW_Y/2 # y coordinate of rectangle center
-				#Convert x+y coordinates of center point to be a % away from the center of the window
+				cx = x+w/2 - CAMERA_X/2 # x coordinate of rectangle center based off center of window
+				cy = y+w/2 - CAMERA_Y/2 # y coordinate of rectangle center based off center of window
 				
 				#Pack x + y coordinates into 1 string
 				values = (cx,cy)
@@ -66,14 +64,12 @@ def panther_video(arduino):
 			else:
 				cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
 				#print('red: ' + str(area)+ ' w: ' + str(w)+ ' h: ' + str(h))
-		#size (width, height) (640, 480) = default
 		resize_img = cv2.resize(img, (WINDOW_X, WINDOW_Y))	#Image size
 		cv2.startWindowThread()
 		window = cv2.namedWindow("window")
 		cv2.resizeWindow("window", WINDOW_X, WINDOW_Y)		#Window size
 		cv2.moveWindow("window", -10, -25)		#x,y start position
 		cv2.imshow('window',resize_img)
-		#cv2.imshow("window", img)
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
 		if os.path.exists('./kill.txt'):
@@ -86,7 +82,3 @@ def kill_video():
 	print("In kill video")
 	file = open('./kill.txt', 'w+')
 	return 1
-
-#def reload_page():
-	
-
