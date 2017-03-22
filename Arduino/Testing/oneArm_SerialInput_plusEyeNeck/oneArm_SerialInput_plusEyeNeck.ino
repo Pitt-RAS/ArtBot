@@ -28,6 +28,7 @@ int eye1Command;
 int eye2Command;
 
 ServoDriver eye1; 
+ServoDriver eye2;
  
 int pos = 0;    // variable to store the servo position 
 int eye1_close = 180;
@@ -65,6 +66,7 @@ void setup() {
   Serial.begin(9600);
   moveCommand = 0;
   eye1.init(6);  
+  eye2.init(5);
   eye1Command = eye1_open;
   eye2Command = eye2_open;
   neckServo.attach(A9);
@@ -79,6 +81,7 @@ void loop() {
   {
     moving = myArm.move();
     eye1.move();
+    eye2.move();
   
     in = Serial.read() - 48;
     if(in >= 0)
@@ -118,6 +121,7 @@ void loop() {
     {
       myArm.setMoveType(moveCommand);
       eye1.setToPosWithSpeed(eye1Command, 3);
+      eye2.setToPosWithSpeed(eye2Command, 3);
     }
   }
 }
