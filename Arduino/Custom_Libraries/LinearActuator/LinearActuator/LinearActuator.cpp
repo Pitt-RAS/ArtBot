@@ -15,7 +15,7 @@ LinearActuator::LinearActuator(int input1, int input2, int inputPot){
   pinMode(In1,OUTPUT);
   pinMode(In2,OUTPUT);
   pinMode(potPin, INPUT);
-  
+  decreasing = true;
   //Set some variables to null for checking
   moving = false;
 }
@@ -28,8 +28,13 @@ LinearActuator::LinearActuator(int input1, int input2, int inputPot){
  *	This function starts the movement of the actuator, setting all the variables needed for motion.
  */
 int LinearActuator::setPos(int position) {
+	if(position > finalPos)
+		decreasing = false;
+	else
+		decreasing = true;
 	finalPos = position;
 	moving = true;
+	
 	return finalPos;
 }
 
@@ -47,14 +52,14 @@ bool LinearActuator::move() {
   int currentPos = getCurrentPosition();
   
   //If we're below, extend the actuator
-  if(currentPos < finalPos) {
+  if(!decreasing && currentPos < finalPos) {
       digitalWrite(In1, LOW);
       digitalWrite(In2, HIGH);
       
     moving = true;
   }
   //If we're above, retract the actuator
-  else if(currentPos > finalPos) {
+  else if(decreasing && currentPos > finalPos) {
       digitalWrite(In1, HIGH);
       digitalWrite(In2, LOW);
         

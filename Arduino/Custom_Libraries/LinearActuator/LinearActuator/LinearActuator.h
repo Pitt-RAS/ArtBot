@@ -25,6 +25,7 @@ class LinearActuator {
 	
 	//Use for the sendToPos function
 	bool moving;
+	bool decreasing;
 	int finalPos;
 	
     int getCurrentPosition();

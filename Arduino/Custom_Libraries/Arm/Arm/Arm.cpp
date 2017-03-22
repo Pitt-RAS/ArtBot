@@ -33,43 +33,42 @@ void Arm::setMoveType(int command)
 {
 	switch(command)
 	{
-		case 0:
-			shoulder.setPos(0);
-			elbow.setPos(0);
-			wrist.setToPosWithSpeed(0,9);
-			break;
 		case 1:
-			shoulder.setPos(100);
-			elbow.setPos(0);
+			shoulder.setPos(95);
+			elbow.setPos(5);
 			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 2:
-			shoulder.setPos(0);
-			elbow.setPos(100);
+			shoulder.setPos(5);
+			elbow.setPos(95);
 			wrist.setToPosWithSpeed(120,9);
 			break;
 		case 3:
-			shoulder.setPos(100);
-			elbow.setPos(100);
+			shoulder.setPos(95);
+			elbow.setPos(95);
 			wrist.setToPosWithSpeed(180,9);
 			break;
 		case 10:
-			elbow.setPos(0);
+			elbow.setPos(5);
 			wrist.setToPosWithSpeed(0, 9);
 			break;
 		case 11:
-			elbow.setPos(100);
+			elbow.setPos(95);
 			wrist.setToPosWithSpeed(180, 9);
 			break;
 		case 20:
-			shoulder.setPos(0);
+			shoulder.setPos(5);
 			wrist.setToPosWithSpeed(0, 9);
 			break;
 		case 21:
-			shoulder.setPos(100);
+			shoulder.setPos(95);
 			wrist.setToPosWithSpeed(180, 9);
 			break;
+		case 0:
 		default:
+			shoulder.setPos(5);
+			elbow.setPos(5);
+			wrist.setToPosWithSpeed(0,9);
 			break;
 	}
 }
