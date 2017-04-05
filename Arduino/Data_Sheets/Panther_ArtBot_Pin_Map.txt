@@ -1,0 +1,49 @@
+Neck
+	Servo 1 - A5
+	Servo 2 - A6
+	Servo 3 - A7
+	
+Arms
+	Left
+		Shoulder
+			1 - 9
+			2 - 10
+			Pot - A0
+		Elbow
+			1 - 11
+			2 - 12
+			Pot - A1
+		Wrist - A13
+	Right
+		Shoulder
+			1 - 3
+			2 - 5
+			Pot - A2
+		Elbow
+			1 - 6
+			2 - 7
+			Pot - A3
+		Wrist - A14
+
+Spine
+	1 - 4
+	2 - 13	
+	Pot - A4
+		
+Head
+	Eyes
+		Left - A8
+		Right - A9
+	Jaw - A10
+	Ears
+		Left - A11
+		Right - A12
+	
+	
+
+	
+	
+	16 analog
+	5 pots
+	8 servos
+	

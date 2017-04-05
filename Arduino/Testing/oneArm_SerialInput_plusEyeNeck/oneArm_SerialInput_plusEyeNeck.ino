@@ -170,6 +170,9 @@ void neck_loop()
         
  //       Serial.println("tilda");
     }
+    else if(newSerialData == 125) {
+      neckMove = false;
+    }
   }
 
   //If we've read in all 4 coordinates, concatenate them
