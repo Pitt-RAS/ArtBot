@@ -1,0 +1,8 @@
+Arm KEYWORD1
+setMoveType KEYWORD2
+move KEYWORD2
+LinearActuator	KEYWORD1
+sendToPosWithSpeed	KEYWORD2
+getCurrentPosition	KEYWORD2
+ServoDriver KEYWORD1
+setToPosWithSpeed KEYWORD2
