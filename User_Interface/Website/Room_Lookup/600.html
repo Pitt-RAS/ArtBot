@@ -17,7 +17,7 @@ body {
 	height: 25px;
 	float: left;
 	margin: 5px;
-	visibility: visible;
+	visibility: hidden;
 	
 	/*visible
 	hidden*/
@@ -43,7 +43,7 @@ body {
 
 <!--top-->
 
-<div id="block4" style="position:absolute; top: 23.30%; right: 33.00%;  width: 25px; height: 12px;"></div>
+<div id="block4"style="position:absolute; top: 23.30%; right: 33.00%;  width: 25px; height: 12px;"></div>
 <div id="block5"style="position:absolute; top: 23.30%; right: 36.00%;  width: 25px; height: 12px;"></div>
 <div id="block6"style="position:absolute; top: 23.30%; right: 39.00%;  width: 25px; height: 12px;"></div>
 <div id="block7"style="position:absolute; top: 23.30%; right: 42.00%;  width: 25px; height: 12px;"></div>
@@ -223,6 +223,36 @@ body {
 <!--room #635-->
 <div id="block97"style="position:absolute; top: 52.38%;%; right: 32.60%;  width: 35px; height: 12px;"></div>
 
+<!--room #636A-->
+<div id="block98"style="position:absolute; top: 33.18%; right: 28.40%;  width: 12px; height: 25px;"></div>
+<div id="block99"style="position:absolute; top: 34.38%; right: 27.20%;  width: 35px; height: 12px;"></div>
+
+<!--room #636B-->
+<div id="block100"style="position:absolute; top: 38.38%; right: 28.40%;  width: 35px; height: 12px;"></div>
+
+<!--room #636C-->
+<div id="block101"style="position:absolute; top: 36.58%; right: 27.20%;  width: 35px; height: 12px;"></div>
+
+<!--room #636D-->
+<div id="block102"style="position:absolute; top: 41.38%; right: 27.20%;  width: 35px; height: 12px;"></div>
+
+<!--room #636E-->
+<div id="block103"style="position:absolute; top: 46.38%; right: 27.20%;  width: 35px; height: 12px;"></div>
+
+<!--room #636F-->
+<div id="block104"style="position:absolute; top: 51.38%; right: 27.20%;  width: 35px; height: 12px;"></div>
+
+<!--room #636G-->
+<div id="block105"style="position:absolute; top: 51.38%; right: 28.40%;  width: 35px; height: 12px;"></div>
+
+<!--room #637-->
+<div id="block106"style="position:absolute; top: 48.38%; right: 32.60%;  width: 35px; height: 12px;"></div>
+
+<!--room #638-->
+<div id="block107"style="position:absolute; top: 38.38%; right: 32.60%;  width: 35px; height: 12px;"></div>
+
+<!--room #639-->
+<div id="block108"style="position:absolute; top: 28.38%; right: 32.60%;  width: 35px; height: 12px;"></div>
 
 <td style="width:100%">
 
@@ -280,16 +310,27 @@ function myFunction()
 		634: [1, 2, 3, 47, 46, 45, 44, 43, 42, 41, 40, 39, 94],
 		"634A": [1, 2, 3, 47, 46, 48, 49, 50, 51, 52, 53, 54, 95, 96],
 		635: [1, 2, 3, 47, 46, 45, 44, 43, 42, 97],
+		636: [1, 2, 3, 47, 46, 48],
+		"636A": [1, 2, 3, 47, 46, 48, 49, 98, 99],
+		"636B": [1, 2, 3, 47, 46, 48, 49, 50, 100],
+		"636C": [1, 2, 3, 47, 46, 48, 49, 50, 101],
+		"636D": [1, 2, 3, 47, 46, 48, 49, 50, 51, 102],
+		"636E": [1, 2, 3, 47, 46, 48, 49, 50, 51, 52, 103],
+		"636F": [1, 2, 3, 47, 46, 48, 49, 50, 51, 52, 53, 104],
+		"636G": [1, 2, 3, 47, 46, 48, 49, 50, 51, 52, 53, 105],
+		637: [1, 2, 3, 47, 46, 45, 44, 43, 106],
+		638: [1, 2, 3, 47, 46, 45, 107],
+		639: [1, 2, 3, 47, 108]
 	};
 
 	if(typeof rooms[value] !== 'undefined')
 		setInterval(reveal,300, rooms[value]);
 	
-	/*setTimeout(
+	setTimeout(
 		function() 
 		{
 			window.location.href = "../Panther_Kiosk_Main.html";
-		}, 60000);*/
+		}, 60000);
 }
 </script>
 
