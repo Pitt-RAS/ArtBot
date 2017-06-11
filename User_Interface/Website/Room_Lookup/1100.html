@@ -231,7 +231,9 @@ function myFunction()
 	
 	if(typeof rooms[value] !== 'undefined')
 		setInterval(reveal,300, rooms[value]);
-	
+	else 
+		window.location.href = "room_not_found.html";
+		
 	setTimeout(
 		function() 
 		{
