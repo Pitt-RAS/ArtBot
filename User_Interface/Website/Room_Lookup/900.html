@@ -17,7 +17,7 @@ body {
 	height: 25px;
 	float: left;
 	margin: 5px;
-	visibility: visible;
+	visibility: hidden;
 	
 	/*visible
 	hidden*/
@@ -34,6 +34,8 @@ body {
   </style>
   
 <body onload="myFunction()">
+
+<!--elevators-->
 
 <div id="block1" style="position:absolute; top:9.6%; right: 31%;"></div>
 <div id="block2" style="position:absolute; top:14.6%; right: 31%;"></div>
@@ -106,12 +108,95 @@ body {
 <div id="block53"style="position:absolute; top: 54.50%; right: 26%;  width: 12px; height: 25px;"></div>
 
 
+<!--room #902-->
+<div id="block54"style="position:absolute; top: 20.30%; right: 40.50%; height: 45px;"></div>
 
+<!--room #903-->
+<div id="block55"style="position:absolute; top: 20.30%; right: 43.50%; height: 45px;"></div>
 
+<!--room #904-->
+<div id="block56"style="position:absolute; top: 20.30%; right: 46.50%; height: 45px;"></div>
 
+<!--room #905-->
+<div id="block57"style="position:absolute; top: 20.30%; right: 49.00%; height: 45px;"></div>
 
+<!--room #906-->
+<div id="block58"style="position:absolute; top: 20.30%; right: 52.00%; height: 45px;"></div>
 
+<!--room #907-->
+<div id="block59"style="position:absolute; top: 20.30%; right: 55.00%; height: 45px;"></div>
 
+<!--room #908-->
+<div id="block60"style="position:absolute; top: 20.30%; right: 57.50%; height: 45px;"></div>
+
+<!--room #909-->
+<div id="block61"style="position:absolute; top: 20.30%; right: 60.50%; height: 45px;"></div>
+
+<!--room #911-->
+<div id="block62"style="position:absolute; top: 24.30%; right: 55.50%; height: 45px;"></div>
+
+<!--room #913A,B,C,D,E,F,G,H,I,J,K, 914, 915, 916-->
+<div id="block63"style="position:absolute; top: 25.30%; right: 68.50%; height: 45px;"></div>
+
+<!--room #917-->
+<div id="block64"style="position:absolute; top: 36.30%; right: 47.00%; width: 30px; height: 12px;""></div>
+
+<!--room #918-->
+<div id="block65"style="position:absolute; top: 36.30%; right: 45.00%; width: 30px; height: 12px;""></div>
+
+<!--room #919-->
+<div id="block66"style="position:absolute; top: 42.30%; right: 47.00%; width: 30px; height: 12px;""></div>
+
+<!--room #920-->
+<div id="block67"style="position:absolute; top: 42.30%; right: 45.00%; width: 30px; height: 12px;""></div>
+
+<!--room #921-->
+<div id="block68"style="position:absolute; top: 58.30%; right: 47.00%; width: 30px; height: 12px;""></div>
+
+<!--room #922-->
+<div id="block69"style="position:absolute; top: 58.30%; right: 45.00%; width: 30px; height: 12px;""></div>
+
+<!--room #923-->
+<div id="block70"style="position:absolute; top: 63.30%; right: 47.00%; width: 30px; height: 12px;""></div>
+
+<!--room #924-->
+<div id="block71"style="position:absolute; top: 63.30%; right: 45.00%; width: 30px; height: 12px;""></div>
+
+<!--room #926-->
+<div id="block72"style="position:absolute; top: 75.30%; right: 61.00%; width: 12px; height: 30px;""></div>
+
+<!--room #927-->
+<div id="block73"style="position:absolute; top: 75.30%; right: 58.00%; width: 12px; height: 30px;""></div>
+
+<!--room #928-->
+<div id="block74"style="position:absolute; top: 75.30%; right: 55.00%; width: 12px; height: 30px;""></div>
+
+<!--room #929-->
+<div id="block75"style="position:absolute; top: 75.30%; right: 52.00%; width: 12px; height: 30px;""></div>
+
+<!--room #930-->
+<div id="block76"style="position:absolute; top: 75.30%; right: 49.00%; width: 12px; height: 30px;""></div>
+
+<!--room #931-->
+<div id="block77"style="position:absolute; top: 75.30%; right: 46.00%; width: 12px; height: 30px;""></div>
+
+<!--room #932-->
+<div id="block78"style="position:absolute; top: 75.30%; right: 43.00%; width: 12px; height: 30px;""></div>
+
+<!--room #933-->
+<div id="block79"style="position:absolute; top: 75.30%; right: 40.00%; width: 12px; height: 30px;""></div>
+
+<!--room #937-->
+<div id="block80"style="position:absolute; top: 69.30%; right: 28.00%; width: 30px; height: 12px;""></div>
+
+<!--room #938-->
+<div id="block81"style="position:absolute; top: 50.30%; right: 31.00%; width: 30px; height: 12px;""></div>
+
+<!--room #939-->
+<div id="block82"style="position:absolute; top: 30.30%; right: 31.00%; width: 30px; height: 12px;""></div>
+
+<!--room #912-->
+<div id="block83"style="position:absolute; top: 24.30%; right: 52.50%; height: 45px;"></div>
 
 <td style="width:100%">
 
@@ -120,234 +205,86 @@ body {
 	<input style="position:absolute; top:2.5%; right: 3%;" type="submit" value="Home">
 </form>
 
-<form action="eggs/easter_egg.html">
-	<input style="position: absolute; top:25%; right: 58.5%; background-color: #fff; height: 150px; width: 75px; border-radius: 0px; opacity: 0; border: hidden;" type="submit" value = ''>
-</form>
 
 <script>
-function myFunction() 
+var i;
+function reveal(room)
 {
-	var i=0;
-	
+	document.getElementById('block'+room[i]).style.visibility='visible';
+	i++;
+}
+function myFunction() 
+{	
+	i = 0;
 	var value = localStorage.getItem("key");
 	
-	var Room_1202 = [1, 2, 3, 52, 51, 50, 49, 53];
-	var Room_1203 = [1, 2, 3, 52, 51, 50, 49, 48, 54];
-	var Room_1204 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 55];
-	var Room_1205 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 56];
-	var Room_1206 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 57];
-	var Room_1207 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 58];
-	var Room_1208 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 59];
-	var Room_1209 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 60];
-	var Room_1211 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 61, 62, 46, 45, 44, 63, 64, 65];
-	var Room_1212 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 66, 67];
-	var Room_1213 = [1, 2, 3, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 68, 69,];
+	var rooms = {
+		902: [1, 2, 3, 4, 5, 6, 7, 54],
+		903: [1, 2, 3, 4, 5, 6, 7, 55],
+		904: [1, 2, 3, 4, 5, 6, 7, 8, 56],
+		905: [1, 2, 3, 4, 5, 6, 7, 8, 9, 57],
+		906: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 58],
+		907: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 59],
+		908: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 60],
+		909: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 61],
+		911: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 83],
+		912: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 62],
+		"913A": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913B": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913C": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913D": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913E": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913F": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913G": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913H": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913I": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913J": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		"913K": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		914: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		915: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		916: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 63],
+		917: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 64],
+		918: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 65],
+		919: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 66],
+		920: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 67],
+		921: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 42, 43, 44, 68],
+		922: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 42, 43, 44, 69],
+		923: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 42, 43, 44, 45, 70],
+		924: [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 41, 42, 43, 44, 45, 71],
+		926: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 72],
+		927: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 73],
+		928: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 74],
+		929: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 75],
+		930: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 76],
+		931: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 77],
+		932: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 78],
+		933: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 79],
+		937: [1, 2, 3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 80],
+		938: [1, 2, 3, 17, 18, 19, 20, 21, 22, 81],
+		939: [1, 2, 3, 17, 18, 82],
+		"940A": [1, 2, 3, 17, 18, 48, 49],
+		"940B": [1, 2, 3, 17, 18, 48, 49, 50],
+		"940C": [1, 2, 3, 17, 18, 48, 49, 50],
+		"940D": [1, 2, 3, 17, 18, 48, 49, 50, 51],
+		"940E": [1, 2, 3, 17, 18, 48, 49, 50, 51, 52],
+		"940F": [1, 2, 3, 17, 18, 48, 49, 50, 51, 52, 53],
+		"940G": [1, 2, 3, 17, 18, 48, 49, 50, 51, 52, 53],
+		"940H": [1, 2, 3, 17, 18, 48, 49, 50, 51, 52],
+		"940I": [1, 2, 3, 17, 18, 48, 49, 50, 51, 52, 53],
+		
+	};
 
-	
-	
-	
-	var Room_1239 = [1, 2, 3, 4, 5, 6, 108];
-	
-	var Room_1238C = [1, 2, 3, 4, 106, 107];
-	var Room_1238B = [1, 2, 3, 4, 5, 6, 105];
-	var Room_1238A = [1, 2, 3, 4, 5, 6, 7, 103, 104];
-	
-	var Room_1237 = [1, 2, 3, 4, 5, 6, 7, 8, 102];
-	var Room_1236 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 101];	
-	var Room_1235 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100];
-	
-	
-	
-	
-	if(value=="1202")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1202[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1203")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1203[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1204")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1204[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1205")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1205[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1206")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1206[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1207")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1207[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1208")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1208[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1209")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1209[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1211" || value=="1211A" || value=="1211B")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1211[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1212")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1212[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1213")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1213[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	
-	
-	
-	else if(value=="1235")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1235[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1236")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1236[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1237")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1237[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1238A")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1238A[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1238B")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1238B[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1238C")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1238C[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	else if(value=="1239")
-	{
-		setInterval(
-			function()
-			{
-				document.getElementById('block'+Room_1239[i]).style.visibility='visible';
-				i++
-			
-			},300);
-	}
-	
-	/*setTimeout(
+	if(typeof rooms[value] !== 'undefined')
+		setInterval(reveal,300, rooms[value]);
+	else 
+		window.location.href = "room_not_found.html";
+		
+	setTimeout(
 		function() 
 		{
-			window.location.href = "../keypad.html";
-		}, 34500);*/
+			window.location.href = "../Panther_Kiosk_Main.html";
+		}, 60000);
+	
 }
 </script>
 
