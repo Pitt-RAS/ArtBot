@@ -94,16 +94,34 @@ body {
 <div id="block46"style="position:absolute; top:24.5%; right: 31.3%;  width: 25px; height: 12px;"></div>
 
 <!--Middle hallway-->
-<div id="block47"style="position:absolute; top:69.6%; right: 56%;"></div>
-<div id="block48"style="position:absolute; top:64.6%; right: 56%;"></div>
-<div id="block49"style="position:absolute; top:59.6%; right: 56%;"></div>
-<div id="block50"style="position:absolute; top:54.6%; right: 56%;"></div>
-<div id="block51"style="position:absolute; top:49.6%; right: 56%;"></div>
-<div id="block52"style="position:absolute; top:44.6%; right: 56%;"></div>
-<div id="block53"style="position:absolute; top:39.6%; right: 56%;"></div>
-<div id="block54"style="position:absolute; top:34.6%; right: 56%;"></div>
-<div id="block55"style="position:absolute; top:29.6%; right: 56%;"></div>
-<div id="block56"style="position:absolute; top:24.6%; right: 56%;"></div>
+<div id="block47"style="position:absolute; top:69.6%; right: 56.2%;"></div>
+<div id="block48"style="position:absolute; top:64.6%; right: 56.2%;"></div>
+<div id="block49"style="position:absolute; top:59.6%; right: 56.2%;"></div>
+<div id="block50"style="position:absolute; top:54.6%; right: 56.2%;"></div>
+<div id="block51"style="position:absolute; top:49.6%; right: 56.2%;"></div>
+<div id="block52"style="position:absolute; top:44.6%; right: 56.2%;"></div>
+<div id="block53"style="position:absolute; top:39.6%; right: 56.2%;"></div>
+<div id="block54"style="position:absolute; top:34.6%; right: 56.2%;"></div>
+<div id="block55"style="position:absolute; top:29.6%; right: 56.2%;"></div>
+<div id="block56"style="position:absolute; top:24.6%; right: 56.2%;"></div>
+
+<!--Rooms 1003-1009 -->
+<div id="block57"style="position:absolute; top:21%; right: 43.0%;"></div>
+<div id="block58"style="position:absolute; top:21%; right: 46.0%;"></div>
+<div id="block59"style="position:absolute; top:21%; right: 49.0%;"></div>
+<div id="block60"style="position:absolute; top:21%; right: 52.0%;"></div>
+<div id="block61"style="position:absolute; top:21%; right: 54.5%;"></div>
+<div id="block62"style="position:absolute; top:21%; right: 57.5%;"></div>
+<div id="block63"style="position:absolute; top:21%; right: 60.0%;"></div>
+
+<!--Room #1011-->
+<div id="block64"style="position:absolute; top:26.5%; right: 48.0%;"></div>
+<!--Room #1012-->
+<div id="block65"style="position:absolute; top:24.5%; right: 49.6%;"></div>
+<div id="block66"style="position:absolute; top:29.0%; right: 49.6%;"></div>
+
+<div id="block67"style="position:absolute; top:29%; right: 55.3%;  width: 25px; height: 12px;"></div>
+<div id="block68"style="position:absolute; top:34.5%; right: 55.3%;  width: 25px; height: 12px;"></div>
 
 <td style="width:100%">
 
@@ -125,17 +143,18 @@ function myFunction()
 	var value = localStorage.getItem("key");
 	
 	var rooms = {
-		1003: [1, 2, 3, 46, 45, 44, 43, 42],
-		1004: [1, 2, 3, 46, 45, 44, 43, 42, 41],
-		1005: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40],
-		1006: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40],
-		1007: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39],
-		1008: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38],
-		1009: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37],
-		1011: [1, 2, 3, 46, 45, 44, 43, 42, 41],
-		1012: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40],
-		1013: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55],
-		1014: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55, 54],
+		1003: [1, 2, 3, 46, 45, 44, 43, 57],
+		1004: [1, 2, 3, 46, 45, 44, 43, 42, 58],
+		1005: [1, 2, 3, 46, 45, 44, 43, 42, 41, 59],
+		1006: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 60],
+		1007: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 61],
+		1008: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 62],
+		1009: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 63],
+		1011: [1, 2, 3, 46, 45, 44, 43, 42, 41, 64],
+		1012: [1, 2, 3, 46, 45, 44, 43, 42, 41, 65, 66],
+		1013: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 67],
+		
+		1014: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55, 68],
 		1015: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55, 54, 53],
 		1016: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55, 54, 53],
 		1017: [1, 2, 3, 46, 45, 44, 43, 42, 41, 40, 39, 38, 56, 55, 54, 53, 52],
@@ -177,7 +196,7 @@ function myFunction()
 	};
 
 	if(typeof rooms[value] !== 'undefined')
-		setInterval(reveal,300, rooms[value]);
+		setInterval(reveal,1, rooms[value]);
 	else 
 		window.location.href = "room_not_found.html";
 		
@@ -185,7 +204,7 @@ function myFunction()
 		function() 
 		{
 			window.location.href = "../Panther_Kiosk_Main.html";
-		}, 60000);
+		}, 10000000);
 	
 }
 </script>
