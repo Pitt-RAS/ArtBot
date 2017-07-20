@@ -7,11 +7,18 @@
  * Command 2 is elbow retracted and shoulder extended
  * Command 3 is both extended
  * 
- * Command 4 is retract elbow
- * Command 5 is extend elbow
  * 
- * Command 6 is retract shoulder
- * Command 7 is extend elbow
+ * Body part:	# retract	# extend
+ * Elbow:	4		5
+ * Shoulder:	6		7
+ * eye		8 (close)	9 (open)
+ * Tail:	A (wag)
+ * Ear:		B (wiggle)
+ * Jaw:		C (close)	D (open)
+ * Spine:	E (lie down)	F (stand up)
+ * Neck x-y:	G (turn left)	H (turn right)
+ * Neck z: 	I (down)	J (up)
+ * Wrist:	K (down)	L (up)
  */
  
 #include <Arm.h>
