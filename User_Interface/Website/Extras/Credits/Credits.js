@@ -37,7 +37,7 @@ function dream()
      }, 3000).fadeOut(2000);
                             
     //Every dream's end starts a new dream
-    window.setTimeout('dream()',200);
+    window.setTimeout('dream()',2000);
     } 
 
 function dream2()
@@ -78,7 +78,7 @@ function dream2()
      }, 3000).fadeOut(2000);
                             
     //Every dream's end starts a new dream
-    window.setTimeout('dream2()',200);
+    window.setTimeout('dream2()',2100);
     }
 
     $(document).ready(function() {  
