@@ -94,7 +94,7 @@ body
     width: 550px;
     position: fixed;
     left: 15%;
-    top: 20%;
+    top: 15%;
 }
 
 #Lead1
@@ -112,7 +112,7 @@ body
     width: 550px;
     position: fixed;
     left: 52%;
-    top: 20%; 
+    top: 15%; 
 }
 
 #Lead2
@@ -130,7 +130,7 @@ body
     width: 400px;
     position: fixed;
     left: 1%;
-    top: 40%;
+    top: 33%;
 }
 #Chair1
 {
@@ -145,8 +145,8 @@ body
     height: 100px;
     width: 350px;
     position: fixed;
-    left: 23%;
-    top: 40%;
+    left: 25%;
+    top: 38%;
     
 }
 #Chair2
@@ -163,8 +163,8 @@ body
     height: 100px;
     width: 400px;
     position: fixed;
-    left: 43%;
-    top: 40%; 
+    left: 47%;
+    top: 33%; 
 }
 #Chair3
 {
@@ -181,7 +181,7 @@ body
     width: 550px;
     position: fixed;
     left: 67%;
-    top: 40%;    
+    top: 38%;    
 }
 #Chair4
 {
@@ -197,8 +197,8 @@ body
     height: 450px;
     width: 1500px;
     position: fixed;
-    bottom: 0%;
-    left: 14%;
+    bottom: -4%;
+    left: 5%;
 }
 #Rest
 {
