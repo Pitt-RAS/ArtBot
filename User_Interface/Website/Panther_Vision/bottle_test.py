@@ -32,7 +32,6 @@ def hello():
 #Neck z: 	I (down)	J (up)
 #Wrist:		K (down)	L (up)
 
-
 	
 @route('/static/elbow')
 def elbow():
@@ -124,16 +123,16 @@ def xyNeck():
 	#xyNeckDir: 0 - Left 1 - right
 	#xyNeckPos: 0 - left 1 - center 2 - right 
 	global xyNeckDir, xyNeckPos
-	if(xyNeckDir == 0) #Turn left
+	if(xyNeckDir == 0): #Turn left
 		arduino.write('G')
 		xyNeckPos = xyNeckPos + 1
-		if(xyNeckPos >= 2)
+		if(xyNeckPos >= 2):
 			xyNeckPos = 2
 			xyNeckDir = 1
 	else: #Turn right
 		arduino.write('H')
 		xyNeckPos = xyNeckPos - 1
-		if(xyNeckPos <= 0)
+		if(xyNeckPos <= 0):
 			xyNeckPos = 0
 			xyNeckDir = 0
 	response = static_file("Panther_Kiosk_Panther_Controls_Menu.html", root='../')	
@@ -146,16 +145,16 @@ def zNeck():
 	#zNeckDir: 0 - down 1 - up
 	#zNeckPos: 0 - down 1 - center 2 - up 
 	global zNeckDir, zNeckPos
-	if(zNeckDir == 1) #Turn up
+	if(zNeckDir == 1): #Turn up
 		arduino.write('I')
 		zNeckPos = zNeckPos + 1
-		if(zNeckPos >= 2)
+		if(zNeckPos >= 2):
 			zNeckPos = 2
 			zNeckDir = 0
 	else: #Turn down
 		arduino.write('J')
 		zNeckPos = zNeckPos - 1
-		if(zNeckPos <= 0)
+		if(zNeckPos <= 0):
 			zNeckPos = 0
 			zNeckDir = 1
 	response = static_file("Panther_Kiosk_Panther_Controls_Menu.html", root='../')	
@@ -168,18 +167,18 @@ def wrist():
 	#wristDir: 0 - down 1 - up
 	#wristPos: 0 - down 1 - center 2 - up 
 	global wristDir, wristPos
-	if(zNeckDir == 1) #Turn up
+	if(wristDir == 1): #Turn up
 		arduino.write('K')
 		wristPos = wristPos + 1
-		if(wristPos >= 2)
+		if(wristPos >= 2):
 			wristPos = 2
 			wristDir = 0
 	else: #Turn down
 		arduino.write('L')
-		zNeckPos = zNeckPos - 1
-		if(zNeckPos <= 0)
-			zNeckPos = 0
-			zNeckDir = 1
+		wristPos = wristPos - 1
+		if(wristPos <= 0):
+			wristPos = 0
+			wristDir = 1
 	response = static_file("Panther_Kiosk_Panther_Controls_Menu.html", root='../')	
 	response.set_header("Cache-Control", "public, max-age=0")
 	return response
