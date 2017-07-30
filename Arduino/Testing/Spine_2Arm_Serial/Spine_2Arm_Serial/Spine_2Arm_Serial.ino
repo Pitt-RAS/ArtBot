@@ -18,13 +18,18 @@
 
 Arm myArm1(9, 10, A0, 11, 12, A1);
 Arm myArm2(6, 7, A2, 3, 5, A3);
-LinearActuator spine(4,13,A4);
+LinearActuator spine(4, 13, A4);
 
 char in;
 bool retract;
 bool moving1;
 bool moving2;
 bool movingSpine;
+int moveCommand;
+
+// Movement Constants
+int lie_down = 4; // Retract elbow and shoulder & extend spine
+int stand_up = 3; // Extend elbow and shoulder & retract spine
 
 void setup() {
   retract = true;
@@ -36,12 +41,21 @@ void setup() {
 }
 
 void loop() {
-  moving = myArm.move();  
+  moving1 = myArm1.move(); 
+  moving2 = myArm2.move();
+  movingSpine = spine.move(); 
   in = Serial.read() - 48;
   if(in >= 0)
   {
     switch(in)
     {
+        case 1: // Lie down
+          moveCommand = lie_down;
+          retract = false;
+          break;
+        case 2: // Stand up
+          moveCommand = stand_up;
+          retract = true;
         case 4:
           moveCommand = 10;
           break;
@@ -54,7 +68,7 @@ void loop() {
         case 7:
           moveCommand = 21;
           break;
-        case 8:
+        /*case 8:
           servoCommand = eyelid_closed;
           //moveCommand = 8;
           break;
@@ -64,6 +78,7 @@ void loop() {
           break;
         case 0:
           neckMove = true;
+        */
         default:
           moveCommand = in;
           break;
@@ -71,9 +86,16 @@ void loop() {
     Serial.print("moveCommand = ");
     Serial.println(moveCommand);
   }
-  if(!moving)
+  if(!moving1 && !moving2 && !movingSpine)
   {
-    myArm.setMoveType(moveCommand);
-    myservo.setToPosWithSpeed(servoCommand, 3);
+    myArm1.setMoveType(moveCommand);
+    myArm2.setMoveType(moveCommand);
+    if(retract) {
+      spine.setPos(10);
+    } else {
+      spine.setPos(100);
+    }
+    retract = !retract;
+    //myservo.setToPosWithSpeed(servoCommand, 3);
   }
 }
