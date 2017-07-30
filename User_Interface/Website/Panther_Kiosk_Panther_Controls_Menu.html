@@ -84,28 +84,21 @@ body {
 .action_button {
     position: absolute;
     /**background-color: #FF0000;**/
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 70px;
     border-radius: 25px;
-    opacity: 0.2;
+    opacity: .9;
     border: hidden;
+	
+    font-family: "Arial";
+    font-weight: bold;
+    color:black;
+    text-shadow: #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px,
+              #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px;
 }
-/*.action_button:hover {
+.action_button:hover {
   background-color: #b2ae5b;
   opacity: 0.8;
-}*/
-#action_text {
-  position:absolute;
-  opacity: 1;
-  font-family: "Arial";
-  font-weight: bold;
-  color:black;
-  text-shadow: #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px,
-              #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px;
-  -webkit-font-smoothing: antialiased;
-}
-#action_text:hover {
-  color:#57389e;
 }
 
 .fullMovements {
@@ -119,8 +112,23 @@ body {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 22px;
-   height: 175px;
-   width: 325px;
+  height: 175px;
+  width: 325px;
+   
+  position:absolute;
+  opacity: 1;
+  font-family: "Arial";
+  font-weight: bold;
+  color:black;
+  text-shadow: #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px,
+              #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px;
+  font-size: 55px;
+}
+
+.fullMovements:hover {
+  color:white;
+  text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
+              #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
 }
 
 #fullMovementsText {
@@ -132,11 +140,6 @@ body {
   text-shadow: #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px,
               #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px;
    font-size: 55px;
-}
-#fullMovementsText:hover {
-  color:white;
-  text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
-              #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
 }
 </style>
 </head>
@@ -157,67 +160,52 @@ body {
 <div id ="fullMovementsText" style="top:3%; left: 57.5%;">Full Body Movements</div>
 
 <form action="lieDown">
-	<input style="top:17%; left: 53%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:20.5%; left: 55.3%;">Lie Down</div>
+	<input style="top:17%; left: 53%;" type="submit" value = "Lie Down" class="fullMovements">
+  </input>
 </form>
 <form action="standUp">
-	<input style="top:17%; left: 76%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:20.5%; left: 78.4%;">Stand Up</div>
+	<input style="top:17%; left: 76%;" type="submit" value = "Stand Up" class="fullMovements">
 </form>
 <form action="roar">
-	<input style="top:44%; left: 53%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:47.5%; left: 58.5%;">Roar</div>
+	<input style="top:44%; left: 53%;" type="submit" value = "Roar" class="fullMovements">
 </form>
 <form action="scratchEar">
-	<input style="top:44%; left: 76%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:47.5%; left: 76.5%;">Scratch Ear</div>
+	<input style="top:44%; left: 76%;" type="submit" value = "Scratch Ear" class="fullMovements">
 </form>
 <form action="wave">
-	<input style="top:72%; left: 53%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:75.3%; left: 58.2%;">Wave</div>
+	<input style="top:72%; left: 53%;" type="submit" value = "Wave" class="fullMovements">
 </form>
 <form action="lickPaw">
-	<input style="top:72%; left: 76%;" type="submit" value = "" class="fullMovements">
-  <div id ="fullMovementsText" style="top:75.3%; left: 78.7%;">Lick Paw</div>
+	<input style="top:72%; left: 76%;" type="submit" value = "Lick Paw" class="fullMovements">
 </form>
 	
 <!--Individual motor buttons-->
 <form action="elbow">
-	<input style="top:48%; right: 61.9%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:49%; right: 62%;">Elbow</div>
+	<input style="top:48%; right: 61.9%;" type="submit" value = "Elbow" class="action_button">
 </form>
 <form action="shoulder">
-	<input style="top:36%; right: 66%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:37%; right: 65.5%;">Shoulder</div>
+	<input style="top:36.5%; right: 66%;" type="submit" value = "Shoulder" class="action_button">
 </form>
 <form action="tail">
-  <input style="top:88%; right: 90%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:89%; right: 90.7%;">Tail</div>
+  <input style="top:88%; right: 90%;" type="submit" value = "Tail" class="action_button">
 </form> 
 <form action="ear">
-  <input style="top:15%; right: 68%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:16%; right: 68.5%;">Ear</div>
+  <input style="top:15%; right: 68%;" type="submit" value = "Ear" class="action_button">
 </form>
 <form action="jaw">
-  <input style="top:30%; right: 59%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:31%; right: 59.5%;">Jaw</div>
+  <input style="top:30%; left: 40%;" type="submit" value = "Jaw" class="action_button">
 </form>
 <form action="spine">
-  <input style="top:55%; right: 76%;" type="submit" value = "" class="action_button">
-  <div id ="action_text" style="top:56%; right: 76.2%;">Spine</div>
+  <input style="top:55%; right: 76%;" type="submit" value = "Spine" class="action_button">
 </form>
 <form action="xyNeck">
-  <input style="top:31%; left: 30%;" type="submit" value = '' class="action_button"> 
-  <div id ="action_text" style="top:32%; left: 29.5%;">x-y neck</div>   
+  <input style="top:30%; left: 27%;" type="submit" value = "x-y neck" class="action_button">
 <form action="zNeck">
-  <input style="top:31%; left: 34%;" type="submit" value = '' class="action_button"> 
-  <div id ="action_text" style="top:32%; left: 33.9%;">z neck</div>   
+  <input style="top:30%; left: 32%;" type="submit" value = "z neck" class="action_button">
 <form action="eye">
-  <input style="top:22%; left: 34%;" type="submit" value = '' class="action_button">
-  <div id ="action_text" style="top:23%; left: 34.5%;">Eye</div>
+  <input style="top:23%; left: 34%;" type="submit" value = "Eye" class="action_button">
 <form action="wrist">
-  <input style="top:51%; left: 45%;" type="submit" value = '' class="action_button"> 
-  <div id ="action_text" style="top:52%; left: 45.3%;">Wrist</div>
+  <input style="top:51%; left: 45%;" type="submit" value = "Wrist" class="action_button">
 </form>
 
 </body>
