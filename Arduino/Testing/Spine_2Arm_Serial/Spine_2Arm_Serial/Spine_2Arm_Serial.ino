@@ -29,7 +29,7 @@ int moveCommand;
 
 // Movement Constants
 int lie_down = 4; // Retract elbow and shoulder & extend spine
-int stand_up = 3; // Extend elbow and shoulder & retract spine
+int stand_up = 2; // Extend elbow and shoulder & retract spine
 
 void setup() {
   retract = true;
@@ -38,6 +38,8 @@ void setup() {
   moving1 = false;
   moving2 = false;
   movingSpine = false;
+  moveCommand = 0;
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -56,6 +58,7 @@ void loop() {
         case 2: // Stand up
           moveCommand = stand_up;
           retract = true;
+          break;
         case 4:
           moveCommand = 10;
           break;
@@ -95,7 +98,7 @@ void loop() {
     } else {
       spine.setPos(100);
     }
-    retract = !retract;
+    //retract = !retract;
     //myservo.setToPosWithSpeed(servoCommand, 3);
   }
 }

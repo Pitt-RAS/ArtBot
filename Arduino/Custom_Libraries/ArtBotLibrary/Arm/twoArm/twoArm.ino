@@ -1,7 +1,7 @@
 #include <ArtBot.h>
 
-Arm myArm1(9, 10, A2, 2, 3, A3);
-Arm myArm2(4, 13, A0, 11, 12, A1);
+Arm myArm1(9, 10, A0, 11, 12, A1);
+Arm myArm2(6, 7, A2, 3, 5, A3);
 
 bool retract;
 bool moving1;
