@@ -29,7 +29,7 @@ int moveCommand;
 
 // Movement Constants
 int lie_down = 4; // Retract elbow and shoulder & extend spine
-int stand_up = 2; // Extend elbow and shoulder & retract spine
+int stand_up = 2; // Extend elbow, retract shoulder & retract spine
 
 void setup() {
   retract = true;

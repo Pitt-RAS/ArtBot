@@ -30,12 +30,20 @@ void Arm::servo(int pinLoc)
  *	case 2: retract the shoulder and extend the elbow to max distance at 90%
  *	case 3: send the shoulder and elbow both to half distance at 70%
  */
+/*  
+	case 1: retract shoulder and elbow
+	case 2: retract shoulder and extend elbow
+	case 3: extend shoulder and elbow
+	case 4: extend shoulder and retract elbow
+	case 10: retract elbow
+	case 11: extend elbow
+ */
 void Arm::setMoveType(int command)
 {
 	switch(command)
 	{
 		case 1:
-			shoulder.setPos(95);
+			shoulder.setPos(5);
 			elbow.setPos(5);
 			wrist.setToPosWithSpeed(60,9);
 			break;
@@ -50,7 +58,7 @@ void Arm::setMoveType(int command)
 			wrist.setToPosWithSpeed(180,9);
 			break;
 		case 4:
-			shoulder.setPos(5);
+			shoulder.setPos(95);
 			elbow.setPos(5);
 			wrist.setToPosWithSpeed(60,9);
 			break;
