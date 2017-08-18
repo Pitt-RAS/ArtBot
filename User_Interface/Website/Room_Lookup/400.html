@@ -120,6 +120,7 @@ body {
 <div id="block423"style="position:absolute; top:34.6%; right: 70.7%;  width: 35px; height: 12px;"></div>
 <div id="block424"style="position:absolute; top:40.6%; right: 70.7%;  width: 35px; height: 12px;"></div>
 <div id="block425"style="position:absolute; top:47.6%; right: 70.7%;  width: 35px; height: 12px;"></div>
+<div id="block426"style="position:absolute; top:64.0%; right: 70.7%;  width: 12px; height: 35px;"></div>
 
 <div id="block490"style="position:absolute; top:56.4%; right: 69%;  width: 35px; height: 12px;"></div>
 
@@ -143,9 +144,8 @@ body {
 <div id="block419a"style="position:absolute; top:53.1%; right: 47.7%;  width: 25px; height: 12px;"></div>
 <div id="block419b"style="position:absolute; top:50%; right: 46.15%;  width: 12px; height: 35px;"></div>
 
-<div id="block428a"style="position:absolute; top:65.1%; right: 50.15%;  width: 35px; height: 12px;"></div>
-<div id="block428b"style="position:absolute; top:65.1%; right: 46.7%;  width: 35px; height: 12px;"></div>
-<div id="block428"style="position:absolute; top:62%; right: 48.15%;  width: 12px; height: 35px;"></div>
+<div id="block428a"style="position:absolute; top:56.1%; right: 71.0%;  width: 35px; height: 12px;"></div>
+<div id="block428"style="position:absolute; top:62.0%; right: 50.0%;  width: 35px; height: 12px;"></div>
 
 <td style="width:100%">
 
@@ -195,9 +195,12 @@ function myFunction()
 		422: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 422],
 		424: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 424],
 		425: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 425],
-		421: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 421],
-		"428A": [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32],
-		426: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31],
+		421: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 421],
+		"421A": [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 421],
+		"428A": [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, "428a"],
+		428: [1, 2, 3, 50, 49, 48, 47, 46, 45, 58, 57, 56, 55, 54, 53, 52, 51, 428],
+		"428B": [1, 2, 3, 50, 49, 48, 47, 46, 45, 58, 57, 56, 55, 54, 53, 52, 51, 428],
+		426: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 426],
 		490: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 490],
 		427: [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 490],
 		"427A": [1, 2, 3, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 490],
@@ -220,14 +223,14 @@ function myFunction()
 		440: [1, 2, 3, 4, 5, "441a", 440],
 		441: [1, 2, 3, 4, 5, "441a", 441],
 		"441A": [1, 2, 3, 4, 5, "441a"],
-
+		442: [1, 2, 3, 50, 49, 442],
 		
 	};
 
 	if(typeof rooms[value] !== 'undefined')
 		setInterval(reveal,300, rooms[value]);
-<!--	else 
-<!--		window.location.href = "room_not_found.html";
+	else 
+		window.location.href = "room_not_found.html";
 <!--		
 <!--	setTimeout(
 <!--		function() 
