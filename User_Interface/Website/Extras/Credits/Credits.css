@@ -83,7 +83,8 @@ body
     width: 400px;
     font-size: 60px;
     position: fixed;
-    left: 47%;
+    left: 50%;
+	top: 5%;
     margin-left: -200px;
     text-align: center;
 }
@@ -94,7 +95,7 @@ body
     width: 550px;
     position: fixed;
     left: 15%;
-    top: 15%;
+    top: 20%;
 }
 
 #Lead1
@@ -112,7 +113,7 @@ body
     width: 550px;
     position: fixed;
     left: 52%;
-    top: 15%; 
+    top: 20%; 
 }
 
 #Lead2
@@ -130,7 +131,7 @@ body
     width: 400px;
     position: fixed;
     left: 1%;
-    top: 33%;
+    top: 40%;
 }
 #Chair1
 {
@@ -146,7 +147,7 @@ body
     width: 350px;
     position: fixed;
     left: 25%;
-    top: 38%;
+    top: 45%;
     
 }
 #Chair2
@@ -164,7 +165,7 @@ body
     width: 400px;
     position: fixed;
     left: 47%;
-    top: 33%; 
+    top: 40%; 
 }
 #Chair3
 {
@@ -181,7 +182,7 @@ body
     width: 550px;
     position: fixed;
     left: 67%;
-    top: 38%;    
+    top: 45%;    
 }
 #Chair4
 {
@@ -194,11 +195,11 @@ body
 
 #RestOfPeople
 {
-    height: 450px;
+    height: 350px;
     width: 1500px;
     position: fixed;
     bottom: -4%;
-    left: 5%;
+    left: 2%;
 }
 #Rest
 {
@@ -212,21 +213,13 @@ body
 }
 #col1
 {
-   padding-left: 2%;
+   padding-left: 3%;
 }
 #col2
 {
-    padding-left: 5%;
+   padding-left: 3%;
 }
 #col3
 {
-    padding-left: 0%;
-}
-#col4
-{
-    padding-left: 5%;
-}
-#col5
-{
-    padding-left: 35%;
+   padding-left: 3%;
 }
