@@ -59,6 +59,36 @@
 
 <style>
 
+.fullMovements {
+   position: absolute;
+   background: #33ebff;
+  background-image: -webkit-linear-gradient(top, #33ebff, #071647);
+  background-image: -moz-linear-gradient(top, #33ebff, #071647);
+  background-image: -ms-linear-gradient(top, #33ebff, #071647);
+  background-image: -o-linear-gradient(top, #33ebff, #071647);
+  background-image: linear-gradient(to bottom, #33ebff, #071647);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 22px;
+  height: 225px;
+  width: 500px;
+   
+  position:absolute;
+  opacity: 1;
+  font-family: "Arial";
+  font-weight: bold;
+  color:black;
+  text-shadow: #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px,
+              #FFF 0px 0px 1px,   #FFF 0px 0px 1px,   #FFF 0px 0px 1px;
+  font-size: 55px;
+}
+
+.fullMovements:hover {
+  color:white;
+  text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
+              #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
+}
+
 .c-button {
     color: white;
     text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 
@@ -89,20 +119,17 @@ body {
         <p /> 
         <div id="VirtualKey">
 			
-			<input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 40%; position: absolute; top: 2%; left: 1%;">
-			<input id="Sign" type="button" value="Panther Extras:" style="background: transparent no-repeat center; border: hidden; height:10%; width: 40%; position: absolute; top: 2%; left: 1%; font-size: 300%; color: white;font-weight: 900;">
+		<input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 40%; position: absolute; top: 2%; left: 1%;">
+		<input id="Sign" type="button" value="Panther Extras:" style="background: transparent no-repeat center; border: 
+		hidden; height:10%; width: 40%; position: absolute; top: 2%; left: 1%; font-size: 300%; color: white;font-weight: 900;">
 
-      <input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 30%; position: absolute; top: 25%; left: 10%;">
-      <input id="Sign" onclick="location.href='Extras/Tetris/tetris.html' " type="button" value="Panther Blox" style="background: transparent no-repeat center; border: hidden; height:10%; width: 30%; position: absolute; top: 25%; left: 10%; font-size: 300%; color: white;font-weight: 900;">
+		<input class="fullMovements" id="Sign" onclick="location.href='Extras/Tetris/tetris.html' "  type="button" value="Panther Blox" style="top: 25%; left: 10%;">
 
-	  <input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 30%; position: absolute; top: 60%; left: 10%;">
-      <input id="Sign" onclick="location.href='Extras/javascript-simon-master/index.html' " type="button" value="Simon" style="background: transparent no-repeat center; border: hidden; height:10%; width: 30%; position: absolute; top: 60%; left: 10%; font-size: 300%; color: white;font-weight: 900;">
-	  
-	  <input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 30%; position: absolute; top: 25%; left: 55%;">
-      <input id="Sign" onclick="location.href='Extras/Quiz/main.html' " type="button" value="Quiz" style="background: transparent no-repeat center; border: hidden; height:10%; width: 30%; position: absolute; top: 25%; left: 55%; font-size: 300%; color: white;font-weight: 900;">
+		<input class="fullMovements" id="Sign" onclick="location.href='Extras/javascript-simon-master/index.html' " type="button" value="Simon" style="top: 60%; left: 10%;">
+		  
+		<input class="fullMovements" id="Sign" onclick="location.href='Extras/Quiz/main.html' " type="button" value="Quiz" style="top: 25%; left: 57%;">
 
-	  <input id="Sign" type="button" value="" style="background: black no-repeat center; opacity: 0.5; border: hidden; height:10%; width: 30%; position: absolute; top: 60%; left: 55%;">
-      <input id="Sign" onclick="location.href='Extras/Credits/credits.html' " type="button" value="Credits" style="background: transparent no-repeat center; border: hidden; height:10%; width: 30%; position: absolute; top: 60%; left: 55%; font-size: 300%; color: white;font-weight: 900;">
+		<input class="fullMovements" id="Sign" onclick="location.href='Extras/Credits/credits.html' " type="button" value="Credits" style="top: 60%; left: 57%;">
         </div>
     </div>
 
