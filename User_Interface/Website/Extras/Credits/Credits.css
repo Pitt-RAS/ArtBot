@@ -98,31 +98,14 @@ body
     top: 20%;
 }
 
-#Lead1
-{
-    font-size: 50px;
-    text-decoration: underline;
-    font-family:monospace;
-    text-align: center;
-    font-weight: bold;
-}
 
 #JonathanContainer
 {
     height:130px;
     width: 550px;
     position: fixed;
-    left: 52%;
+    left: 50%;
     top: 20%; 
-}
-
-#Lead2
-{
-    font-size: 50px;
-    text-decoration: underline;   
-    font-family: monospace;
-    text-align:center;
-    font-weight: bold;
 }
 
 #FurchasContainer
@@ -133,7 +116,7 @@ body
     left: 1%;
     top: 40%;
 }
-#Chair1
+#Lead
 {
     font-size: 35px;
     text-decoration: underline;
@@ -150,14 +133,6 @@ body
     top: 45%;
     
 }
-#Chair2
-{
-    font-size: 35px;
-    text-decoration: underline;
-    font-family: monospace;
-    text-align: center; 
-    font-weight: bold;
-}
 
 #LynchContainer
 {
@@ -166,14 +141,6 @@ body
     position: fixed;
     left: 47%;
     top: 40%; 
-}
-#Chair3
-{
-    font-size: 35px;
-    text-decoration: underline;
-    font-family: monospace;
-    text-align: center; 
-    font-weight: bold;
 }
 
 #FulmerContainer
@@ -184,13 +151,13 @@ body
     left: 67%;
     top: 45%;    
 }
-#Chair4
+
+#leadName
 {
-    font-size: 35px;
-    text-decoration: underline;
-    font-family: monospace;
-    text-align: center;
-    font-weight: bold;
+	text-decoration: none; 
+	color: #000000; 
+	font-size: 45px; 
+	position: relative;
 }
 
 #RestOfPeople
