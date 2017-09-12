@@ -71,4 +71,20 @@ class Arm {
 	bool moving;
 };
 
+class Ears {  
+	//TODO: Create movement types. i.e. EarsPointedInward, etc.
+	enum EarMovements {
+		
+	};
+	Ears();
+	void servo(int pinLocLeftEar, int pinLocRightEar);
+	void setMoveType(int leftEarPosition);
+	bool move();
+	
+  private:
+	ServoDriver leftEar;
+	ServoDriver rightEar;
+	bool moving;
+}
+
 #endif
