@@ -85,7 +85,7 @@ class Ears {
 	ServoDriver leftEar;
 	ServoDriver rightEar;
 	bool moving;
-}
+};
 
 class Torso {
   public:
