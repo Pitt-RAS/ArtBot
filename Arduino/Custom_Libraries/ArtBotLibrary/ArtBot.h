@@ -87,4 +87,22 @@ class Ears {
 	bool moving;
 }
 
+class Torso {
+  public:
+  	Torso(int input1_SL, int input2_SL, int inputPot_SL, int input1_EL, int input2_EL, int inputPot_EL, 
+  		int input1_SR, int input2_SR, int inputPot_SR, int input1_ER, int input2_ER, int inputPot_ER, 
+  		int input1_Sp, int input2_Sp, int inputPot_Sp);
+  	void servo(int pinLoc1, int pinLoc2, int pinLoc3);
+  	void setMoveType(int command);
+  	bool move();
+
+  private:
+  	Arm armLeft;
+  	Arm armRight;
+  	LinearActuator spine;
+  	ServoDriver tail;
+
+  	bool moving;
+};
+
 #endif
