@@ -3,6 +3,8 @@
   Fluid motion capabilities, and variable distances to send arm to
   Author: Woodrow Fulmer
   Date: November 2016
+  Editor: Ben Posey
+  Edited: September 2017
 */
 
 #include "ArtBot.h"
@@ -22,21 +24,20 @@ void Arm::servo(int pinLoc)
 
 /*  @Author: Woodrow Fulmer
  *  @Date: November 2016
+ *  @Editor: Ben Posey
+ *  @Edited: September 2017
  *  
  *  @Input: int command - a numerical value symbolic of a particular arm movement
  *  This function sends commands to the elbow and shoulder actuators to begin 
  *	a predetermined movement.
- *	case 1: extend the shoulder to max distance and retract the elbow to 0 at 90%
- *	case 2: retract the shoulder and extend the elbow to max distance at 90%
- *	case 3: send the shoulder and elbow both to half distance at 70%
- */
-/*  
-	case 1: retract shoulder and elbow
-	case 2: retract shoulder and extend elbow
-	case 3: extend shoulder and elbow
-	case 4: extend shoulder and retract elbow
-	case 10: retract elbow
-	case 11: extend elbow
+ *	case 1: retract shoulder and elbow
+ *	case 2: retract shoulder and extend elbow
+ *	case 3: extend shoulder and elbow
+ *	case 4: extend shoulder and retract elbow
+ *	case 10: retract elbow
+ *	case 11: extend elbow
+ *	case 20: retract shoulder
+ *	case 21: extend shoulder
  */
 void Arm::setMoveType(int command)
 {
