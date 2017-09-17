@@ -36,7 +36,7 @@ void Ear::setMoveType(int leftEarPosition, int rightEarPosition)
  *  @Date: November 2017  
  */
 bool Ear::move() {
-	moving = leftEarear.move();
+	moving = leftEar.move();
 	moving = rightEar.move() || moving;
 	return moving;  
 }
