@@ -2,7 +2,7 @@
 Repo for the ArtBot-Kinetic Pitt project
 
 
-ToDo:
+To-Do:
 Panther_Vision stuff:
 -Check what Apache is really doing
 -Check if anything is kicking off the bottle_test.py script
