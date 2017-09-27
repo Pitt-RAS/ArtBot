@@ -7,10 +7,14 @@
  * Command 2: "Stand Up", extend elbow, retract shoulder & retract spine
  * Command 3: "Roar", extend elbow and shoulder & retract spine
  * Command 4: "Scratch Ear", lie down + extend left shoulder, then extend and retract left elbow
- * Command 5: "Wave"
- * Command 6: "Lick Paw"
- * Command 10: retract elbow
- * Command 11: extend elbow
+ * Command 5: "Wave", stand up + extend left shoulder, then extend and retract left wrist
+ * Command 6: "Lick Paw", lie down + extend right shoulder, then move head (can't test yet)
+ * Command 10: retract elbows
+ * Command 11: extend elbows
+ * Command 20: retract shoulders
+ * Command 21: extend shoulders
+ * Command 30: retract wrists
+ * Command 31: extend wrists
  */
 
 #include <ArtBot.h>
@@ -32,6 +36,8 @@ int lie_down = 1;     // Retract elbow and shoulder & extend spine
 int stand_up = 2;     // Extend elbow, retract shoulder & retract spine
 int roar = 3;         // Extend elbow and shoulder & retract spine
 int scratch_ear = 4;  // Raise arm and move elbow up & down
+int wave = 5;         // Stand up + extend left shoulder, then extend and retract left wrist
+int lick_paw = 6;
 
 void setup() {
   torso.servo(44, 45, 46);
@@ -58,7 +64,7 @@ void loop() {
           moveCommand = roar;
           longCommand = false;
           break;
-        case 4: // Scratch Ear: Move 4->12->13->12->1
+        case 4: // Scratch Ear: Move 4->13->12->13->1
           moveArray[0] = scratch_ear;
           moveArray[1] = 13;
           moveArray[2] = 12;
@@ -67,30 +73,55 @@ void loop() {
           for (i=0;i<5;i++) { moveDone[i] = false; }
           longCommand = true;
           break;
-        case 5: // Lick Paw
-          moveCommand = 5;
+        case 5: // Wave: Move 5->33->32->33->2
+          moveArray[0] = wave;
+          moveArray[1] = 33;
+          moveArray[2] = 32;
+          moveArray[3] = 33;
+          moveArray[4] = stand_up;
+          for (i=0;i<5;i++) { moveDone[i] = false; }
+          longCommand = true;
           break;
-        case 6:
+        case 6: // Lick Paw
+          moveCommand = lick_paw;
+          longCommand = false;
+          break;
+        case 10:
           moveCommand = 10;
+          longCommand = false;
           break;
-        case 7:
+        case 11:
           moveCommand = 11;
+          longCommand = false;
           break;
-        case 8:
+        case 20:
           moveCommand = 20;
+          longCommand = false;
           break;
-        case 9:
+        case 21:
           moveCommand = 21;
+          longCommand = false;
+          break;
+        case 30:
+          moveCommand = 30;
+          longCommand = false;
+          break;
+        case 31:
+          moveCommand = 31;
+          longCommand = false;
           break;
         default:
           moveCommand = in;
+          longCommand = false;
           break;
     }
     Serial.print("moveCommand = ");
     Serial.println(moveCommand);
   }
+
   
   if(longCommand) {
+    // Executes sequence of five commands in order
     if(!moveDone[0]) {
       if(!moving) {
         torso.setMoveType(moveArray[0]);
@@ -108,13 +139,13 @@ void loop() {
       }
     } else if(!moveDone[3]) {
       if(!moving) {
-        torso.setMoveType(moveArray[4]);
-        moveDone[4] = true; 
+        torso.setMoveType(moveArray[3]);
+        moveDone[3] = true; 
       }
     } else if(!moveDone[4]) {
       if(!moving) {
-        torso.setMoveType(moveArray[5]);
-        moveDone[5] = true; 
+        torso.setMoveType(moveArray[4]);
+        moveDone[4] = true; 
       }
     }  
   } else {

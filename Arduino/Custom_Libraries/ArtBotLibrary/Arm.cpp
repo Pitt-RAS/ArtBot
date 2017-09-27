@@ -38,6 +38,8 @@ void Arm::servo(int pinLoc)
  *	case 11: extend elbow
  *	case 20: retract shoulder
  *	case 21: extend shoulder
+ *  case 30: retract wrist
+ *	case 31: extend wrist
  */
 void Arm::setMoveType(int command)
 {
@@ -51,12 +53,12 @@ void Arm::setMoveType(int command)
 		case 2:
 			shoulder.setPos(5);
 			elbow.setPos(95);
-			wrist.setToPosWithSpeed(120,9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 3:
 			shoulder.setPos(95);
 			elbow.setPos(95);
-			wrist.setToPosWithSpeed(180,9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 4:
 			shoulder.setPos(95);
@@ -65,21 +67,26 @@ void Arm::setMoveType(int command)
 			break;
 		case 10:
 			elbow.setPos(5);
-			wrist.setToPosWithSpeed(0, 9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 11:
 			elbow.setPos(95);
-			wrist.setToPosWithSpeed(180, 9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 20:
 			shoulder.setPos(5);
-			wrist.setToPosWithSpeed(0, 9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 21:
 			shoulder.setPos(95);
-			wrist.setToPosWithSpeed(180, 9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
-		case 0:
+		case 30:
+			wrist.setToPosWithSpeed(180,9);
+			break;
+		case 31:
+			wrist.setToPosWithSpeed(0,9);
+			break;
 		default:
 			shoulder.setPos(5);
 			elbow.setPos(5);

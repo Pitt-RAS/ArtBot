@@ -34,8 +34,10 @@ void Torso::servo(int pinLoc1, int pinLoc2, int pinLoc3) {
  *	case 2: "Stand Up", extend elbow, retract shoulder & retract spine
  *	case 3: "Roar", extend elbow and shoulder & retract spine
  *  case 4: "Scratch Ear", lie down + extend left shoulder, then extend and retract left elbow
- *  case 10: retract elbow
- *  case 11: extend elbow
+ *  case 5: "Wave", stand up + extend left shoulder, then extend and retract left wrist
+ *  cases 10 - 15: elbow commands
+ *  cases 20 - 25: shoulder commands
+ *  cases 30 - 35: wrist commands
  */
 
 void Torso::setMoveType(int command) {
@@ -64,6 +66,19 @@ void Torso::setMoveType(int command) {
 			spine.setPos(100);
 			tail.setToPosWithSpeed(60,9);
 			break;
+		case 5: // Wave
+			armLeft.setMoveType(4);
+			armRight.setMoveType(2);
+			spine.setPos(10);
+			tail.setToPosWithSpeed(60,9);
+			break;
+		case 6: // Lick Paw
+			armLeft.setMoveType(1);
+			armRight.setMoveType(4);
+			spine.setPos(100);
+			tail.setToPosWithSpeed(60,9);
+			break;
+
 		case 10: case 11: // Move elbows of both arms
 			armLeft.setMoveType(command);
 			armRight.setMoveType(command);
@@ -74,6 +89,7 @@ void Torso::setMoveType(int command) {
 		case 14: case 15: // Move right elbow only
 			armRight.setMoveType(command - 4);
 			break;
+
 		case 20: case 21: // Move shoulders of both arms
 			armLeft.setMoveType(command);
 			armRight.setMoveType(command);
@@ -84,6 +100,18 @@ void Torso::setMoveType(int command) {
 		case 24: case 25: // Move right shoulder only
 			armRight.setMoveType(command - 4);
 			break;
+
+		case 30: case 31: // Move wrists of both arms
+			armLeft.setMoveType(command);
+			armRight.setMoveType(command);
+			break;
+		case 32: case 33: // Move left wrist only
+			armLeft.setMoveType(command - 2);
+			break;
+		case 34: case 35: // Move right wrist only
+			armRight.setMoveType(command - 4);
+			break;
+
 		default:
 			armLeft.setMoveType(1);
 			armRight.setMoveType(1);
