@@ -87,6 +87,22 @@ class Ears {
 	bool moving;
 };
 
+class Tail{
+	enum TailCommand{
+		//TODO: Figure out what discrete movements we want for tail
+	}
+	public:
+	  Tail(int inputX, int inputY);
+	  void servo(int xPinLoc, int yPinLoc);
+	  void setMoveType(TailCommand command);
+	  bool move();
+		
+	private:
+	  ServoDriver xMotor;
+	  ServoDriver yMotor;
+	  bool moving;
+}
+
 class Torso {
   public:
   	Torso(int input1_SL, int input2_SL, int inputPot_SL, int input1_EL, int input2_EL, int inputPot_EL, 
