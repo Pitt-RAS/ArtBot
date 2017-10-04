@@ -12,9 +12,10 @@ Eyes::Eyes():
 {
   moving = false;
   closed = false;
+  blinking = false;
 }
 
-void Ears::servo(int pinLocLeftEye, int pinLocRightEye)
+void Eyes::servo(int pinLocLeftEye, int pinLocRightEye)
 {
 	leftEye.init(pinLocLeftEye);
 	rightEye.init(pinLocRightEye);
@@ -23,24 +24,56 @@ void Ears::servo(int pinLocLeftEye, int pinLocRightEye)
 /*  @Author: Woodrow Fulmer
  *  @Date: September 2017
  */
-void Eye::blink()
+void Eyes::blink()
 {
 	leftEye.setToPosWithSpeed(0,9);
 	rightEye.setToPosWithSpeed(180,9);
 	closed = true;
+	blinking = true;
+}
+
+/*  @Author: Joe Lynch
+ *  @Date: October 2017
+ */
+void Eyes::open()
+{
+	leftEye.setToPosWithSpeed(47,9);
+	rightEye.setToPosWithSpeed(133,9);
+	closed = false;
+}
+
+/*  @Author: Joe Lynch
+ *  @Date: October 2017
+ */
+void Eyes::halfOpen()
+{
+	leftEye.setToPosWithSpeed(23,9);
+	rightEye.setToPosWithSpeed(156,9);
+	closed = false;
+}
+
+/*  @Author: Joe Lynch
+ *  @Date: October 2017
+ */
+void Eyes::close()
+{
+	leftEye.setToPosWithSpeed(0,9);
+	rightEye.setToPosWithSpeed(180,9);
+	closed = false;
 }
 
 /*  @Author: Woodrow Fulmer
  *  @Date: September 2017  
  */
-bool Eye::move() {
-	moving = leftEar.move();
-	moving = rightEar.move() || moving;
-	if(!moving && closed)
+bool Eyes::move() {
+	moving = leftEye.move();
+	moving = rightEye.move() || moving;
+	if(!moving && closed && blinking)
 	{
 		leftEye.setToPosWithSpeed(47,9);
 		rightEye.setToPosWithSpeed(133,9);
 		closed = false;
+		blinking = false;
 	}
 	return moving;  
 }

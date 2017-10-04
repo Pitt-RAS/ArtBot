@@ -22,6 +22,7 @@ class Eyes {
 	ServoDriver rightEye;
 	bool moving;
 	bool closed;
+	bool blinking;
 };
 
 #endif
