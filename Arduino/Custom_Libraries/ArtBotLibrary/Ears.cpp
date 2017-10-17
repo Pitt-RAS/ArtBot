@@ -1,5 +1,5 @@
 /*
-  Ear.cpp - C++ file for controling the Panther ears
+  Ears.cpp - C++ file for controling the Panther ears
   Fluid motion capabilities for rotating the ears
   Author: Jonthan Kenneson
   Date: September 2017
@@ -26,7 +26,7 @@ void Ears::servo(int pinLocLeftEar, int pinLocRightEar)
  *  @Input: int leftEarPosition - a numerical value for the position of the left ear
  *  @Input: int rightEarPosition - a numerical value for the position of the right ear
  */
-void Ear::setMoveType(int leftEarPosition, int rightEarPosition)
+void Ears::setMoveType(int leftEarPosition, int rightEarPosition)
 {
 	leftEar.setToPosWithSpeed(leftEarPosition,9);
 	rightEar.setToPosWithSpeed(rightEarPosition,9);
@@ -35,7 +35,7 @@ void Ear::setMoveType(int leftEarPosition, int rightEarPosition)
 /*  @Author: Jonathan Kenneson
  *  @Date: November 2017  
  */
-bool Ear::move() {
+bool Ears::move() {
 	moving = leftEar.move();
 	moving = rightEar.move() || moving;
 	return moving;  
