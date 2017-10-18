@@ -16,6 +16,9 @@ class Eyes {
 	void servo(int pinLocLeftEye, int pinLocRightEye);
 	void blink();
 	bool move();
+	void open();
+	void close();
+	void halfOpen();
 	
   private:
 	ServoDriver leftEye;

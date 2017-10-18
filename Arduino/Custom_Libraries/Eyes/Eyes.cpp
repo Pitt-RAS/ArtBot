@@ -74,6 +74,7 @@ bool Eyes::move() {
 		rightEye.setToPosWithSpeed(133,9);
 		closed = false;
 		blinking = false;
+		moving = true;
 	}
 	return moving;  
 }
