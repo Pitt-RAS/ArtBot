@@ -16,7 +16,7 @@
  /**
   * Initializes the two servos that compose the tail
   */
- void Tail::servo(int xPinLoc, yPinLoc){
+ void Tail::servo(int xPinLoc, int yPinLoc){
 	 xMotor.init(xPinLoc);
 	 yMotor.init(yPinLoc);
  }

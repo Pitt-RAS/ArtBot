@@ -82,7 +82,7 @@ void Arm::setMoveType(int command)
 			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 30:
-			wrist.setToPosWithSpeed(180,9);
+			wrist.setToPosWithSpeed(60,9);
 			break;
 		case 31:
 			wrist.setToPosWithSpeed(0,9);

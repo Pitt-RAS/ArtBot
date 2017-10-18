@@ -19,7 +19,7 @@
 
 #include <ArtBot.h>
 
-Torso torso(9, 10, A0, 11, 12, A1,
+Torso torso(11, 12, A0, 9, 10, A1,
             6, 7, A2, 3, 5, A3,
             4, 13, A4);
 
