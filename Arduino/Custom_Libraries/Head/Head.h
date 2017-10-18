@@ -12,12 +12,18 @@
 
 class Head {  
   public:
-	Eyes();
-	void servo(int pinLocLeftEye, int pinLocRightEye);
-	void blink();
+	Head();
+	Eyes eyes;
+	void servo(int lEar_pin, int rEar_pin, int jaw_pin);
 	bool move();
+	void earsOut();
+	void earsIn();
+	void earsParallel();
+	void openJaw(bool closeAfterOpen);
+	void closeJaw();
 	
   private:
+	Ears ears;
 	ServoDriver jaw;
 	bool moving;
 	bool jawOpen;

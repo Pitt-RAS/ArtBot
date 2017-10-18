@@ -8,46 +8,25 @@
 #include "Head.h"
 
 Head::Head():
-  Ears(),
-  Eyes()
+  ears(),
+  eyes()
 {
   moving = false;
 }
 
 void Head::servo(int lEar_pin, int rEar_pin, int lEye_pin, int rEye_pin, int jaw_pin) {
 	ears.servo(lEar_pin, rEar_pin);
-	eyes.servo(lEye_pin, rEye_pin);
 	jaw.init(jaw_pin);
-}
-
-void Head::openEyes()
-{
-	eyes.open();
-}
-
-void Head::closeEyes()
-{
-	eyes.close();
-}
-
-void Head::blinkEyes()
-{
-	eyes.blink();
-}
-
-void Head::halfOpenEyes()
-{
-	eyes.halfOpen();
 }
 
 void Head::earsOut()
 {
-	ears.setMoveType(0, 180);
+	ears.setMoveType(130, 70);
 }
 
 void Head::earsIn()
 {
-	ears.setMoveType(180, 0);
+	ears.setMoveType(70, 130);
 }
 
 void Head::earsParallel()
