@@ -41,6 +41,7 @@ void Torso::servo(int pinLoc1, int pinLoc2, int pinLoc3) {
  */
 
 void Torso::setMoveType(int command) {
+	/*
 	switch(command) {
 		case 1: // Lie Down
 			armLeft.setMoveType(1);
@@ -119,6 +120,7 @@ void Torso::setMoveType(int command) {
 			tail.setToPosWithSpeed(60,9);
 			break;
 	}
+	*/
 }
 
 /*  @Author: Ben Posey

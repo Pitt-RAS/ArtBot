@@ -41,56 +41,42 @@ void Arm::servo(int pinLoc)
  *  case 30: retract wrist
  *	case 31: extend wrist
  */
-void Arm::setMoveType(int command)
+void Arm::setMoveType(ArmCommand command)
 {
 	switch(command)
 	{
-		case 1:
-			shoulder.setPos(5);
-			elbow.setPos(5);
-			wrist.setToPosWithSpeed(60,9);
+		case FULL_RETRACT:
+			shoulder.setPos(ACTUATOR_IN);
+			elbow.setPos(ACTUATOR_IN);
+			wrist.setToPosWithSpeed(PAW_UP, SERVO_SPEED);
 			break;
-		case 2:
-			shoulder.setPos(5);
-			elbow.setPos(95);
-			wrist.setToPosWithSpeed(60,9);
+		case FULL_EXTEND:
+			shoulder.setPos(ACTUATOR_OUT);
+			elbow.setPos(ACTUATOR_OUT);
+			wrist.setToPosWithSpeed(PAW_DOWN, SERVO_SPEED);
 			break;
-		case 3:
-			shoulder.setPos(95);
-			elbow.setPos(95);
-			wrist.setToPosWithSpeed(60,9);
+		case ELBOW_RETRACT:
+			elbow.setPos(ACTUATOR_IN);
 			break;
-		case 4:
-			shoulder.setPos(95);
-			elbow.setPos(5);
-			wrist.setToPosWithSpeed(60,9);
+		case ELBOW_EXTEND:
+			elbow.setPos(ACTUATOR_OUT);
 			break;
-		case 10:
-			elbow.setPos(5);
-			wrist.setToPosWithSpeed(60,9);
+		case SHOULDER_RETRACT:
+			shoulder.setPos(ACTUATOR_IN);
 			break;
-		case 11:
-			elbow.setPos(95);
-			wrist.setToPosWithSpeed(60,9);
+		case SHOULDER_EXTEND:
+			shoulder.setPos(ACTUATOR_OUT);
 			break;
-		case 20:
-			shoulder.setPos(5);
-			wrist.setToPosWithSpeed(60,9);
+		case WRIST_DOWN:
+			wrist.setToPosWithSpeed(PAW_DOWN, SERVO_SPEED);
 			break;
-		case 21:
-			shoulder.setPos(95);
-			wrist.setToPosWithSpeed(60,9);
-			break;
-		case 30:
-			wrist.setToPosWithSpeed(60,9);
-			break;
-		case 31:
-			wrist.setToPosWithSpeed(0,9);
+		case WRIST_UP:
+			wrist.setToPosWithSpeed(PAW_UP, SERVO_SPEED);
 			break;
 		default:
-			shoulder.setPos(5);
-			elbow.setPos(5);
-			wrist.setToPosWithSpeed(0,9);
+			shoulder.setPos(ACTUATOR_IN);
+			elbow.setPos(ACTUATOR_IN);
+			wrist.setToPosWithSpeed(PAW_DOWN, SERVO_SPEED);
 			break;
 	}
 }

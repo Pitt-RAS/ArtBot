@@ -14,16 +14,13 @@ class Head {
   public:
 	Head();
 	Eyes eyes;
-	void servo(int lEar_pin, int rEar_pin, int jaw_pin);
+	Ears ears;
+	void jawServo(int jaw_pin);
 	bool move();
-	void earsOut();
-	void earsIn();
-	void earsParallel();
 	void openJaw(bool closeAfterOpen);
 	void closeJaw();
 	
   private:
-	Ears ears;
 	ServoDriver jaw;
 	bool moving;
 	bool jawOpen;

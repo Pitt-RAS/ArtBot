@@ -20,17 +20,17 @@ void loop() {
 	moving2 = myArm2.move();
   if(!moving1 && !moving2)
   {
-    if(retract)
-    {
-      myArm1.setMoveType(0);
-	    myArm2.setMoveType(0);
-      retract = false;
-    }
-    else
-    {
-      myArm1.setMoveType(3);
-	    myArm2.setMoveType(3);
-      retract = true;
-    }
+	if(retract)
+	{
+		myArm1.setMoveType(Arm::FULL_RETRACT);
+	    myArm2.setMoveType(Arm::FULL_RETRACT);
+		retract = false;
+	}
+	else
+	{
+		myArm1.setMoveType(Arm::FULL_EXTEND);
+	    myArm2.setMoveType(Arm::FULL_EXTEND);
+		retract = true;
+	}
   }
 }

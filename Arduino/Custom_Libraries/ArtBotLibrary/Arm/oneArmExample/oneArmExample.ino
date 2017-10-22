@@ -17,12 +17,12 @@ void loop() {
   {
     if(retract)
     {
-      myArm.setMoveType(0);
+      myArm.setMoveType(Arm::FULL_RETRACT);
       retract = false;
     }
     else
     {
-      myArm.setMoveType(3);
+      myArm.setMoveType(Arm::FULL_EXTEND);
       retract = true;
     }
   }

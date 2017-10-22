@@ -5,7 +5,6 @@
 */
 
 #include "ArtBot.h"
-#include "Head.h"
 
 Head::Head():
   ears(),
@@ -14,20 +13,20 @@ Head::Head():
   moving = false;
 }
 
-void Head::jawServo(int jaw_pin) {
+void Head::servo(int jaw_pin) {
 	jaw.init(jaw_pin);
 }
 
 void Head::openJaw(bool closeAfterOpen)
 {
-	jaw.setToPosWithSpeed(JAW_OPEN,9);
+	jaw.setToPosWithSpeed(JAW_OPEN, SERVO_SPEED);
 	openingClosingJaw = closeAfterOpen;
 	jawOpen = true;
 }
 
 void Head::closeJaw()
 {
-	jaw.setToPosWithSpeed(JAW_CLOSED,9);
+	jaw.setToPosWithSpeed(JAW_CLOSED, SERVO_SPEED);
 	jawOpen = false;
 }
 

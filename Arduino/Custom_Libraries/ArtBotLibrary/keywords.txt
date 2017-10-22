@@ -6,3 +6,13 @@ sendToPosWithSpeed	KEYWORD2
 getCurrentPosition	KEYWORD2
 ServoDriver KEYWORD1
 setToPosWithSpeed KEYWORD2
+servo KEYWORD2
+blink KEYWORD2
+halfOpen KEYWORD2
+openJaw KEYWORD2
+closeJaw KEYWORD2
+Eyes KEYWORD1
+Ears KEYWORD1
+Head KEYWORD1
+Torso KEYWORD1
+Tail KEYWORD1
