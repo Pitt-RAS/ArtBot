@@ -35,6 +35,28 @@
 #define RIGHT_EYE_OPEN 133
 #define RIGHT_EYE_CLOSED 180
 
+// Enums instaniated outside of classes to be accessible in Arduino code
+enum ArmCommand{
+	FULL_RETRACT = 1,
+	FULL_EXTEND,
+	ELBOW_RETRACT = 10,
+	ELBOW_EXTEND,
+	SHOULDER_RETRACT = 20,
+	SHOULDER_EXTEND,
+	WRIST_DOWN = 30,
+	WRIST_UP
+};
+
+enum EarMovement  {
+	FORWARD = 0,
+	FACE_IN,
+	FACE_OUT
+};
+
+enum TailCommand{
+	//TODO: Figure out what discrete movements we want for tail
+};
+
 class LinearActuator {
 	public:
 		LinearActuator(int input1, int input2, int inputPot);
@@ -76,16 +98,6 @@ class ServoDriver {
 
 class Arm {
 	public:
-		enum ArmCommand{
-			FULL_RETRACT = 1,
-			FULL_EXTEND,
-			ELBOW_RETRACT = 10,
-			ELBOW_EXTEND,
-			SHOULDER_RETRACT = 20,
-			SHOULDER_EXTEND,
-			WRIST_DOWN = 30,
-			WRIST_UP
-		};
 		Arm(int input1_S, int input2_S, int inputPot_S, int input1_E, int input2_E, int inputPot_E);
 		void servo(int pinLoc);
 		void setMoveType(ArmCommand command);
@@ -98,13 +110,9 @@ class Arm {
 		bool moving;
 };
 
+
 class Ears {  
 	public:
-		enum EarMovement  {
-			FORWARD = 0,
-			FACE_IN,
-			FACE_OUT
-		};
 		Ears();
 		void servo(int pinLocLeftEar, int pinLocRightEar);
 		void setMoveType(int leftEarPosition, int rightEarPosition);
@@ -119,9 +127,6 @@ class Ears {
 
 class Tail{
 	public:
-		enum TailCommand{
-			//TODO: Figure out what discrete movements we want for tail
-		};
 		Tail();
 		void servo(int xPinLoc, int yPinLoc);
 		void setMoveType(TailCommand command);

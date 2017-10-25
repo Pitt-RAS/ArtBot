@@ -46,7 +46,7 @@ void Eyes::open()
 void Eyes::halfOpen()
 {
 	leftEye.setToPosWithSpeed(LEFT_EYE_OPEN + (LEFT_EYE_OPEN - LEFT_EYE_CLOSED) / 2, SERVO_SPEED);
-	rightEye.setToPosWithSpeed(RIGHT_EYE_OPEN + (RIGHT_EYE_OPEN - RIGHT_EYE_CLOSED) / , SERVO_SPEED);
+	rightEye.setToPosWithSpeed(RIGHT_EYE_OPEN + (RIGHT_EYE_OPEN - RIGHT_EYE_CLOSED) / 2, SERVO_SPEED);
 	closed = false;
 }
 
